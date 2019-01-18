@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Header from 'components/Header'
+
 export default () => {
   return (
     <div>
+      <Header />
       <div>
         <h3>Insert a short description of your idea</h3>
         <textarea />

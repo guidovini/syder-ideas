@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Header from 'components/Header'
+
 export default () => {
   return (
     <div>
-      <Link to="/">Go home</Link>
+      <Header />
       <h2>Let's begin!!</h2>
       <h3>What do you want to create?</h3>
       <select>

@@ -8,8 +8,8 @@ import Options from 'components/Options'
 export default () => {
   return (
     <div>
-      <h2>Welcome to Syder Ideas</h2>
-      <h3>I want to</h3>
+      <h3>Welcome to Syder Ideas</h3>
+      <h4>I want to</h4>
       <div>
         Image
         <Link to="/create-idea"><button>Create new idea</button></Link>

@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 export default () => {
   return (
     <header>
-      <h2>SyderIdeas</h2>
+      <Link to="/"><h2>SyderIdeas</h2></Link>
       <NavLink to="/create-idea">Create new idea </NavLink>
       <NavLink to="/dashboard">Dashboard </NavLink>
       <NavLink to="/profile">Profile </NavLink>

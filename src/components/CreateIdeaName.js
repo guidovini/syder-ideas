@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Header from 'components/Header'
+
 export default () => {
   return (
     <div>
+      <Header />
       <h3>Insert the name of the idea</h3>
       <form>
         <input type="text"/>
