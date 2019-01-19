@@ -1,4 +1,8 @@
-import { SAVE_TYPE, SAVE_NAME, SAVE_DESCRIPTION, SAVE_TARGET, ADD_IDEA } from 'actions/types'
+import uuid from 'uuid/v4'
+const id = uuid()
+
+import { SAVE_TYPE, SAVE_NAME, SAVE_DESCRIPTION, ADD_IDEA } from 'actions/types'
+
 
 export const addIdea = (idea) => ({
   type: ADD_IDEA,
@@ -6,8 +10,19 @@ export const addIdea = (idea) => ({
 })
 
 export const startAddIdea = (ideaData = {}) => {
-  return (dispatch, getState) => {
-    
+  return (dispatch) => {
+    const { 
+      type = '', 
+      name = '', 
+      description = '', 
+      target = '' 
+    } = ideaData
+    const idea = { type, name, description, target }
+
+    return dispatch(addIdea({
+      id,
+      ...idea
+    }))
   }
 }
 
@@ -29,13 +44,6 @@ export const saveDescription = (description, target) => {
   return {
     type: SAVE_DESCRIPTION,
     description,
-    target
-  }
-}
-
-export const saveTarget = (target) => {
-  return {
-    type: SAVE_TARGET,
     target
   }
 }
