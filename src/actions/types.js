@@ -1,4 +1,4 @@
-export const SAVE_TYPE = 'save_type'
-export const SAVE_NAME = 'save_name'
-export const SAVE_DESCRIPTION = 'save_description'
-export const ADD_IDEA = 'add_idea'
+export const SAVE_CATEGORY = 'SAVE_CATEGORY'
+export const SAVE_NAME = 'SAVE_NAME'
+export const SAVE_DESCRIPTION = 'SAVE_DESCRIPTION'
+export const ADD_IDEA = 'ADD_IDEA'
