@@ -8,7 +8,7 @@ export default () => {
     <div>
       <Header />
       <h2>You are all set :)</h2>
-      <p>Image</p>
+      <p>THIS IS AN IMAGE</p>
       <Link to="/dashboard"><button>Done</button></Link>
     </div>
   )

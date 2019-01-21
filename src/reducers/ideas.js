@@ -1,6 +1,4 @@
-import uuid from 'uuid/v4'
-
-import { SAVE_CATEGORY, SAVE_NAME, SAVE_DESCRIPTION, ADD_IDEA } from 'actions/types'
+import { SAVE_CATEGORY, SAVE_NAME, SAVE_DESCRIPTION, ADD_IDEA, ADD_IDEA_INFO } from 'actions/types'
 
 export default (state = [], action) => {
   switch(action.type) {
@@ -8,13 +6,23 @@ export default (state = [], action) => {
       return [
         ...state,
         {
-          id: uuid(),
+          id: action.idea.id,
           category: action.idea.category,
-          name: action.idea.name,
-          description: action.idea.description,
-          target: action.idea.target
         }
       ]
+    case ADD_IDEA_INFO:
+      return state.map(idea => {
+        if (idea.id === action.id) {
+          return {
+            ...idea,
+            name: action.updates.name,
+            description: action.updates.description,
+            target: action.updates.target
+          }
+        } else {
+          return idea
+        }
+      })
     case SAVE_CATEGORY:
       return {
         ...state,

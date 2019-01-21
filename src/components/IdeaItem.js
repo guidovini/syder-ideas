@@ -1,10 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-export default (props) => {
+export default ({ id, category, name }) => {
   return (
-    <label>
-      <p>{props.category}</p>
-      <h3>{props.name}</h3>
-    </label>
+    <Link to={`/edit/${id}`} >
+      <div>
+        <p>{category}</p>
+        <h3>{name}</h3>
+      </div>
+    </Link>
   )
 }

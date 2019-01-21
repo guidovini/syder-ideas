@@ -1,8 +1,6 @@
 import React from 'react'
 
-import Menu from 'components/Menu'
 import IdeaList from 'components/IdeaList'
-import Options from 'components/Options'
 import Header from 'components/Header'
 import Navigation from 'components/Navigation'
 

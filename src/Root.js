@@ -7,13 +7,15 @@ import AddIdea from 'components/AddIdea'
 import NotFoundPage from 'components/NotFoundPage'
 import Done from 'components/Done'
 import Dashboard from 'components/Dashboard'
+import AddIdeaInfo from 'components/AddIdeaInfo'
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <Switch>
         <Route path='/' component={App} exact />
-        <Route path='/add-idea' component={AddIdea} />
+        <Route path='/create' component={AddIdea} />
+        <Route path='/edit/:id' component={AddIdeaInfo} />
         <Route path='/done' component={Done} />
         <Route path='/dashboard' component={Dashboard} />
         <Route component={NotFoundPage} />

@@ -1,9 +1,15 @@
 import uuid from 'uuid/v4'
-import { SAVE_CATEGORY, SAVE_NAME, SAVE_DESCRIPTION, ADD_IDEA } from 'actions/types'
+import { SAVE_CATEGORY, SAVE_NAME, SAVE_DESCRIPTION, ADD_IDEA, ADD_IDEA_INFO } from 'actions/types'
 
 export const addIdea = (idea) => ({
-    type: ADD_IDEA,
-    idea
+  type: ADD_IDEA,
+  idea
+})
+
+export const addIdeaInfo = (id, updates) => ({
+  type: ADD_IDEA_INFO,
+  id,
+  updates
 })
 
 export const startAddIdea = (ideaData = {}) => {
