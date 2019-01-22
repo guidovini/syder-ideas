@@ -3,19 +3,22 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import App from 'components/App'
-import AddIdea from 'components/AddIdea'
+import AddIdea from 'components/Ideas/AddIdea'
 import NotFoundPage from 'components/NotFoundPage'
 import Done from 'components/Done'
 import Dashboard from 'components/Dashboard'
-import AddIdeaInfo from 'components/AddIdeaInfo'
+import AddIdeaDescription from 'components/Ideas/AddIdeaDescription'
+import Content from 'components/Content'
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <Switch>
         <Route path='/' component={App} exact />
-        <Route path='/create' component={AddIdea} />
-        <Route path='/edit/:id' component={AddIdeaInfo} />
+        <Route path='/create' component={AddIdea} exact/>
+        <Route path='/create/:id' component={AddIdeaDescription} />
+        <Route path='/idea/:id' component={Content} />
+  
         <Route path='/done' component={Done} />
         <Route path='/dashboard' component={Dashboard} />
         <Route component={NotFoundPage} />

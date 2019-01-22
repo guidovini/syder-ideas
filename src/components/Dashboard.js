@@ -1,14 +1,12 @@
 import React from 'react'
 
-import IdeaList from 'components/IdeaList'
+import IdeaList from 'components/Ideas/IdeaList'
 import Header from 'components/Header'
-import Navigation from 'components/Navigation'
 
 export default () => {
   return (
     <div>
       <Header />
-      <Navigation option={'dashboard'} category={'Web App'} idea={'Facebook'}/>
       <div>
         <IdeaList />
       </div>

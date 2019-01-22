@@ -1,17 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-export default () => {
+import Header from 'components/Header'
+import Menu from 'components/Menu/Menu'
+import Main from 'components/Main/Main'
+import Options from 'components/Configuration/Configuration'
+
+const Content = ({ idea, menu }) => {
   return (
     <div>
-      <h3>Welcome to Syder Ideas</h3>
-      <h4>I want to...</h4>
-      <div>
-        <Link to="/create"><button autoFocus>Create new idea</button></Link>
-      </div>
-      <div>
-        <Link to="/dashboard"><button>Check my ideas</button></Link>
-      </div>
+      <Header />
+      <Menu />
+      <Main idea={idea} menu={menu}/>
+      <Options />
     </div>
   )
 }
+
+const mapStateToProps = (state, props) => ({
+  idea: state.ideas.find(idea => idea.id === props.match.params.id),
+  menu: state.menu
+})
+
+export default connect(mapStateToProps)(Content)

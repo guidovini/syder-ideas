@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import uuid from 'uuid/v4'
+import moment from 'moment'
 
 import Header from 'components/Header'
 import { addIdea } from 'actions'
@@ -16,15 +17,16 @@ class AddIdea extends Component {
     this.setState(() => ({ category }))
   }
 
-
   handleSubmit = (e) => {
     e.preventDefault()
     const id = uuid()
+    const createdAt = moment().valueOf()
     this.props.dispatch(addIdea({
       id,
-      category: this.state.category
+      category: this.state.category,
+      createdAt
     }))
-    this.props.history.push(`/edit/${id}`)  
+    this.props.history.push(`/create/${id}`)  
   }
 
   render() {

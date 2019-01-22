@@ -1,53 +1,40 @@
-import uuid from 'uuid/v4'
-import { SAVE_CATEGORY, SAVE_NAME, SAVE_DESCRIPTION, ADD_IDEA, ADD_IDEA_INFO } from 'actions/types'
+import { ADD_IDEA, ADD_IDEA_DESCRIPTION, CHANGE_TO_SUMMARY, CHANGE_TO_FEATURES, CHANGE_TO_STRATEGIES, CHANGE_TO_INSPIRATION, CHANGE_TO_BUSINESS_MODEL, CHANGE_TO_PLANNING, CHANGE_TO_RESOURCES } from 'actions/types'
 
 export const addIdea = (idea) => ({
   type: ADD_IDEA,
   idea
 })
 
-export const addIdeaInfo = (id, updates) => ({
-  type: ADD_IDEA_INFO,
+export const addIdeaDescription = (id, updates) => ({
+  type: ADD_IDEA_DESCRIPTION,
   id,
   updates
 })
 
-export const startAddIdea = (ideaData = {}) => {
-  return (dispatch, getState) => {
-    const id = uuid()
-    const { 
-      category = '', 
-      name = '', 
-      description = '', 
-      target = '' 
-    } = ideaData
-    const idea = { category, name, description, target }
+export const changeToSummary = () => ({
+  type: CHANGE_TO_SUMMARY
+})
 
-    return dispatch(addIdea({
-      id,
-      ...idea
-    }))
-  }
-}
+export const changeToFeatures = () => ({
+  type: CHANGE_TO_FEATURES
+})
 
-export const saveCategory = (category) => {
-  return {
-    type: SAVE_CATEGORY,
-    category
-  }
-}
+export const changeToStrategies = () => ({
+  type: CHANGE_TO_STRATEGIES
+})
 
-export const saveName = (name) => {
-  return {
-    type: SAVE_NAME,
-    name
-  }
-}
+export const changeToInspiration = () => ({
+  type: CHANGE_TO_INSPIRATION
+})
 
-export const saveDescription = (description, target) => {
-  return {
-    type: SAVE_DESCRIPTION,
-    description,
-    target
-  }
-}
+export const changeToBusinessModel = () => ({
+  type: CHANGE_TO_BUSINESS_MODEL
+})
+
+export const changeToPlanning = () => ({
+  type: CHANGE_TO_PLANNING
+})
+
+export const changeToResources = () => ({
+  type: CHANGE_TO_RESOURCES
+})

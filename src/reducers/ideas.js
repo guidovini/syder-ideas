@@ -1,4 +1,4 @@
-import { SAVE_CATEGORY, SAVE_NAME, SAVE_DESCRIPTION, ADD_IDEA, ADD_IDEA_INFO } from 'actions/types'
+import { ADD_IDEA, ADD_IDEA_DESCRIPTION } from 'actions/types'
 
 export default (state = [], action) => {
   switch(action.type) {
@@ -8,37 +8,24 @@ export default (state = [], action) => {
         {
           id: action.idea.id,
           category: action.idea.category,
+          createdAt: action.idea.createdAt,
+          modifiedAt: action.idea.createdAt
         }
       ]
-    case ADD_IDEA_INFO:
+    case ADD_IDEA_DESCRIPTION:
       return state.map(idea => {
         if (idea.id === action.id) {
           return {
             ...idea,
             name: action.updates.name,
             description: action.updates.description,
-            target: action.updates.target
+            target: action.updates.target,
+            modifiedAt: action.updates.modifiedAt
           }
         } else {
           return idea
         }
       })
-    case SAVE_CATEGORY:
-      return {
-        ...state,
-        category: action.category
-      }
-    case SAVE_NAME:
-      return {
-        ...state,
-        name: action.name
-      }
-    case SAVE_DESCRIPTION:
-      return {
-        ...state,
-        description: action.description,
-        target: action.target
-      }
     default:
       return state
   }

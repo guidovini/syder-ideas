@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom'
 
 export default (props) => {
   return (
-    <nav>
-      {props.option === 'dashboard' ? <p>Dashboard</p> 
-      : props.option === 'category' ? <p>Dashboard > {props.category}</p> 
-        : <p>Dashboard > {props.category} > {props.idea}</p>}
+    <div>
+      {<p>
+        <Link to="/">Dashboard</Link> 
+        <span>></span> <Link to="/categories">{props.idea.category}</Link> 
+        <span>></span> <Link to={`/create/${props.idea.id}`}>{props.idea.name}</Link>
+      </p> 
+      }
       <Link to="/create"><button>Create new idea</button></Link>
-    </nav>
+    </div>
   )
 }

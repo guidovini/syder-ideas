@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Header from 'components/Header'
-import Content from 'components/Content'
+import LandingPage from 'components/LandingPage'
 
 export default () => {
   return (
     <div>
       <Header />
-      <Content />
+      <LandingPage />
     </div>
   )
 }

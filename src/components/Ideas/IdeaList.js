@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import IdeaItem from 'components/IdeaItem'
+import IdeaItem from 'components/Ideas/IdeaItem'
 
 const IdeaList = (props) => {
   return (
