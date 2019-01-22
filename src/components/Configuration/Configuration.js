@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default () => {
+export default function Configuration() {
   return (
     <div>
       <h3>Configuration</h3>

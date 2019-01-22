@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default () => {
+export default function IdeaBusinessModel() {
   return (
     <div>
       This is the business model  

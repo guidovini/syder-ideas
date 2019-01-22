@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Header from 'components/Header'
 
-export default () => {
+export default function Done() {
   return (
     <div>
       <Header />

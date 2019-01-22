@@ -1,4 +1,15 @@
-import { ADD_IDEA, ADD_IDEA_DESCRIPTION, CHANGE_TO_SUMMARY, CHANGE_TO_FEATURES, CHANGE_TO_STRATEGIES, CHANGE_TO_INSPIRATION, CHANGE_TO_BUSINESS_MODEL, CHANGE_TO_PLANNING, CHANGE_TO_RESOURCES } from 'actions/types'
+import { 
+  ADD_IDEA, 
+  ADD_IDEA_DESCRIPTION, 
+  CHANGE_TO_SUMMARY, 
+  CHANGE_TO_FEATURES, 
+  CHANGE_TO_STRATEGIES, 
+  CHANGE_TO_INSPIRATION, 
+  CHANGE_TO_BUSINESS_MODEL, 
+  CHANGE_TO_PLANNING, 
+  CHANGE_TO_RESOURCES,
+  ADD_FEATURE 
+} from 'actions/types'
 
 export const addIdea = (idea) => ({
   type: ADD_IDEA,
@@ -37,4 +48,10 @@ export const changeToPlanning = () => ({
 
 export const changeToResources = () => ({
   type: CHANGE_TO_RESOURCES
+})
+
+export const addFeature = (id, feature) => ({
+  type: ADD_FEATURE,
+  id,
+  feature
 })

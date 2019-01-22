@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default ({ id, category, name }) => {
+export default function IdeaItem({ id, category, name }) {
   return (
     <Link to={`/idea/${id}`} >
       <div>

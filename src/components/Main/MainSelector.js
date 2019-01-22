@@ -13,7 +13,6 @@ export class MainSelector extends Component {
   onSelect = () => {
     const option = this.props.menu.option
     const idea = this.props.idea
-    console.log(idea)
     switch (option) {
       case ('summary'):
         return <IdeaSummary idea={idea} />

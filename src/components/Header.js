@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link, NavLink } from 'react-router-dom'
 
-export default () => {
+export default function Header() {
   return (
     <header>
       <Link to="/"><h2>SyderIdeas</h2></Link>

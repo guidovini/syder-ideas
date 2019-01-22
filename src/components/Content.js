@@ -10,7 +10,7 @@ const Content = ({ idea, menu }) => {
   return (
     <div>
       <Header />
-      <Menu />
+      <Menu idea={idea} menu={menu}/>
       <Main idea={idea} menu={menu}/>
       <Options />
     </div>

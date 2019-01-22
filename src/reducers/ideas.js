@@ -1,4 +1,4 @@
-import { ADD_IDEA, ADD_IDEA_DESCRIPTION } from 'actions/types'
+import { ADD_IDEA, ADD_IDEA_DESCRIPTION, ADD_FEATURE } from 'actions/types'
 
 export default (state = [], action) => {
   switch(action.type) {
@@ -9,7 +9,8 @@ export default (state = [], action) => {
           id: action.idea.id,
           category: action.idea.category,
           createdAt: action.idea.createdAt,
-          modifiedAt: action.idea.createdAt
+          modifiedAt: action.idea.createdAt,
+          features: [],
         }
       ]
     case ADD_IDEA_DESCRIPTION:
@@ -24,6 +25,20 @@ export default (state = [], action) => {
           }
         } else {
           return idea
+        }
+      })
+    case ADD_FEATURE:
+      return state.map(idea => {
+        if (idea.id === action.id) {
+          return {
+            ...idea,
+            features: [
+              ...idea.features,
+              action.feature
+            ]
+          }
+        } else {
+          return state
         }
       })
     default:

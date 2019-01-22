@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default () => {
+export default function LandingPage() {
   return (
     <div>
       <h3>Welcome to Syder Ideas</h3>
