@@ -36,14 +36,16 @@ export class MainSelector extends Component {
   render() {
     return (
       <div>
+        <h3>{this.props.title}</h3>
         {this.onSelect()}
       </div>
     )
   }
 }
-// const mapStateToProps = (state) => ({
-//     menu: state.menu,
-//   idea: state.ideas.find(idea => idea.id === match.params.id)
-// })
 
-export default connect()(MainSelector)
+const mapStateToProps = (state) => ({
+  title: state.menu.title,
+  // idea: state.ideas.find(idea => idea.id === match.params.id)
+})
+
+export default connect(mapStateToProps)(MainSelector)

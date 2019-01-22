@@ -9,6 +9,7 @@ import Done from 'components/Done'
 import Dashboard from 'components/Dashboard'
 import AddIdeaDescription from 'components/Ideas/AddIdeaDescription'
 import Content from 'components/Content'
+import IdeaFeaturesEdit from 'components/Menu/IdeaFeaturesEdit'
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -18,6 +19,7 @@ const Root = ({ store }) => (
         <Route path='/create' component={AddIdea} exact/>
         <Route path='/create/:id' component={AddIdeaDescription} />
         <Route path='/idea/:id' component={Content} />
+        <Route path='/edit/:option/:id' component={IdeaFeaturesEdit} />
   
         <Route path='/done' component={Done} />
         <Route path='/dashboard' component={Dashboard} />
