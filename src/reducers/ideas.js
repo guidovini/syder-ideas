@@ -34,7 +34,10 @@ export default (state = [], action) => {
             ...idea,
             features: [
               ...idea.features,
-              action.feature
+              {
+                id: action.feature.id,
+                text: action.feature.text
+              }
             ]
           }
         } else {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import uuid from 'uuid/v4'
 
 import { addFeature } from 'actions'
 
@@ -19,7 +20,10 @@ export class IdeaFeaturesForm extends Component {
 
   handleFeatureSubmit = (e) => {
     e.preventDefault()
-    this.props.dispatch(addFeature(this.props.idea.id, this.state.feature))
+    this.props.dispatch(addFeature(this.props.idea.id, {
+      id: uuid(),
+      text: this.state.feature,
+    }))
     this.setState({feature: ''})
   }
 

@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { Component } from 'react'
+import IdeaFeaturesItem from 'components/Menu/IdeaFeaturesItem'
 
-const IdeaFeaturesList = ({ idea }) => {
-  return (
-    <div>
-      {idea.features.map(feature => <p>- {feature}</p>)}
-    </div>
-  )
+export class IdeaFeaturesList extends Component {
+  render() {
+    return (
+      <div>
+        {this.props.idea.features.map(feature => <IdeaFeaturesItem key={feature.id} feature={feature} />)}
+      </div>
+    )
+  }
 }
 
 export default IdeaFeaturesList
