@@ -8,7 +8,9 @@ import {
   CHANGE_TO_BUSINESS_MODEL, 
   CHANGE_TO_PLANNING, 
   CHANGE_TO_RESOURCES,
-  ADD_FEATURE 
+  ADD_FEATURE,
+  EDIT_FEATURE, 
+  DELETE_FEATURE
 } from 'actions/types'
 
 export const addIdea = (idea) => ({
@@ -54,4 +56,15 @@ export const addFeature = (id, feature) => ({
   type: ADD_FEATURE,
   id,
   feature
+})
+
+export const editFeature = (id, updates) => ({
+  type: EDIT_FEATURE,
+  id,
+  updates
+})
+
+export const deleteFeature = ({ id }) => ({
+  type: DELETE_FEATURE,
+  id
 })

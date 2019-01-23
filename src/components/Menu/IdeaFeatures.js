@@ -6,9 +6,8 @@ import IdeaFeaturesList from 'components/Menu/IdeaFeaturesList';
 export default function IdeaFeatures({ idea }) {
   return (
     <div>
-      These are the features
-      <IdeaFeaturesList idea={idea}/>
       <IdeaFeaturesForm idea={idea}/>
+      <IdeaFeaturesList idea={idea}/>
     </div>
   )
 }

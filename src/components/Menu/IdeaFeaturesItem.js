@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+
+import TextToForm from 'components/Menu/TextToForm' 
+import { deleteFeature }  from 'actions'
 
 export class IdeaFeaturesItem extends Component {
-  onFeatureEdit = () => {
-    // this.props.dispatch(editFeature(this.props.idea.feature.map))
-    console.log(`Edit feature for ${this.props.feature.id}`)
-  }
-
   onFeatureDelete = () => {
-    console.log(`Delete feature for ${this.props.feature.id}`)
+    this.props.dispatch(deleteFeature(this.props.feature))
   }
 
   render() {
     return (
       <div>
-        <p> - {this.props.feature.text}</p>
-        <button onClick={this.onFeatureEdit}>edit</button>
+        <TextToForm text={this.props.feature.text} idea={this.props.idea} feature={this.props.feature} />
         <button onClick={this.onFeatureDelete}>x</button>
       </div>
     )
