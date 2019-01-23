@@ -29,4 +29,10 @@ const Root = ({ store }) => (
   </Provider>
 )
 
+// Solution to that root problem
+// https://stackoverflow.com/questions/44673079/cannot-read-property-query-of-null-in-react-js/44674408#44674408
+// https://stackoverflow.com/questions/52684017/react-router-v4-nested-match-params-not-accessible-at-root-level
+// https://codedaily.io/tutorials/48/Use-matchPath-to-Match-Nested-Route-Paths-in-Parent-Routes-with-React-Router
+// https://github.com/ReactTraining/react-router/issues/5870
+
 export default Root

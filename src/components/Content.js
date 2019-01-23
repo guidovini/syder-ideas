@@ -5,11 +5,13 @@ import Header from 'components/Header'
 import Menu from 'components/Menu/Menu'
 import Main from 'components/Main/Main'
 import Options from 'components/Configuration/Configuration'
+import Navigation from 'components/Navigation'
 
 const Content = ({ idea, menu }) => {
   return (
     <div>
       <Header />
+      <Navigation idea={idea}/>
       <Menu idea={idea} menu={menu}/>
       <Main idea={idea} menu={menu}/>
       <Options />
