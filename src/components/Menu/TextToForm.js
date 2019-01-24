@@ -14,8 +14,6 @@ export class TextToForm extends Component {
   }
 
   onFeatureEdit = () => {
-    // this.props.dispatch(editFeature(this.props.idea.feature.map))
-    // console.log(`Edit feature for ${this.props.feature.id}`)
     this.props.dispatch(editFeature(this.props.idea.id, {
       id: this.props.feature.id,
       text: this.state.text
@@ -46,11 +44,12 @@ export class TextToForm extends Component {
   render() {
     return (
         <div onClick={this.handleFirstClick} onBlur={this.handleBlur} onKeyPress={this.handleKeyPress}>
-          {this.state.textToForm ? <input onChange={this.handleChange} 
-                                          autoFocus
-                                          type="text" 
-                                          value={this.state.text}/> 
-                                  : <p>{this.state.text}</p> }
+          {this.state.textToForm 
+            ? <input onChange={this.handleChange} 
+                      autoFocus
+                      type="text" 
+                      value={this.state.text}/> 
+            : <p>{this.state.text}</p> }
         </div>
     )
   }

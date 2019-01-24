@@ -26,7 +26,6 @@ export class IdeaFeaturesList extends Component {
 
 const mapStateToProps = (state) => ({
   features: state.features
-
 })
 
 export default connect(mapStateToProps)(IdeaFeaturesList)

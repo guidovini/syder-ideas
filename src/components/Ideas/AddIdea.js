@@ -9,7 +9,7 @@ import { addIdea } from 'actions'
 
 class AddIdea extends Component {
   state = {
-    category: 'web-app',
+    category: 'Web App',
   }
 
   handleCategoryChange = (e) => {
@@ -38,11 +38,11 @@ class AddIdea extends Component {
           <div> 
             <h3>What do you want to create?</h3>
             <select value={this.state.category} onChange={this.handleCategoryChange}>
-              <option value='web-app'>Web App</option>
-              <option value='mobile-app'>Mobile App</option>
-              <option value='book'>Book</option>
-              <option value='business'>Business</option>
-              <option value='product'>Physical Product</option>
+              <option value='Web App'>Web App</option>
+              <option value='Mobile App'>Mobile App</option>
+              <option value='Book'>Book</option>
+              <option value='Business'>Business</option>
+              <option value='Physical Product'>Physical Product</option>
             </select>
           </div>
 

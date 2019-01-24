@@ -1,13 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function IdeaItem({ id, category, name }) {
+export default function IdeaItem({ id, category, name, handleDeleteIdea, changeToSummary }) {
   return (
-    <Link to={`/idea/${id}`} >
-      <div>
+    <div>
+      <Link to={`/idea/${id}`} onClick={() => {changeToSummary()}}>
         <p>{category}</p>
         <h3>{name}</h3>
-      </div>
-    </Link>
+      </Link>
+      <button onClick={() => {handleDeleteIdea({id})}}>x</button>
+    </div>
   )
 }

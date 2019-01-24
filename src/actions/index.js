@@ -10,7 +10,8 @@ import {
   CHANGE_TO_RESOURCES,
   ADD_FEATURE,
   EDIT_FEATURE, 
-  DELETE_FEATURE
+  DELETE_FEATURE,
+  DELETE_IDEA,
 } from 'actions/types'
 
 export const addIdea = (idea) => ({
@@ -22,6 +23,11 @@ export const addIdeaDescription = (id, updates) => ({
   type: ADD_IDEA_DESCRIPTION,
   id,
   updates
+})
+
+export const deleteIdea = (id) => ({
+  type: DELETE_IDEA,
+  id
 })
 
 export const changeToSummary = () => ({

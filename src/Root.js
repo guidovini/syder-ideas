@@ -10,6 +10,7 @@ import Dashboard from 'components/Dashboard'
 import AddIdeaDescription from 'components/Ideas/AddIdeaDescription'
 import Content from 'components/Content'
 import IdeaFeaturesEdit from 'components/Menu/IdeaFeaturesEdit'
+import Categories from 'components/Categories'
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -20,9 +21,11 @@ const Root = ({ store }) => (
         <Route path='/create/:id' component={AddIdeaDescription} />
         <Route path='/idea/:id' component={Content} />
         <Route path='/edit/:option/:id' component={IdeaFeaturesEdit} />
+        
   
         <Route path='/done' component={Done} />
         <Route path='/dashboard' component={Dashboard} />
+        <Route path='/categories' component={Categories} />
         <Route component={NotFoundPage} />
       </Switch>
     </Router>
