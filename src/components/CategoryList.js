@@ -15,7 +15,7 @@ export class CategoryList extends Component {
           const conditions = this.props.ideas.filter(idea => idea.category === category)
           return (
             <div key={category}>
-              <h3>{category}</h3>
+              <h3 className="title is-5">{category}</h3>
               {conditions.map(condition => {
                 return (
                   <CategoryItem {...condition} />

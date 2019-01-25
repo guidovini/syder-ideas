@@ -12,9 +12,19 @@ const Content = ({ idea, menu }) => {
     <div>
       <Header />
       <Navigation idea={idea}/>
-      <Menu idea={idea} menu={menu}/>
-      <Main idea={idea} menu={menu}/>
-      <Options />
+      <div className="container">
+        <div className="columns">
+          <div className="column">
+            <Menu idea={idea} menu={menu}/>
+          </div>
+          <div className="column">
+            <Main idea={idea} menu={menu}/>
+          </div>
+          <div className="column">
+            <Options />
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

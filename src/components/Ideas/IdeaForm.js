@@ -41,35 +41,43 @@ export class IdeaForm extends Component {
   render() {
     return (
       <form onSubmit={this.onSubmit}>
-        <div>
-          <h3>Insert the name of the idea</h3>
-          <input 
-            autoFocus
-            type="text" 
-            placeholder="Catbook" 
-            onChange={this.handleNameChange}
-            value={this.state.name}/>
+        <div className="field">
+          <label className="label">Insert the name of the idea</label>
+          <div className="control">
+            <input 
+              autoFocus
+              type="text" 
+              placeholder="Catbook" 
+              onChange={this.handleNameChange}
+              value={this.state.name}
+              className="input"/>
+          </div>
         </div>
 
-        <div>
-          <h3>Insert a short description of your idea</h3>
-          <textarea 
-            type="text"
-            placeholder="A social media platform for cats" 
-            onChange={this.handleDescriptionChange}
-            value={this.state.description}/>       
+        <div className="field">
+          <label className="label">Insert a short description of your idea</label>
+          <div className="control">
+            <textarea 
+              placeholder="A social media platform for cats" 
+              onChange={this.handleDescriptionChange}
+              value={this.state.description}
+              className="textarea"/> 
+          </div>      
         </div>
 
-        <div>
-          <h3>Who is this app for?</h3>
+        <div className="field">
+          <label className="label">Who is this app for?</label>
           <input 
             type="text" 
             placeholder="Cats" 
             onChange={this.handleTargetChange}
-            value={this.state.target}/>
+            value={this.state.target}
+            className="input"/>
         </div>
 
-        <input type="submit" value="Finish" />
+        <div className="control">
+          <input type="submit" value="Finish" className="button is-link"/>
+        </div>
       </form>
     )
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
+import '../node_modules/bulma/css/bulma.css'
 
 import Root from 'Root'
 import reducers from 'reducers'

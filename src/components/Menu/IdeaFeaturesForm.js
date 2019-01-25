@@ -20,24 +20,32 @@ export class IdeaFeaturesForm extends Component {
 
   handleFeatureSubmit = (e) => {
     e.preventDefault()
-    this.props.dispatch(addFeature(this.props.idea.id, {
-      id: uuid(),
-      text: this.state.feature,
-    }))
-    this.setState({feature: ''})
+    if (this.state.feature) {
+      this.props.dispatch(addFeature(this.props.idea.id, {
+        id: uuid(),
+        text: this.state.feature,
+      }))
+      this.setState({feature: ''})
+    }
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleFeatureSubmit}>
-          <input 
-            type="text" 
-            onChange={this.handleFeatureChange}
-            value={this.state.feature} />
-          <input 
-            type="submit"
-            value="Add"/> 
+        <form onSubmit={this.handleFeatureSubmit} className="field has-addons">
+          <div className="control">
+            <input 
+              type="text" 
+              onChange={this.handleFeatureChange}
+              value={this.state.feature}
+              className="input" />
+          </div>
+          <div className="control">
+            <input 
+              type="submit"
+              value="Add"
+              className="button is-primary"/> 
+          </div>
         </form>   
       </div>
     )

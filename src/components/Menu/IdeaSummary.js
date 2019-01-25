@@ -6,22 +6,22 @@ const IdeaSummary = ({ idea }) => {
   return (
     <div>
       <Link to={`/create/${idea.id}`}>
-        <button>Edit</button>
+        <button className="button is-text">Edit</button>
       </Link>
       <div>
-        <h4>Idea Category:</h4>  
+        <h3 className="title is-6">Idea Category:</h3>  
         {idea.category}
       </div>   
       <div>
-        <h4>Idea Name:</h4>  
+        <h3 className="title is-6">Idea Name:</h3>  
         {idea.name}
       </div>  
       <div>
-        <h4>Idea Description:</h4>  
+        <h3 className="title is-6">Idea Description:</h3>  
         {idea.description}
       </div>
       <div>
-        <h4>Who is this for?:</h4>  
+        <h3 className="title is-6">Who is this for?:</h3>  
         {idea.target}
       </div>    
     </div>

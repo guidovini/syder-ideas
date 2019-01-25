@@ -33,21 +33,28 @@ class AddIdea extends Component {
     return (
       <div>
         <Header />
-        <h2>Let's begin!!</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div> 
-            <h3>What do you want to create?</h3>
-            <select value={this.state.category} onChange={this.handleCategoryChange}>
-              <option value='Web App'>Web App</option>
-              <option value='Mobile App'>Mobile App</option>
-              <option value='Book'>Book</option>
-              <option value='Business'>Business</option>
-              <option value='Physical Product'>Physical Product</option>
-            </select>
+        <div className="hero">
+          <div className="hero-body">
+            <div className="container">
+              <h2 className="title is-4">Let's begin!!</h2>
+              <form onSubmit={this.handleSubmit}>
+                <div> 
+                  <h3 className="title is-6">What do you want to create?</h3>
+                  <div className="select is-medium">
+                    <select value={this.state.category} onChange={this.handleCategoryChange}>
+                      <option value='Web App'>Web App</option>
+                      <option value='Mobile App'>Mobile App</option>
+                      <option value='Book'>Book</option>
+                      <option value='Business'>Business</option>
+                      <option value='Physical Product'>Physical Product</option>
+                    </select>
+                  </div>
+                </div>
+                <input type="submit" value="Continue" className="button is-link" />
+              </form>
+            </div>
           </div>
-
-          <input type="submit" value="Continue" />
-        </form>
+        </div>
       </div>
     )
   }

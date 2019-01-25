@@ -48,7 +48,8 @@ export class TextToForm extends Component {
             ? <input onChange={this.handleChange} 
                       autoFocus
                       type="text" 
-                      value={this.state.text}/> 
+                      value={this.state.text}
+                      className="input"/> 
             : <p>{this.state.text}</p> }
         </div>
     )
