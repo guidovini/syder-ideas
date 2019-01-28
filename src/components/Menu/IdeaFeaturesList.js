@@ -17,8 +17,7 @@ export class IdeaFeaturesList extends Component {
           } else {
             return ''
           }
-        })
-        }
+        })}
       </div>
     )
   }

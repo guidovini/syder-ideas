@@ -4,7 +4,7 @@ import MainSelector from 'components/Main/MainSelector';
 
 const Main = ({ idea, menu }) => {
   return (
-    <div className="message">
+    <div className="message is-dark">
       <MainSelector idea={idea} menu={menu}/>
     </div>
   )

@@ -5,25 +5,27 @@ import { Link } from 'react-router-dom'
 const IdeaSummary = ({ idea }) => {
   return (
     <div>
-      <Link to={`/create/${idea.id}`}>
-        <button className="button is-text">Edit</button>
-      </Link>
-      <div>
+      <div className="column">
         <h3 className="title is-6">Idea Category:</h3>  
         {idea.category}
       </div>   
-      <div>
+      <div className="column">
         <h3 className="title is-6">Idea Name:</h3>  
         {idea.name}
       </div>  
-      <div>
+      <div className="column">
         <h3 className="title is-6">Idea Description:</h3>  
         {idea.description}
       </div>
-      <div>
+      <div className="column">
         <h3 className="title is-6">Who is this for?:</h3>  
         {idea.target}
       </div>    
+      <div className="column is-2 is-offset-10">
+        <Link to={`/create/${idea.id}`}>
+          <button className="button is-text">Edit</button>
+        </Link>
+      </div>
     </div>
   )
 }

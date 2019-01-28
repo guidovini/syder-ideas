@@ -11,12 +11,12 @@ export class IdeaFeaturesItem extends Component {
 
   render() {
     return (
-      <div className="box">
+      <div className="column">
         <div className="columns">
           <div className="column">
             <TextToForm text={this.props.feature.text} idea={this.props.idea} feature={this.props.feature} />
           </div>
-          <div className="column">
+          <div className="column is-narrow">
             <button onClick={this.onFeatureDelete} className="delete">x</button>
           </div>        
         </div>

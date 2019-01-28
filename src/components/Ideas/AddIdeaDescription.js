@@ -16,11 +16,13 @@ class AddIdeaDescription extends Component {
     return (
       <div>
         <Header />
-        <div className="container">
-          <h2 className="title is-5">Your idea is a: {this.props.idea.category}</h2>
-          <IdeaForm 
-            idea={this.props.idea}
-            onSubmit={this.onSubmit}/>
+        <div className="section">
+          <div className="container">
+            <h2 className="title is-5">Your idea is a: {this.props.idea.category}</h2>
+            <IdeaForm 
+              idea={this.props.idea}
+              onSubmit={this.onSubmit}/>
+          </div>
         </div>
       </div>
     )

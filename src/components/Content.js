@@ -11,17 +11,19 @@ const Content = ({ idea, menu }) => {
   return (
     <div>
       <Header />
-      <Navigation idea={idea}/>
-      <div className="container">
-        <div className="columns">
-          <div className="column">
-            <Menu idea={idea} menu={menu}/>
-          </div>
-          <div className="column">
-            <Main idea={idea} menu={menu}/>
-          </div>
-          <div className="column">
-            <Options />
+      <div className="section">
+        <Navigation idea={idea}/>
+        <div>
+          <div className="columns">
+            <div className="column is-one-quarter">
+              <Menu idea={idea} menu={menu}/>
+            </div>
+            <div className="column">
+              <Main idea={idea} menu={menu}/>
+            </div>
+            <div className="column is-one-quarter">
+              <Options />
+            </div>
           </div>
         </div>
       </div>

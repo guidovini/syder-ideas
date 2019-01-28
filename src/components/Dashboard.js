@@ -7,9 +7,11 @@ export default function Dashboard() {
   return (
     <div>
       <Header />
-      <div className="container">
-        <h2 className="title is-4">Dashboard</h2>
-        <IdeaList />
+      <div className="section">
+        <div className="container">
+          <h2 className="title is-4">Dashboard</h2>
+          <IdeaList />
+        </div>
       </div>
     </div>
   )

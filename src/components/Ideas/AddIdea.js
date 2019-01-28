@@ -38,8 +38,8 @@ class AddIdea extends Component {
             <div className="container">
               <h2 className="title is-4">Let's begin!!</h2>
               <form onSubmit={this.handleSubmit}>
-                <div> 
-                  <h3 className="title is-6">What do you want to create?</h3>
+                <div className="column"> 
+                  <h3 className="title is-5">What do you want to create?</h3>
                   <div className="select is-medium">
                     <select value={this.state.category} onChange={this.handleCategoryChange}>
                       <option value='Web App'>Web App</option>
@@ -50,7 +50,9 @@ class AddIdea extends Component {
                     </select>
                   </div>
                 </div>
-                <input type="submit" value="Continue" className="button is-link" />
+                <div className="column">
+                  <input type="submit" value="Continue" className="button is-link" />
+                </div>
               </form>
             </div>
           </div>

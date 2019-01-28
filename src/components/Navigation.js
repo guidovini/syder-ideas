@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Navigation({ idea }) {
   return (
-    <div className="container">
+    <div className="">
       <div className="columns">
         <div className="column">
           {idea 
@@ -22,9 +22,6 @@ export default function Navigation({ idea }) {
                 </ul> 
               </nav> 
           }
-        </div>
-        <div className="column">
-          <Link to="/create"><button className="button is-primary">Create new idea</button></Link>
         </div>
       </div>
     </div>

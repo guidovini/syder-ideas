@@ -43,7 +43,12 @@ export class TextToForm extends Component {
 
   render() {
     return (
-        <div onClick={this.handleFirstClick} onBlur={this.handleBlur} onKeyPress={this.handleKeyPress}>
+        <div 
+          onClick={this.handleFirstClick} 
+          onBlur={this.handleBlur} 
+          onKeyPress={this.handleKeyPress}
+          className="box"
+        >
           {this.state.textToForm 
             ? <input onChange={this.handleChange} 
                       autoFocus

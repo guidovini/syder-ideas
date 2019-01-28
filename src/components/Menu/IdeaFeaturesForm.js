@@ -33,14 +33,14 @@ export class IdeaFeaturesForm extends Component {
     return (
       <div>
         <form onSubmit={this.handleFeatureSubmit} className="field has-addons">
-          <div className="control">
+          <div className="column ">
             <input 
               type="text" 
               onChange={this.handleFeatureChange}
               value={this.state.feature}
               className="input" />
           </div>
-          <div className="control">
+          <div className="column is-narrow">
             <input 
               type="submit"
               value="Add"

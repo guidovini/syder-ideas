@@ -10,10 +10,10 @@ export default function LandingPage() {
           <h2 className="subtitle">I want to...</h2>
           <div className="columns is-centered">
             <div className="column is-two-fifths">
-              <Link to="/create"><button autoFocus className="button is-link">Create new idea</button></Link>
+              <Link to="/create"><button autoFocus className="button is-link is-medium">Create new idea</button></Link>
             </div>
             <div className="column is-two-fifths">
-              <Link to="/dashboard"><button className="button is-link">Check my ideas</button></Link>
+              <Link to="/dashboard"><button className="button is-light is-medium">Check my ideas</button></Link>
             </div>
           </div>
         </div>
