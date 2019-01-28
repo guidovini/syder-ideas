@@ -12,7 +12,7 @@ export class IdeaFeaturesItem extends Component {
   render() {
     return (
       <div className="column">
-        <div className="columns">
+        <div className="columns is-mobile">
           <div className="column">
             <TextToForm text={this.props.feature.text} idea={this.props.idea} feature={this.props.feature} />
           </div>

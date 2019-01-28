@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function IdeaItem({ id, category, name, handleDeleteIdea, changeToSummary }) {
   return (
-    <div className="columns">
+    <div className="columns is-mobile">
       <div className="column">
         <Link 
           to={`/idea/${id}`} 
@@ -14,7 +14,7 @@ export default function IdeaItem({ id, category, name, handleDeleteIdea, changeT
           <h3 className="title is-5">{name}</h3>
         </Link>
       </div>
-      <div className="column">
+      <div className="column is-narrow">
         <button 
           onClick={() => {handleDeleteIdea({id})}}
           className="button is-danger"

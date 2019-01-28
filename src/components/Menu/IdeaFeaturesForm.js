@@ -31,9 +31,9 @@ export class IdeaFeaturesForm extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleFeatureSubmit} className="field has-addons">
-          <div className="column ">
+      <div className="column">
+        <form onSubmit={this.handleFeatureSubmit} className="field has-addons columns is-mobile">
+          <div className="column">
             <input 
               type="text" 
               onChange={this.handleFeatureChange}
