@@ -17,7 +17,7 @@ export default function Done() {
               </figure>
             </div>
             <div className="column">
-              <Link to="/dashboard"><button className="button is-success">Done</button></Link>
+              <Link to="/dashboard"><button className="button is-success" autoFocus>Done</button></Link>
             </div>
           </div>
         </div>
