@@ -9,6 +9,8 @@ Keep your ideas under control.
 ### Development Setup
 
 ### Release History
+2019/01/29 - Styling
+2019/01/24 - Basic functioning
 
 ### Meta
 Guido Santillan Arias
