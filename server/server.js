@@ -10,6 +10,8 @@ const port = process.env.PORT || 5000;
 // app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve static files from the React app
 app.use(express.static(__dirname + "/public"));
 
 const client = new Client({
@@ -27,7 +29,6 @@ app.get("/api/ideas", function(req, res) {
   client.query(query, (err, results) => {
     if (err) throw err;
     const ideas = results.rows;
-    // console.log(ideas)
     res.send({ ideas })
     // res.render("home", {data: count});
   });
@@ -38,7 +39,7 @@ app.get("/api/create", function(req, res) {
   const values = ['Web app1', 'Syder Ideas1', 'A solution for people who wants to store their ideas1', 'People who wants to store their ideas1', 1];
   client.query(query, values, (err, result) => {
     if (err) throw err;
-    res.redirect("/");
+    res.redirect("/api/ideas");
   });
 });
 
