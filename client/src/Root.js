@@ -22,7 +22,6 @@ const Root = ({ store }) => (
         <Route path='/idea/:id' component={Content} />
         <Route path='/edit/:option/:id' component={IdeaFeaturesEdit} />
         
-  
         <Route path='/done' component={Done} />
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/categories' component={Categories} />
