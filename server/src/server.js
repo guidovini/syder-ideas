@@ -23,33 +23,26 @@ const client = new Client({
 client.connect();
 
 app.get("/", (req, res) => {
-  const query = 'SELECT table_schema, table_name FROM information_schema.tables';
+  res.send('This is the main page. Go to /api/ideas to gather data and to /api/create to add a new idea')
+});
+
+app.get("/api/ideas", function(req, res) {
+  const query = 'SELECT * FROM ideas';
   client.query(query, (err, results) => {
     if (err) throw err;
-    for (let row of results.rows) {
-      console.log(JSON.stringify(row));
-    }
-    client.end();
+    const ideas = results.rows;
+    res.send({ ideas })
+    // res.render("home", {data: count});
   });
 });
 
-// app.get("/api/ideas", function(req, res) {
-//   const query = 'SELECT * FROM ideas';
-//   client.query(query, (err, results) => {
-//     if (err) throw err;
-//     const ideas = results.rows;
-//     res.send({ ideas })
-//     // res.render("home", {data: count});
-//   });
-// });
-
-// app.get("/api/create", function(req, res) {
-//   const query = 'INSERT INTO ideas(category, name, description, target, user_id) VALUES ($1, $2, $3, $4, $5)'
-//   const values = ['Web app', 'Syder Ideas', 'A solution for people who wants to store their ideas', 'People who wants to store their ideas', 1];
-//   client.query(query, values, (err, result) => {
-//     if (err) throw err;
-//     res.redirect("/api/ideas");
-//   });
-// });
+app.get("/api/create", function(req, res) {
+  const query = 'INSERT INTO ideas(category, name, description, target, user_id) VALUES ($1, $2, $3, $4, $5)'
+  const values = ['Web app', 'Syder Ideas', 'A solution for people who wants to store their ideas', 'People who wants to store their ideas', 1];
+  client.query(query, values, (err, result) => {
+    if (err) throw err;
+    res.redirect("/api/ideas");
+  });
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
