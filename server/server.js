@@ -1,23 +1,23 @@
-require('dotenv').config();
+// require('dotenv').config();
 
-const { Client } = require('pg');
+// const { Client } = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
-const path = require('path');
-const publicPath = path.join(__dirname, '..', 'client/build');
+// const path = require('path');
+// const publicPath = path.join(__dirname, '..', 'client/build');
 const port = process.env.PORT || 5000;
 const app = express();
 
-// Serve static files from the React app
-app.use(express.static(publicPath));
+// // Serve static files from the React app
+// app.use(express.static(publicPath));
 
 // app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(publicPath, 'index.html'))
-})
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(publicPath, 'index.html'))
+// })
 
 // const client = new Client({
 //   user: process.env.DB_USER,
@@ -48,9 +48,9 @@ app.get('*', (req, res) => {
 //   });
 // });
 
-// app.get('/api/hello', (req, res) => {
-//   res.send({ express: 'Hello From Express' });
-// });
+app.get('/api/hello', (req, res) => {
+  res.send({ express: 'Hello From Express' });
+});
 
 // app.post('/api/world', (req, res) => {
 //   console.log(req.body);
