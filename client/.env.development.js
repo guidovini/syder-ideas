@@ -1,1 +1,0 @@
-HOST=https://syder-ideas-server.herokuapp.com/

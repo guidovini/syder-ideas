@@ -4,7 +4,7 @@ const publicPath = path.join(__dirname, '..', 'build');
 const port = process.env.PORT || 5000;
 const app = express();
 
-app.use(express.static(path.join(publicPath, 'static')));
+app.use(express.static(publicPath));
 
 app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'))
