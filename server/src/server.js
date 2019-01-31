@@ -1,33 +1,34 @@
 // require('dotenv').config();
 
-// const { Client } = require('pg');
+const { Client } = require('pg');
 const express = require('express');
 const bodyParser = require('body-parser');
-// const path = require('path');
-// const publicPath = path.join(__dirname, '..', 'client/build');
 const port = process.env.PORT || 5000;
 const app = express();
-
-// // Serve static files from the React app
-// app.use(express.static(publicPath));
 
 // app.set("view engine", "ejs");
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(publicPath, 'index.html'))
-// })
+const client = new Client({
+  // user: process.env.DB_USER,
+  // host: process.env.DB_HOST,
+  // database: process.env.DB_NAME,
+  // password: process.env.DB_PASS,
+  // port: process.env.DB_PORT,
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
 
-// const client = new Client({
-//   user: process.env.DB_USER,
-//   host: process.env.DB_HOST,
-//   database: process.env.DB_NAME,
-//   password: process.env.DB_PASS,
-//   port: process.env.DB_PORT,
-// });
+client.connect();
 
-// client.connect();
+client.query('SELECT table_schema, table_name FROM information_schema.tables;', (err, res) => {
+  if (err) throw err;
+  for (let row of res.rows) {
+    console.log(JSON.stringify(row));
+  }
+  client.end()
+})
 
 // app.get("/api/ideas", function(req, res) {
 //   const query = 'SELECT * FROM ideas';
@@ -46,15 +47,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //     if (err) throw err;
 //     res.redirect("/api/ideas");
 //   });
-// });
-
-app.get('/api/hello', (req, res) => {
-  res.send({ express: 'Hello From Express' });
-});
-
-// app.post('/api/world', (req, res) => {
-//   console.log(req.body);
-//   res.send(`I have received your POST request. This is what you sent me: ${req.body.post}`);
 // });
 
 app.listen(port, () => console.log(`Listening on port ${port}`))
