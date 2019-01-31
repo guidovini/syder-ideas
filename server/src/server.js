@@ -22,13 +22,16 @@ const client = new Client({
 
 client.connect();
 
-client.query('SELECT table_schema, table_name FROM information_schema.tables;', (err, res) => {
-  if (err) throw err;
-  for (let row of res.rows) {
-    console.log(JSON.stringify(row));
-  }
-  client.end()
-})
+app.get("/", (req, res) => {
+  const query = 'SELECT table_schema, table_name FROM information_schema.tables';
+  client.query(query, (err, results) => {
+    if (err) throw err;
+    for (let row of results.rows) {
+      console.log(JSON.stringify(row));
+    }
+    client.end();
+  });
+});
 
 // app.get("/api/ideas", function(req, res) {
 //   const query = 'SELECT * FROM ideas';
