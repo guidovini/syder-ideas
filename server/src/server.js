@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
   res.send('This is the main page. Go to /api/ideas to gather data and to /api/create to add a new idea')
 });
 
-app.get("/api/ideas", function(req, res) {
+app.get("/api/ideas", (req, res) => {
   const query = 'SELECT * FROM ideas';
   client.query(query, (err, results) => {
     if (err) throw err;
@@ -36,7 +36,7 @@ app.get("/api/ideas", function(req, res) {
   });
 });
 
-app.get("/api/create", function(req, res) {
+app.get("/api/create", (req, res) => {
   const query = 'INSERT INTO ideas(category, name, description, target, user_id) VALUES ($1, $2, $3, $4, $5)'
   const values = ['Web app', 'Syder Ideas', 'A solution for people who wants to store their ideas', 'People who wants to store their ideas', 1];
   client.query(query, values, (err, result) => {
