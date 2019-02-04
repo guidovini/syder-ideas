@@ -33,7 +33,7 @@ const client = new Client({
   password: process.env.DB_PASS,
   port: process.env.DB_PORT,
   connectionString: process.env.DATABASE_URL || '',
-  ssl: true || false
+  ssl: true
 });
 
 client.connect();
