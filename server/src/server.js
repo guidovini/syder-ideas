@@ -1,26 +1,39 @@
 require('dotenv').config();
 
 const { Client } = require('pg');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = process.env.PORT || 5000;
 const app = express();
 
+const whitelist = ['http://syder-ideas-client.herokuapp.com']
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use(cors(corsOptions));
 app.set("views", __dirname + '/views')
 app.set("view engine", "ejs");
-app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const client = new Client({
-  // user: process.env.DB_USER,
-  // host: process.env.DB_HOST,
-  // database: process.env.DB_NAME,
-  // password: process.env.DB_PASS,
-  // port: process.env.DB_PORT,
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
+  connectionString: process.env.DATABASE_URL || '',
+  ssl: true || false
 });
 
 client.connect();
