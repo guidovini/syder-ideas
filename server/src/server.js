@@ -8,7 +8,7 @@ const cors = require('cors');
 const port = process.env.PORT || 5000;
 const app = express();
 
-const whitelist = ['http://syder-ideas-client.herokuapp.com']
+const whitelist = ['http://syder-ideas-client.herokuapp.com'];
 
 const corsOptions = {
   origin: function (origin, callback) {
