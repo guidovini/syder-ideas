@@ -10,12 +10,12 @@ export class App extends Component {
   }
 
   callApi = async () => {
-    const response = await fetch('/api/ideas')
+    const response = await fetch('https://syder-ideas-server.herokuapp.com/api/ideas')
     const body = await response.json()
 
     if (response.status !== 200) throw Error(body.message)
 
-    return body
+    return body.ideas
   }
 
   render() {

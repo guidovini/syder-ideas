@@ -8,11 +8,11 @@ export default function Header() {
       <nav className="navbar has-shadow">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item"><h1 className="title is-5">SyderIdeas</h1></Link>
-          <a role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="syderHeader">
+          <button className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="syderHeader">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
-          </a>
+          </button>
         </div>
         <div id="syderHeader" className="navbar-menu">
           <div className="navbar-start">
