@@ -19,6 +19,29 @@ export const addIdea = (idea) => ({
   idea
 })
 
+export const startAddIdea = (ideaData = {}) => {
+  return dispatch => {
+    const configuration = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        category: ideaData.category,
+        name: 'Undefined name',
+        description: 'Undefined description',
+        target: 'Undefined target'
+      })
+    }
+
+    return fetch('http://localhost:5000/create', configuration)
+      .then(
+        dispatch(addIdea(ideaData))
+      )
+  }
+}
+
 export const addIdeaDescription = (id, updates) => ({
   type: ADD_IDEA_DESCRIPTION,
   id,

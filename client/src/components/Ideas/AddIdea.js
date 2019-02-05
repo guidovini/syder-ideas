@@ -4,7 +4,7 @@ import uuid from 'uuid/v4'
 import moment from 'moment'
 
 import Header from 'components/Header'
-import { addIdea } from 'actions'
+import { startAddIdea } from 'actions'
 
 
 class AddIdea extends Component {
@@ -21,7 +21,7 @@ class AddIdea extends Component {
     e.preventDefault()
     const id = uuid()
     const createdAt = moment().valueOf()
-    this.props.dispatch(addIdea({
+    this.props.dispatch(startAddIdea({
       id,
       category: this.state.category,
       createdAt
