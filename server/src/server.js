@@ -11,8 +11,9 @@ const app = express();
 app.use(cors());
 app.set("views", __dirname + '/views')
 app.set("view engine", "ejs");
-app.use(bodyParser.json());
+
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 const pool = new Pool({
   user: process.env.DB_USER,
@@ -36,7 +37,7 @@ app.get("/api/ideas", (req, res) => {
   pool.query(query, (err, results) => {
     if (err) throw err;
     const ideas = results.rows;
-    res.send({ ideas });
+    res.send(ideas);
   });
 });
 
@@ -45,14 +46,25 @@ app.get("/api/form", (req, res) => {
 })
 
 app.post("/create", (req, res) => {
-  const query = 'INSERT INTO ideas(category, name, description, target, user_id) VALUES ($1, $2, $3, $4, $5)';
-  const { category, name, description, target } = req.body;
-  const values = [category, name, description, target, 1];
+  const query = 'INSERT INTO ideas(id, category, name, description, target, user_id) VALUES ($1, $2, $3, $4, $5, $6)';
+  const { id, category, name, description, target } = req.body;
+  const values = [id, category, name, description, target, 'user1'];
 
   pool.query(query, values, (err, result) => {
     if (err) throw err;
     res.redirect("/api/ideas");
   });
 });
+
+app.post("/create/description", (req, res) => {
+  const query = "UPDATE ideas SET name=$1, description=$2, target=$3 WHERE id=$4";
+  const { name, description, target, idea_id } = req.body;
+  const values = [name, description, target, idea_id];
+
+  pool.query(query, values, (err, result) => {
+    if (err) throw err;
+    res.redirect("/api/ideas")
+  });
+})
 
 app.listen(port, () => console.log(`Listening on port ${port}`))

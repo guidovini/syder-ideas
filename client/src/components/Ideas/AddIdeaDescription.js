@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 
 import Header from 'components/Header'
 import IdeaForm from 'components/Ideas/IdeaForm'
-import { addIdeaDescription } from 'actions'
+import { startAddIdeaDescription } from 'actions'
 
 
 class AddIdeaDescription extends Component {
   onSubmit = (idea) => {
-    this.props.dispatch(addIdeaDescription(this.props.idea.id, idea))
+    this.props.dispatch(startAddIdeaDescription(this.props.idea.id, idea))
     this.props.history.push('/done')
   }
 

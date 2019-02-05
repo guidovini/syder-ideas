@@ -28,10 +28,12 @@ export const startAddIdea = (ideaData = {}) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
+        id: ideaData.id,
         category: ideaData.category,
         name: 'Undefined name',
         description: 'Undefined description',
-        target: 'Undefined target'
+        target: 'Undefined target',
+        created_at: ideaData.createdAt
       })
     }
 
@@ -47,6 +49,31 @@ export const addIdeaDescription = (id, updates) => ({
   id,
   updates
 })
+
+export const startAddIdeaDescription = (idea_id = {}, descriptionData = {}) => {
+  return dispatch => {
+    const { name, description, target } = descriptionData
+
+    const configuration = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name,
+        description,
+        target,
+        idea_id
+      })
+    }
+
+    return fetch('http://localhost:5000/create/description', configuration)
+      .then(
+        dispatch(addIdeaDescription(idea_id, descriptionData))
+      )
+  }
+}
 
 export const deleteIdea = (id) => ({
   type: DELETE_IDEA,
