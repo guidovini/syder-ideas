@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { Pool } = require('pg');
+const pg, { Pool } = require('pg');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -15,14 +15,14 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+if (process.env.DATABASE_URL) {
+  pg.defauls.ssl = true;
+} 
+
+let connString = process.env.DATABASE_URL || process.env.DEV_CONF
+
 const pool = new Pool({
-  // user: process.env.DB_USER,
-  // host: process.env.DB_HOST,
-  // database: process.env.DB_NAME,
-  // password: process.env.DB_PASS,
-  // port: process.env.DB_PORT,
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
+  connectionString: connString
 });
 
 pool.connect();
