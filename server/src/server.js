@@ -53,19 +53,30 @@ app.post("/create", (req, res) => {
 
   pool.query(query, values, (err, result) => {
     if (err) throw err;
-    res.redirect("/api/ideas");
+    res.end('Create idea query worked!');
   });
 });
 
 app.post("/create/description", (req, res) => {
   const query = "UPDATE ideas SET name=$1, description=$2, target=$3 WHERE id=$4";
-  const { name, description, target, idea_id } = req.body;
+  const { name='', description='', target='', idea_id='' } = req.body;
   const values = [name, description, target, idea_id];
 
   pool.query(query, values, (err, result) => {
     if (err) throw err;
-    res.redirect("/api/ideas")
+    res.end('Description query worked!');
   });
-})
+});
+
+app.post("/delete/idea", (req, res) => {
+  const query = "DELETE FROM ideas WHERE id=$1";
+  const { id:idea_id } = req.body
+  const values = [idea_id];
+
+  pool.query(query, values, (err, result) => {
+    if (err) throw err;
+    res.end('Delete query worked!');
+  });
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
