@@ -1,4 +1,4 @@
-import { ADD_IDEA, ADD_IDEA_DESCRIPTION, DELETE_IDEA } from 'actions/types'
+import { ADD_IDEA, ADD_IDEA_DESCRIPTION, DELETE_IDEA, SET_IDEAS } from 'actions/types'
 
 export default (state = [], action) => {
   switch (action.type) {
@@ -30,6 +30,9 @@ export default (state = [], action) => {
 
     case DELETE_IDEA:
       return state.filter(({ id }) => id !== action.id)
+
+    case SET_IDEAS:
+      return action.ideas
 
     default:
       return state

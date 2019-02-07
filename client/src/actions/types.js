@@ -13,3 +13,5 @@ export const CHANGE_TO_RESOURCES = 'CHANGE_TO_RESOURCES'
 export const ADD_FEATURE = 'ADD_FEATURE'
 export const EDIT_FEATURE = 'EDIT_FEATURE'
 export const DELETE_FEATURE = 'DELETE_FEATURE'
+
+export const SET_IDEAS = 'SET_IDEAS'

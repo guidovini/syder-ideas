@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import IdeaItem from 'components/Ideas/IdeaItem'
-import { deleteIdea, changeToSummary } from 'actions'
+import { startDeleteIdea, changeToSummary } from 'actions'
 
 export class IdeaList extends Component {
   handleDeleteIdea = ({ id }) => {
-    this.props.dispatch(deleteIdea(id))
+    this.props.dispatch(startDeleteIdea(id))
   }
 
   changeToSummary = () => {

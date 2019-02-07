@@ -9,9 +9,10 @@ import {
   CHANGE_TO_PLANNING, 
   CHANGE_TO_RESOURCES,
   ADD_FEATURE,
-  EDIT_FEATURE, 
-  DELETE_FEATURE,
+  EDIT_FEATURE,
+  DELETE_FEATURE, 
   DELETE_IDEA,
+  SET_IDEAS
 } from 'actions/types'
 
 export const addIdea = (idea) => ({
@@ -37,7 +38,7 @@ export const startAddIdea = (ideaData = {}) => {
       })
     }
 
-    return fetch('http://localhost:5000/create', configuration)
+    return fetch('http://syder-ideas-server.herokuapp.com/create', configuration)
       .then(
         dispatch(addIdea(ideaData))
       )
@@ -68,10 +69,8 @@ export const startAddIdeaDescription = (idea_id = {}, descriptionData = {}) => {
       })
     }
 
-    return fetch('http://localhost:5000/create/description', configuration)
-      .then(
-        dispatch(addIdeaDescription(idea_id, descriptionData))
-      )
+    return fetch('http://syder-ideas-server.herokuapp.com/create/description', configuration)
+      .then(dispatch(addIdeaDescription(idea_id, descriptionData)))
   }
 }
 
@@ -79,6 +78,23 @@ export const deleteIdea = (id) => ({
   type: DELETE_IDEA,
   id
 })
+
+export const startDeleteIdea = (id) => {
+  return dispatch => {
+    const configuration = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        id
+      })
+    }
+
+    return fetch('http://syder-ideas-server.herokuapp.com/delete/idea', configuration)
+      .then(dispatch(deleteIdea(id)))
+  }
+}
 
 export const changeToSummary = () => ({
   type: CHANGE_TO_SUMMARY
@@ -124,3 +140,23 @@ export const deleteFeature = ({ id }) => ({
   type: DELETE_FEATURE,
   id
 })
+
+export const setIdeas = (ideas) => ({
+  type: SET_IDEAS,
+  ideas
+})
+
+export const startSetIdeas = () => {
+  return dispatch => {
+    const configuration = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    
+    return fetch('http://syder-ideas-server.herokuapp.com/api/ideas', configuration)
+      .then(res => res.json())
+      .then(json => dispatch(setIdeas(json)))
+  }
+}

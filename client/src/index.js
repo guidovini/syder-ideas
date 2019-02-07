@@ -5,6 +5,8 @@ import '../node_modules/bulma/css/bulma.css'
 
 import configureStore from 'store/configureStore'
 import AppRouter from 'router/AppRouter'
+import { startSetIdeas } from 'actions'
+import LoadingPage from 'components/LoadingPage'
 
 const store = configureStore()
 
@@ -18,4 +20,17 @@ const jsx = (
   </Provider>
 )
 
-ReactDOM.render(jsx, document.getElementById('app'))
+let hasRendered = false
+const renderApp = () => {
+  if(!hasRendered) {
+    ReactDOM.render(jsx, document.getElementById('app'))
+    hasRendered = true
+  }
+}
+
+ReactDOM.render(<LoadingPage />, document.getElementById('app'))
+
+store.dispatch(startSetIdeas())
+  .then(() => {
+    renderApp()
+  })
