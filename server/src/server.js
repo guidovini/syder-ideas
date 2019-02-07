@@ -1,6 +1,7 @@
 require('dotenv').config();
 
-const pg, { Pool } = require('pg');
+const pg = require('pg');
+const { Pool } = require('pg');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -9,7 +10,7 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 app.use(cors());
-app.set("views", __dirname + '/views')
+app.set("views", __dirname + '/views');
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,7 +20,7 @@ if (process.env.DATABASE_URL) {
   pg.defauls.ssl = true;
 } 
 
-let connString = process.env.DATABASE_URL || process.env.DEV_CONF
+let connString = process.env.DATABASE_URL || process.env.DEV_CONF;
 
 const pool = new Pool({
   connectionString: connString
@@ -28,7 +29,7 @@ const pool = new Pool({
 pool.connect();
 
 app.get("/", (req, res) => {
-  res.send('This is the main page. Go to /api/ideas to gather data and to /api/form to add a new idea')
+  res.send('This is the main page. Go to /api/ideas to gather data and to /api/form to add a new idea');
 });
 
 app.get("/api/ideas", (req, res) => {
@@ -67,4 +68,4 @@ app.post("/create/description", (req, res) => {
   });
 })
 
-app.listen(port, () => console.log(`Listening on port ${port}`))
+app.listen(port, () => console.log(`Listening on port ${port}`));
