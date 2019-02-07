@@ -38,7 +38,7 @@ export const startAddIdea = (ideaData = {}) => {
       })
     }
 
-    return fetch('http://syder-ideas-server.herokuapp.com/create', configuration)
+    return fetch('https://syder-ideas-server.herokuapp.com/create', configuration)
       .then(
         dispatch(addIdea(ideaData))
       )
@@ -69,7 +69,7 @@ export const startAddIdeaDescription = (idea_id = {}, descriptionData = {}) => {
       })
     }
 
-    return fetch('http://syder-ideas-server.herokuapp.com/create/description', configuration)
+    return fetch('https://syder-ideas-server.herokuapp.com/create/description', configuration)
       .then(dispatch(addIdeaDescription(idea_id, descriptionData)))
   }
 }
@@ -91,7 +91,7 @@ export const startDeleteIdea = (id) => {
       })
     }
 
-    return fetch('http://syder-ideas-server.herokuapp.com/delete/idea', configuration)
+    return fetch('https://syder-ideas-server.herokuapp.com/delete/idea', configuration)
       .then(dispatch(deleteIdea(id)))
   }
 }
@@ -155,7 +155,7 @@ export const startSetIdeas = () => {
       }
     }
     
-    return fetch('http://syder-ideas-server.herokuapp.com/api/ideas', configuration)
+    return fetch('https://syder-ideas-server.herokuapp.com/api/ideas', configuration)
       .then(res => res.json())
       .then(json => dispatch(setIdeas(json)))
   }
