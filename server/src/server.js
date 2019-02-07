@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 if (process.env.DATABASE_URL) {
-  pg.defauls.ssl = true;
+  pg.defaults.ssl = true;
 } 
 
 let connString = process.env.DATABASE_URL || process.env.DEV_CONF;
