@@ -15,6 +15,8 @@ import {
   SET_IDEAS
 } from 'actions/types'
 
+const endpoint = process.env.REACT_APP_ENDPOINT
+
 export const addIdea = (idea) => ({
   type: ADD_IDEA,
   idea
@@ -38,7 +40,7 @@ export const startAddIdea = (ideaData = {}) => {
       })
     }
 
-    return fetch('https://syder-ideas-server.herokuapp.com/create', configuration)
+    return fetch(endpoint + '/create', configuration)
       .then(
         dispatch(addIdea(ideaData))
       )
@@ -69,7 +71,7 @@ export const startAddIdeaDescription = (idea_id = {}, descriptionData = {}) => {
       })
     }
 
-    return fetch('https://syder-ideas-server.herokuapp.com/create/description', configuration)
+    return fetch(endpoint + '/create/description', configuration)
       .then(dispatch(addIdeaDescription(idea_id, descriptionData)))
   }
 }
@@ -91,7 +93,7 @@ export const startDeleteIdea = (id) => {
       })
     }
 
-    return fetch('https://syder-ideas-server.herokuapp.com/delete/idea', configuration)
+    return fetch(endpoint + '/delete/idea', configuration)
       .then(dispatch(deleteIdea(id)))
   }
 }
@@ -154,8 +156,8 @@ export const startSetIdeas = () => {
         'Content-Type': 'application/json'
       }
     }
-    
-    return fetch('https://syder-ideas-server.herokuapp.com/api/ideas', configuration)
+
+    return fetch(endpoint + '/api/ideas', configuration)
       .then(res => res.json())
       .then(json => dispatch(setIdeas(json)))
   }
