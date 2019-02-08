@@ -156,7 +156,7 @@ export const startSetIdeas = () => {
         'Content-Type': 'application/json'
       }
     }
-
+    console.log(endpoint)
     return fetch(endpoint + '/api/ideas', configuration)
       .then(res => res.json())
       .then(json => dispatch(setIdeas(json)))
