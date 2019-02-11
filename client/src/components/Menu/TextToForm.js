@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { editFeature } from 'actions'
+import { startEditFeature } from 'actions'
 
 export class TextToForm extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export class TextToForm extends Component {
   }
 
   onFeatureEdit = () => {
-    this.props.dispatch(editFeature(this.props.idea.id, {
+    this.props.dispatch(startEditFeature(this.props.idea.id, {
       id: this.props.feature.id,
       text: this.state.text
     }))

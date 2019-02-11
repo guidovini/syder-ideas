@@ -32,7 +32,18 @@ export default (state = [], action) => {
       return state.filter(({ id }) => id !== action.id)
 
     case SET_IDEAS:
-      return action.ideas
+      return action.ideas.map(({ id, category, name, description, target, last_edited, created_at, user_id }) => {
+        return {
+          id,
+          category, 
+          name,
+          description,
+          target,
+          lastEdited: last_edited,
+          createdAt: created_at,
+          userId: user_id
+        }
+      })
 
     default:
       return state

@@ -15,3 +15,4 @@ export const EDIT_FEATURE = 'EDIT_FEATURE'
 export const DELETE_FEATURE = 'DELETE_FEATURE'
 
 export const SET_IDEAS = 'SET_IDEAS'
+export const SET_FEATURES = 'SET_FEATURES'

@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import TextToForm from 'components/Menu/TextToForm' 
-import { deleteFeature }  from 'actions'
+import { startDeleteFeature }  from 'actions'
 
 export class IdeaFeaturesItem extends Component {
   onFeatureDelete = () => {
-    this.props.dispatch(deleteFeature(this.props.feature))
+    this.props.dispatch(startDeleteFeature(this.props.feature))
   }
 
   render() {

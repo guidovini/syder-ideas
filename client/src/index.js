@@ -5,14 +5,14 @@ import '../node_modules/bulma/css/bulma.css'
 
 import configureStore from 'store/configureStore'
 import AppRouter from 'router/AppRouter'
-import { startSetIdeas } from 'actions'
+import { startSetIdeas, startSetFeatures } from 'actions'
 import LoadingPage from 'components/LoadingPage'
 
 const store = configureStore()
 
-store.subscribe(() => {
-  localStorage.setItem('reduxState', JSON.stringify(store.getState()))
-})
+// store.subscribe(() => {
+//   localStorage.setItem('reduxState', JSON.stringify(store.getState()))
+// })
 
 const jsx = (
   <Provider store={store}>
@@ -31,6 +31,7 @@ const renderApp = () => {
 ReactDOM.render(<LoadingPage />, document.getElementById('app'))
 
 store.dispatch(startSetIdeas())
-  .then(() => {
-    renderApp()
-  })
+  .then(store.dispatch(startSetFeatures()))
+    .then(() => {
+      renderApp()
+    })
