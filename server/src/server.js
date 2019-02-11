@@ -35,48 +35,88 @@ app.get("/", (req, res) => {
 app.get("/api/ideas", (req, res) => {
   const query = 'SELECT * FROM ideas';
 
-  pool.query(query, (err, results) => {
-    if (err) throw err;
+  pool.query(query, (error, results) => {
+    if (error) throw error;
     const ideas = results.rows;
     res.send(ideas);
   });
 });
 
-app.get("/api/form", (req, res) => {
-  res.render("form");
-})
+app.get("/api/features", (req, res) => {
+  const query = 'SELECT * FROM features';
 
-app.post("/create", (req, res) => {
+  pool.query(query, (error, results) => {
+    if (error) throw error;
+    const features = results.rows;
+    res.send(features)
+  });
+});
+
+app.post("/create/idea", (req, res) => {
   const query = 'INSERT INTO ideas(id, category, name, description, target, user_id) VALUES ($1, $2, $3, $4, $5, $6)';
-  const { id, category, name, description, target } = req.body;
-  const values = [id, category, name, description, target, 'user1'];
+  const { id:idea_id, category, name, description, target } = req.body;
+  const values = [idea_id, category, name, description, target, 'user1'];
 
-  pool.query(query, values, (err, result) => {
-    if (err) throw err;
+  pool.query(query, values, (error, result) => {
+    if (error) throw error;
     res.end('Create idea query worked!');
   });
 });
 
 app.post("/create/description", (req, res) => {
   const query = "UPDATE ideas SET name=$1, description=$2, target=$3 WHERE id=$4";
-  const { name='', description='', target='', idea_id='' } = req.body;
+  const { name, description, target, idea_id } = req.body;
   const values = [name, description, target, idea_id];
 
-  pool.query(query, values, (err, result) => {
-    if (err) throw err;
+  pool.query(query, values, (error, result) => {
+    if (error) throw error;
     res.end('Description query worked!');
   });
 });
 
 app.post("/delete/idea", (req, res) => {
   const query = "DELETE FROM ideas WHERE id=$1";
-  const { id:idea_id } = req.body
+  const { id:idea_id } = req.body;
   const values = [idea_id];
 
-  pool.query(query, values, (err, result) => {
-    if (err) throw err;
+  pool.query(query, values, (error, result) => {
+    if (error) throw error;
     res.end('Delete query worked!');
   });
 });
+
+app.post("/create/feature", (req, res) => {
+  const query = "INSERT INTO features (id, text, idea_id, user_id) VALUES ($1, $2, $3, $4)";
+  const { id:feature_id, text, idea_id } = req.body;
+  const values = [feature_id, text, idea_id, 'user1'];
+
+  pool.query(query, values, (error, result) => {
+    if (error) throw error;
+    res.end('Feature added!')
+  });
+});
+
+app.post("/edit/feature", (req, res) => {
+  const query = "UPDATE features SET text=$1 WHERE id=$2";
+  const { text, id:feature_id } = req.body;
+  const values = [text, feature_id];
+
+  pool.query(query, values, (error, result) => {
+    if (error) throw error;
+    res.end('Feature edited!')
+  });
+});
+
+app.post("/delete/feature", (req, res) => {
+  const query = "DELETE FROM features WHERE id=$1";
+  const { id:feature_id } = req.body;
+  const values = [feature_id];
+
+  pool.query(query, values, (error, result) => {
+    if (error) throw error;
+    res.end('Feature deleted!');
+  });
+});
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
