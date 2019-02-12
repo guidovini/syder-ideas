@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { changeToSummary, changeToFeatures, changeToStrategies, changeToInspiration, changeToBusinessModel, changeToPlanning, changeToResources } from 'actions'
+import { changeToSummary, changeToFeatures, changeToStrategies, changeToInspiration, changeToBusinessModel, changeToPlanning, changeToResources } from 'actions/menu'
 
 export class MenuItems extends Component {
   onSummaryClick = () => {

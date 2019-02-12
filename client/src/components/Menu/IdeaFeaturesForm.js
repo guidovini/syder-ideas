@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import uuid from 'uuid/v4'
 
-import { startAddFeature } from 'actions'
+import { startAddFeature } from 'actions/features'
 
 export class IdeaFeaturesForm extends Component {
   constructor(props) {

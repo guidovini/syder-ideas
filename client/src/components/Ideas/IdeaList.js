@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import IdeaItem from 'components/Ideas/IdeaItem'
-import { startDeleteIdea, changeToSummary } from 'actions'
+import { startDeleteIdea } from 'actions/ideas'
+import { changeToSummary } from 'actions/menu'
 
 export class IdeaList extends Component {
   handleDeleteIdea = ({ id }) => {

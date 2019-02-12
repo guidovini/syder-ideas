@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import TextToForm from 'components/Menu/TextToForm' 
-import { startDeleteFeature }  from 'actions'
+import { startDeleteFeature }  from 'actions/features'
 
 export class IdeaFeaturesItem extends Component {
   onFeatureDelete = () => {

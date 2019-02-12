@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { startEditFeature } from 'actions'
+import { startEditFeature } from 'actions/features'
 
 export class TextToForm extends Component {
   constructor(props) {

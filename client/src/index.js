@@ -5,7 +5,8 @@ import '../node_modules/bulma/css/bulma.css'
 
 import configureStore from 'store/configureStore'
 import AppRouter from 'router/AppRouter'
-import { startSetIdeas, startSetFeatures } from 'actions'
+import { startSetIdeas } from 'actions/ideas'
+import { startSetFeatures } from 'actions/features'
 import LoadingPage from 'components/LoadingPage'
 
 const store = configureStore()

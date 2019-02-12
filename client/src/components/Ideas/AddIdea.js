@@ -4,7 +4,7 @@ import uuid from 'uuid/v4'
 import moment from 'moment'
 
 import Header from 'components/Header'
-import { startAddIdea } from 'actions'
+import { startAddIdea } from 'actions/ideas'
 
 
 class AddIdea extends Component {

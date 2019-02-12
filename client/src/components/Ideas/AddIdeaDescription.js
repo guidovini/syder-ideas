@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import Header from 'components/Header'
 import IdeaForm from 'components/Ideas/IdeaForm'
-import { startAddIdeaDescription } from 'actions'
+import { startAddIdeaDescription } from 'actions/ideas'
 
 
 class AddIdeaDescription extends Component {
