@@ -1,4 +1,9 @@
-import { ADD_IDEA, ADD_IDEA_DESCRIPTION, DELETE_IDEA, SET_IDEAS } from 'actions/types'
+import { 
+  ADD_IDEA, 
+  ADD_IDEA_DESCRIPTION, 
+  DELETE_IDEA, 
+  SET_IDEAS 
+} from 'actions/types'
 
 export default (state = [], action) => {
   switch (action.type) {
@@ -44,7 +49,7 @@ export default (state = [], action) => {
           userId: user_id
         }
       })
-
+      
     default:
       return state
   }

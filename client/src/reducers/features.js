@@ -2,7 +2,8 @@ import {
   ADD_FEATURE, 
   EDIT_FEATURE, 
   DELETE_FEATURE,
-  SET_FEATURES 
+  SET_FEATURES,
+  UPDATE_FEATURES_AFTER_IDEA_DELETE
 } from 'actions/types'
 
 const featuresInitialState = []
@@ -46,6 +47,9 @@ export default (state = featuresInitialState, action) => {
         }
       })
       
+  case UPDATE_FEATURES_AFTER_IDEA_DELETE:
+      return state.filter(({ ideaId }) => ideaId !== action.id)
+
   default:
     return state
   }

@@ -2,8 +2,10 @@ import {
   ADD_IDEA, 
   ADD_IDEA_DESCRIPTION, 
   DELETE_IDEA,
-  SET_IDEAS,
+  SET_IDEAS
 } from 'actions/types'
+
+import { startUpdateFeaturesAfterIdeaDelete } from 'actions/features'
 
 const endpoint = process.env.REACT_APP_ENDPOINT
 
@@ -86,7 +88,8 @@ export const startDeleteIdea = (id) => {
       })
     }
 
-    return fetch(endpoint + '/delete/idea', configuration)
+    return dispatch(updateAfterIdeaDelete(id))
+      .then(fetch(endpoint + '/delete/idea', configuration))
       .then(dispatch(deleteIdea(id)))
   }
 }
@@ -108,5 +111,13 @@ export const startSetIdeas = () => {
     return fetch(endpoint + '/api/ideas', configuration)
       .then(res => res.json())
       .then(json => dispatch(setIdeas(json)))
+  }
+}
+
+export const updateAfterIdeaDelete = (id) => {
+  return dispatch => {
+    return dispatch(startUpdateFeaturesAfterIdeaDelete(id))
+      .then(console.log('startUpdateStrategiesAfterIdeaDelete'))
+      .then(console.log('startUpdateCompetitorsAfterIdeaDelete'))
   }
 }

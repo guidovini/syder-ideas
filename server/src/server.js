@@ -118,5 +118,16 @@ app.post("/delete/feature", (req, res) => {
   });
 });
 
+app.post("/update/features", (req, res) => {
+  const query = 'DELETE FROM features WHERE idea_id=$1';
+  const { id:idea_id } = req.body;
+  const values = [idea_id]
+
+  pool.query(query, values, (error, result) => {
+    if (error) throw error;
+    res.send('Features deleted!')
+  })
+})
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

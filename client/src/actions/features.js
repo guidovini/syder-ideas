@@ -2,7 +2,8 @@ import {
   ADD_FEATURE,
   EDIT_FEATURE,
   DELETE_FEATURE, 
-  SET_FEATURES
+  SET_FEATURES,
+  UPDATE_FEATURES_AFTER_IDEA_DELETE
 } from 'actions/types'
 
 const endpoint = process.env.REACT_APP_ENDPOINT
@@ -102,5 +103,28 @@ export const startSetFeatures = () => {
     return fetch(endpoint + '/api/features', configuration)
       .then(res => res.json())
       .then(json => dispatch(setFeatures(json)))
+  }
+}
+
+export const updateFeaturesAfterIdeaDelete = (id) => ({
+  type: UPDATE_FEATURES_AFTER_IDEA_DELETE,
+  id
+})
+
+export const startUpdateFeaturesAfterIdeaDelete = (id) => {
+  return dispatch => {
+    const configuration = {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id
+      })
+    }
+
+    return fetch(endpoint + '/update/features', configuration)
+      .then(dispatch(updateFeaturesAfterIdeaDelete(id)))
   }
 }
