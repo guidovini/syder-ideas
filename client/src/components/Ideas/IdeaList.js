@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import IdeaItem from 'components/Ideas/IdeaItem'
 import { startDeleteIdea } from 'actions/ideas'
 import { changeToSummary } from 'actions/menu'
+import selectIdeas from 'selectors/ideas'
 
 export class IdeaList extends Component {
   handleDeleteIdea = ({ id }) => {
@@ -31,7 +32,7 @@ export class IdeaList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  ideas: state.ideas
+  ideas: selectIdeas(state.ideas, state.filters)
 })
 
 export default connect(mapStateToProps)(IdeaList)

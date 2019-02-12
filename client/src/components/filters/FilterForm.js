@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react'
 
-const FilterForm = ({ handleFilterChange }) => {
+const FilterForm = ({ handleFilterChange, value }) => {
   return (
     <Fragment>
       <form>
         <input 
           className="input" 
-          onChange={handleFilterChange} 
+          onChange={handleFilterChange}
+          value={value} 
         />
       </form>
     </Fragment>

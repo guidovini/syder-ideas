@@ -27,11 +27,15 @@ export class FilterIdeasBar extends Component {
           <SortForm handleSortChange={this.handleSortChange} />
         </div>
         <div className="column">
-          <FilterForm handleFilterChange={this.handleFilterChange}/>
+          <FilterForm handleFilterChange={this.handleFilterChange} value={this.props.value}/>
         </div>
       </div>
     )
   }
 }
 
-export default connect()(FilterIdeasBar)
+const mapStateToProps = (state) => ({
+  value: state.filters.filterText
+})
+
+export default connect(mapStateToProps)(FilterIdeasBar)
