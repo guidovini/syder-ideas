@@ -1,16 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import Header from 'components/Header'
 import Menu from 'components/Menu/Menu'
 import Main from 'components/Main/Main'
-import Options from 'components/Configuration/Configuration'
+import Options from 'components/Options/Options'
 import Navigation from 'components/Navigation'
 
 const Content = ({ idea, menu }) => {
   return (
     <div>
-      <Header />
       <div className="section">
         <Navigation idea={idea}/>
         <div>

@@ -1,12 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import Header from 'components/Header'
-
 export default function Done() {
   return (
     <div>
-      <Header />
       <div className="hero">
         <div className="hero-body">
           <div className="container">

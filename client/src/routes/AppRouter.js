@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import App from 'components/App'
+import LandingPage from 'components/LandingPage'
 import AddIdea from 'components/Ideas/AddIdea'
 import NotFoundPage from 'components/NotFoundPage'
 import Done from 'components/Done'
@@ -13,18 +14,20 @@ import Categories from 'components/Categories'
 
 const AppRouter = () => (
   <Router>
-    <Switch>
-      <Route path='/' component={App} exact />
-      <Route path='/create' component={AddIdea} exact/>
-      <Route path='/create/:id' component={AddIdeaDescription} />
-      <Route path='/idea/:id' component={Content} />
-      <Route path='/edit/:option/:id' component={IdeaFeaturesEdit} />
-      
-      <Route path='/done' component={Done} />
-      <Route path='/dashboard' component={Dashboard} />
-      <Route path='/categories' component={Categories} />
-      <Route component={NotFoundPage} />
-    </Switch>
+    <App>
+      <Switch>
+        <Route path='/' exact component={LandingPage} />
+        <Route path='/create' exact component={AddIdea} />
+        <Route path='/create/:id' component={AddIdeaDescription} />
+        <Route path='/idea/:id' component={Content} />
+        <Route path='/edit/:option/:id' component={IdeaFeaturesEdit} />
+        
+        <Route path='/done' component={Done} />
+        <Route path='/dashboard' component={Dashboard} />
+        <Route path='/categories' component={Categories} />
+        <Route component={NotFoundPage} />
+      </Switch>
+    </App>
   </Router>
 )
 

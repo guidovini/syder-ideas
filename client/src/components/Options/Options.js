@@ -1,12 +1,12 @@
 import React from 'react'
 
-export default function Configuration() {
+export default function Options() {
   return (
     <div className="message is-warning">
-      <h2 className="message-header">Configuration</h2>
+      <h2 className="message-header">Options</h2>
       <div className="column">
         <p className="content">
-          This is the configuration.
+          These are the options.
         </p>
       </div>
     </div>

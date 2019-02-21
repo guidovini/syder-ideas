@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import '../node_modules/bulma/css/bulma.css'
 
 import configureStore from 'store/configureStore'
-import AppRouter from 'router/AppRouter'
+import AppRouter from 'routes/AppRouter'
 import { startSetIdeas } from 'actions/ideas'
 import { startSetFeatures } from 'actions/features'
 import LoadingPage from 'components/LoadingPage'
