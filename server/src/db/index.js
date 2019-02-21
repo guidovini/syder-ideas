@@ -3,7 +3,7 @@ require('dotenv').config();
 const { Pool } = require('pg');
 
 if (process.env.DATABASE_URL) {
-  pg.defaults.ssl = true;
+  pg.defaults.ssl = true
 } 
 
 let connString = process.env.DATABASE_URL || process.env.DEV_CONF;
@@ -12,7 +12,7 @@ const pool = new Pool({
   connectionString: connString
 });
 
-pool.connect();
+// pool.connect();
 
 module.exports = {
   query: (text, params, callback) => {
