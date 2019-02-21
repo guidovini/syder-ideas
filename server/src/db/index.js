@@ -16,8 +16,6 @@ pool.connect();
 
 module.exports = {
   query: (text, params, callback) => {
-    return pool.query(text, params, (err, result) => {
-      callback(err, result)
-    })
+    return pool.query(text, params, callback)
   }
 }

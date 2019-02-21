@@ -13,8 +13,8 @@ exports.features_create = (req, res, next) => {
   const { id:feature_id, text, idea_id } = req.body;
   const values = [feature_id, text, idea_id, 'user1'];
 
-  db.query(query, values, (error, result) => {
-    if (error) throw error;
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
     res.end('Feature added!');
   });
 }
@@ -22,8 +22,8 @@ exports.features_create = (req, res, next) => {
 exports.features_read = (req, res, next) => {
   const query = 'SELECT * FROM features';
   
-  db.query(query, (error, results) => {
-    if (error) throw error;
+  db.query(query, (err, results) => {
+    if (err) throw err;
     const features = results.rows;
     res.send(features);
   });
@@ -35,8 +35,8 @@ exports.features_update = (req, res, next) => {
   const { id:idea_id } = req.body;
   const values = [idea_id];
 
-  db.query(query, values, (error, result) => {
-    if (error) throw error;
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
     res.send('Features deleted!');
   });
 }
@@ -46,8 +46,8 @@ exports.features_delete = (req, res, next) => {
   const { id:feature_id } = req.body;
   const values = [feature_id];
 
-  db.query(query, values, (error, result) => {
-    if (error) throw error;
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
     res.end('Feature deleted!');
   });
 }
@@ -58,8 +58,8 @@ exports.features_edit = (req, res, next) => {
   const { text, id:feature_id } = req.body;
   const values = [text, feature_id];
 
-  db.query(query, values, (error, result) => {
-    if (error) throw error;
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
     res.end('Feature edited!');
   });
 }

@@ -13,8 +13,8 @@ exports.ideas_create = (req, res, next) => {
   const { id:idea_id, category, name, description, target } = req.body;
   const values = [idea_id, category, name, description, target, 'user1'];
 
-  db.query(query, values, (error, result) => {
-    if (error) throw error;
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
     res.end('Create idea query worked!');
   });
 }
@@ -22,8 +22,8 @@ exports.ideas_create = (req, res, next) => {
 exports.ideas_read = (req, res, next) => {
   const query = 'SELECT * FROM ideas';
   
-  db.query(query, (error, results) => {
-    if (error) throw error;
+  db.query(query, (err, results) => {
+    if (err) throw err;
     const ideas = results.rows;
     res.send(ideas);
   });
@@ -34,8 +34,8 @@ exports.ideas_update = (req, res, next) => {
   const { name, description, target, idea_id } = req.body;
   const values = [name, description, target, idea_id];
 
-  db.query(query, values, (error, result) => {
-    if (error) throw error;
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
     res.end('Description query worked!');
   });
 }
@@ -45,8 +45,8 @@ exports.ideas_delete = (req, res, next) => {
   const { id:idea_id } = req.body;
   const values = [idea_id];
 
-  db.query(query, values, (error, result) => {
-    if (error) throw error;
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
     res.end('Delete query worked!');
   });
 }
