@@ -31,7 +31,7 @@ export const startAddFeature = (ideaId, featureData) => {
       })
     }
 
-    return fetch(endpoint + '/create/feature', configuration)
+    return fetch(endpoint + '/features/create', configuration)
       .then(dispatch(addFeature(ideaId, featureData)))
   }
 }
@@ -58,7 +58,7 @@ export const startEditFeature = (ideaId, featureUpdates) => {
       })
     }
 
-    return fetch(endpoint + '/edit/feature', configuration)
+    return fetch(endpoint + '/features/edit', configuration)
       .then(dispatch(editFeature(ideaId, featureUpdates)))
   }
 }
@@ -81,7 +81,7 @@ export const startDeleteFeature = ({ id }) => {
       })
     }
 
-    return fetch(endpoint + '/delete/feature', configuration)
+    return fetch(endpoint + '/features/delete', configuration)
       .then(dispatch(deleteFeature({ id })))
   }
 }
@@ -100,7 +100,7 @@ export const startSetFeatures = () => {
       }
     }
 
-    return fetch(endpoint + '/api/features', configuration)
+    return fetch(endpoint + '/features/api', configuration)
       .then(res => res.json())
       .then(json => dispatch(setFeatures(json)))
   }
@@ -124,7 +124,7 @@ export const startUpdateFeaturesAfterIdeaDelete = (id) => {
       })
     }
 
-    return fetch(endpoint + '/update/features', configuration)
+    return fetch(endpoint + '/features/update', configuration)
       .then(dispatch(updateFeaturesAfterIdeaDelete(id)))
   }
 }

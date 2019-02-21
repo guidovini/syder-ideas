@@ -34,7 +34,7 @@ export const startAddIdea = (ideaData = {}) => {
       })
     }
 
-    return fetch(endpoint + '/create/idea', configuration)
+    return fetch(endpoint + '/ideas/create', configuration)
       .then(
         dispatch(addIdea(ideaData))
       )
@@ -65,7 +65,7 @@ export const startAddIdeaDescription = (ideaId = {}, descriptionData = {}) => {
       })
     }
 
-    return fetch(endpoint + '/create/description', configuration)
+    return fetch(endpoint + '/ideas/update', configuration)
       .then(dispatch(addIdeaDescription(ideaId, descriptionData)))
   }
 }
@@ -89,7 +89,7 @@ export const startDeleteIdea = (id) => {
     }
 
     return dispatch(updateAfterIdeaDelete(id))
-      .then(fetch(endpoint + '/delete/idea', configuration))
+      .then(fetch(endpoint + '/ideas/delete', configuration))
       .then(dispatch(deleteIdea(id)))
   }
 }
@@ -108,7 +108,7 @@ export const startSetIdeas = () => {
       }
     }
     
-    return fetch(endpoint + '/api/ideas', configuration)
+    return fetch(endpoint + '/ideas/api', configuration)
       .then(res => res.json())
       .then(json => dispatch(setIdeas(json)))
   }
