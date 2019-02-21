@@ -32,7 +32,6 @@ class AddIdea extends Component {
   render() {
     return (
       <div>
-        <Header />
         <div className="hero">
           <div className="hero-body">
             <div className="container">

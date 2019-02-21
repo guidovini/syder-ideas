@@ -2,21 +2,7 @@
 // ─── DATABASE SETUP ─────────────────────────────────────────────────────────────
 //
 
-require('dotenv').config();
-
-const pg = require('pg');
-const { Pool } = require('pg');
-
-if (process.env.DATABASE_URL) {
-  pg.defaults.ssl = true;
-} 
-
-let connString = process.env.DATABASE_URL || process.env.DEV_CONF;
-const pool = new Pool({
-  connectionString: connString
-});
-
-pool.connect();
+const db = require('../db');
 
 //
 // ─── FEATURES CONTROLLER ───────────────────────────────────────────────────────────────────────
@@ -27,7 +13,7 @@ exports.features_create = (req, res, next) => {
   const { id:feature_id, text, idea_id } = req.body;
   const values = [feature_id, text, idea_id, 'user1'];
 
-  pool.query(query, values, (error, result) => {
+  db.query(query, values, (error, result) => {
     if (error) throw error;
     res.end('Feature added!');
   });
@@ -36,7 +22,7 @@ exports.features_create = (req, res, next) => {
 exports.features_read = (req, res, next) => {
   const query = 'SELECT * FROM features';
   
-  pool.query(query, (error, results) => {
+  db.query(query, (error, results) => {
     if (error) throw error;
     const features = results.rows;
     res.send(features);
@@ -49,7 +35,7 @@ exports.features_update = (req, res, next) => {
   const { id:idea_id } = req.body;
   const values = [idea_id];
 
-  pool.query(query, values, (error, result) => {
+  db.query(query, values, (error, result) => {
     if (error) throw error;
     res.send('Features deleted!');
   });
@@ -60,7 +46,7 @@ exports.features_delete = (req, res, next) => {
   const { id:feature_id } = req.body;
   const values = [feature_id];
 
-  pool.query(query, values, (error, result) => {
+  db.query(query, values, (error, result) => {
     if (error) throw error;
     res.end('Feature deleted!');
   });
@@ -72,7 +58,7 @@ exports.features_edit = (req, res, next) => {
   const { text, id:feature_id } = req.body;
   const values = [text, feature_id];
 
-  pool.query(query, values, (error, result) => {
+  db.query(query, values, (error, result) => {
     if (error) throw error;
     res.end('Feature edited!');
   });

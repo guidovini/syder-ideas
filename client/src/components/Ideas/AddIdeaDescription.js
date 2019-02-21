@@ -15,7 +15,6 @@ class AddIdeaDescription extends Component {
   render() {
     return (
       <div>
-        <Header />
         <div className="section">
           <div className="container">
             <h2 className="title is-5">Your idea is a: {this.props.idea.category}</h2>

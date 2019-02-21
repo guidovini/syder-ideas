@@ -2,21 +2,7 @@
 // ─── DATABASE SETUP ─────────────────────────────────────────────────────────────
 //
 
-require('dotenv').config();
-
-const pg = require('pg');
-const { Pool } = require('pg');
-
-if (process.env.DATABASE_URL) {
-  pg.defaults.ssl = true;
-} 
-
-let connString = process.env.DATABASE_URL || process.env.DEV_CONF;
-const pool = new Pool({
-  connectionString: connString
-});
-
-pool.connect();
+const db = require('../db');
 
 //
 // ─── IDEAS CONTROLLER ───────────────────────────────────────────────────────────
@@ -27,7 +13,7 @@ exports.ideas_create = (req, res, next) => {
   const { id:idea_id, category, name, description, target } = req.body;
   const values = [idea_id, category, name, description, target, 'user1'];
 
-  pool.query(query, values, (error, result) => {
+  db.query(query, values, (error, result) => {
     if (error) throw error;
     res.end('Create idea query worked!');
   });
@@ -36,7 +22,7 @@ exports.ideas_create = (req, res, next) => {
 exports.ideas_read = (req, res, next) => {
   const query = 'SELECT * FROM ideas';
   
-  pool.query(query, (error, results) => {
+  db.query(query, (error, results) => {
     if (error) throw error;
     const ideas = results.rows;
     res.send(ideas);
@@ -48,7 +34,7 @@ exports.ideas_update = (req, res, next) => {
   const { name, description, target, idea_id } = req.body;
   const values = [name, description, target, idea_id];
 
-  pool.query(query, values, (error, result) => {
+  db.query(query, values, (error, result) => {
     if (error) throw error;
     res.end('Description query worked!');
   });
@@ -59,7 +45,7 @@ exports.ideas_delete = (req, res, next) => {
   const { id:idea_id } = req.body;
   const values = [idea_id];
 
-  pool.query(query, values, (error, result) => {
+  db.query(query, values, (error, result) => {
     if (error) throw error;
     res.end('Delete query worked!');
   });
