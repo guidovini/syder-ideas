@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import uuid from 'uuid/v4'
 import moment from 'moment'
 
-import Header from 'components/Header'
 import { startAddIdea } from 'actions/ideas'
 
 
