@@ -12,10 +12,10 @@ const pool = new Pool({
   connectionString: connString
 });
 
-// pool.connect();
+pool.connect();
 
 module.exports = {
   query: (text, params, callback) => {
-    return pool.query(text, params, callback);
+    return pool.query(text, params, callback)
   }
 }
