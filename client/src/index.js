@@ -11,10 +11,6 @@ import LoadingPage from 'components/LoadingPage'
 
 const store = configureStore()
 
-// store.subscribe(() => {
-//   localStorage.setItem('reduxState', JSON.stringify(store.getState()))
-// })
-
 const jsx = (
   <Provider store={store}>
     <AppRouter />
