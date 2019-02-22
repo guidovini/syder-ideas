@@ -3,16 +3,16 @@ import { connect } from 'react-redux'
 
 import SortForm from 'components/filters/SortForm'
 import FilterForm from 'components/filters/FilterForm'
-import { sortByLastEdited, sortByLastCreated, sortByTitle, setFilterText } from 'actions/filters'
+import { sortByLastUpdated, sortByLastCreated, sortAlphabetically, setFilterText } from 'actions/filters'
 
 export class FilterIdeasBar extends Component {
   handleSortChange = (e) => {
-    if (e.target.value === 'lastEdited') {
-      this.props.dispatch(sortByLastEdited())
-    } else if (e.target.value === 'lastCreated') {
+    if (e.target.value === 'updated') {
+      this.props.dispatch(sortByLastUpdated())
+    } else if (e.target.value === 'created') {
       this.props.dispatch(sortByLastCreated())
     } else {
-      this.props.dispatch(sortByTitle())
+      this.props.dispatch(sortAlphabetically())
     }
   }
 

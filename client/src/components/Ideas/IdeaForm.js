@@ -9,7 +9,7 @@ export class IdeaForm extends Component {
       name: props.idea ? props.idea.name : '',
       description: props.idea ? props.idea.description : '',
       target: props.idea ? props.idea.target : '',
-      modifiedAt: moment()
+      lastEdited: moment().format("YYYY-MM-DD HH:mm:ss.SSS")
     }
   }
 
@@ -34,7 +34,7 @@ export class IdeaForm extends Component {
       name: this.state.name,
       description: this.state.description,
       target: this.state.target,
-      modifiedAt: this.state.modifiedAt.valueOf()
+      lastEdited: this.state.lastEdited
     })
   }
 

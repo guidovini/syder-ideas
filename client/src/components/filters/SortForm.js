@@ -5,9 +5,9 @@ const SortForm = ({ handleSortChange}) => {
     <Fragment>
       <form className="select">
         <select onChange={handleSortChange}>
-          <option value='title'>Title</option>
-          <option value='lastEdited'>Last Edited</option>
-          <option value='lastCreated'>Last Created</option>
+          <option value='alphabetically'>Alphabetically</option>
+          <option value='updated'>Updated</option>
+          <option value='created'>Created</option>
         </select>
       </form>
     </Fragment>

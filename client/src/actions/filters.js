@@ -1,16 +1,16 @@
 import { 
-  SORT_BY_TITLE,
-  SORT_BY_LAST_EDITED,
+  SORT_ALPHABETICALLY,
+  SORT_BY_LAST_UPDATED,
   SORT_BY_LAST_CREATED,
   SET_FILTER_TEXT 
 } from 'actions/types'
 
-export const sortByTitle = () => ({
-  type: SORT_BY_TITLE,
+export const sortAlphabetically = () => ({
+  type: SORT_ALPHABETICALLY,
 })
 
-export const sortByLastEdited = () => ({
-  type: SORT_BY_LAST_EDITED,
+export const sortByLastUpdated = () => ({
+  type: SORT_BY_LAST_UPDATED,
 })
 
 export const sortByLastCreated = () => ({

@@ -19,7 +19,7 @@ class AddIdea extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const id = uuid()
-    const createdAt = moment().valueOf()
+    const createdAt = moment().format("YYYY-MM-DD HH:mm:ss.SSS")
     this.props.dispatch(startAddIdea({
       id,
       category: this.state.category,

@@ -14,7 +14,7 @@ export default (state = [], action) => {
           id: action.idea.id,
           category: action.idea.category,
           createdAt: action.idea.createdAt,
-          modifiedAt: action.idea.createdAt,
+          lastEdited: action.idea.createdAt,
         }
       ]
 
@@ -26,7 +26,7 @@ export default (state = [], action) => {
             name: action.updates.name,
             description: action.updates.description,
             target: action.updates.target,
-            modifiedAt: action.updates.modifiedAt
+            lastEdited: action.updates.lastEdited
           }
         } else {
           return idea

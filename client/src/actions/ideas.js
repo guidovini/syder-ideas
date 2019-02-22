@@ -30,7 +30,8 @@ export const startAddIdea = (ideaData = {}) => {
         category,
         name: 'Undefined Idea',
         description: 'No description',
-        target: 'No target'
+        target: 'No target',
+        created_at: createdAt
       })
     }
 
@@ -49,7 +50,7 @@ export const addIdeaDescription = (id, updates) => ({
 
 export const startAddIdeaDescription = (ideaId = {}, descriptionData = {}) => {
   return dispatch => {
-    const { name='Undefined Idea', description='No description', target='No target' } = descriptionData
+    const { name='Undefined Idea', description='No description', target='No target', lastEdited } = descriptionData
 
     const configuration = {
       method: 'POST',
@@ -61,7 +62,8 @@ export const startAddIdeaDescription = (ideaId = {}, descriptionData = {}) => {
         name,
         description,
         target,
-        idea_id: ideaId
+        idea_id: ideaId,
+        last_edited: lastEdited
       })
     }
 
