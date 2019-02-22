@@ -58,5 +58,9 @@ exports.signup = (req, res, next) => {
 }
 
 exports.login = (req, res, next) => {
+  res.send({ token: tokenForUser(req.user) });
+}
 
+exports.blocked_access = (req, res, next) => {
+  res.send({ message: 'You have unlocked blocked content' });
 }

@@ -24,9 +24,9 @@ const config = require('../../config');
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
   secretOrKey: config.secret
-}
+};
 
-const jwtLogin = JwtStrategy(jwtOptions, (payload, done) => {
+const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
   db.query('SELECT * FROM users WHERE id=$1', [payload.sub], (err, result) => {
     const user = result.rows[0];
     if (err) { return done(err); };
@@ -46,7 +46,7 @@ const localOptions = {
   usernameField: 'email'
 };
 
-const localLogin = LocalStrategy(localOptions, (email, password, done) => {
+const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
   db.query('SELECT * FROM users WHERE email=$1', [email], (err, result) => {
     if (err) { return done(err); }
     const user = result.rows[0];
