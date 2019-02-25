@@ -7,6 +7,7 @@ import {
 } from 'actions/types'
 
 const endpoint = process.env.REACT_APP_ENDPOINT
+const featuresAPIRoute = '/api/features'
 
 export const addFeature = (id, feature) => ({
   type: ADD_FEATURE,
@@ -31,7 +32,7 @@ export const startAddFeature = (ideaId, featureData) => {
       })
     }
 
-    return fetch(endpoint + '/features/create', configuration)
+    return fetch(endpoint + featuresAPIRoute + '/create', configuration)
       .then(dispatch(addFeature(ideaId, featureData)))
   }
 }
@@ -58,7 +59,7 @@ export const startEditFeature = (ideaId, featureUpdates) => {
       })
     }
 
-    return fetch(endpoint + '/features/edit', configuration)
+    return fetch(endpoint + featuresAPIRoute + '/edit', configuration)
       .then(dispatch(editFeature(ideaId, featureUpdates)))
   }
 }
@@ -81,7 +82,7 @@ export const startDeleteFeature = ({ id }) => {
       })
     }
 
-    return fetch(endpoint + '/features/delete', configuration)
+    return fetch(endpoint + featuresAPIRoute + '/delete', configuration)
       .then(dispatch(deleteFeature({ id })))
   }
 }
@@ -100,7 +101,7 @@ export const startSetFeatures = () => {
       }
     }
 
-    return fetch(endpoint + '/features/api', configuration)
+    return fetch(endpoint + featuresAPIRoute + '/', configuration)
       .then(res => res.json())
       .then(json => dispatch(setFeatures(json)))
   }
@@ -124,7 +125,7 @@ export const startUpdateFeaturesAfterIdeaDelete = (id) => {
       })
     }
 
-    return fetch(endpoint + '/features/update', configuration)
+    return fetch(endpoint + featuresAPIRoute + '/update', configuration)
       .then(dispatch(updateFeaturesAfterIdeaDelete(id)))
   }
 }

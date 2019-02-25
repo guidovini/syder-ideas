@@ -12,7 +12,7 @@ const features_controller = require('../controllers/features');
 //
 
 router.post("/create", features_controller.features_create);
-router.get("/api", features_controller.features_read);
+router.get("/", features_controller.features_read);
 router.post("/edit", features_controller.features_edit);
 router.post("/delete", features_controller.features_delete);
 router.post("/update", features_controller.features_update);

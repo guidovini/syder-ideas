@@ -28,8 +28,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: '*/*' }));
 
 app.use('/', indexRouter);
-app.use('/ideas', ideasRouter);
-app.use('/features', featuresRouter);
+app.use('/api/ideas', ideasRouter);
+app.use('/api/features', featuresRouter);
 app.use('/', authRouter)
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

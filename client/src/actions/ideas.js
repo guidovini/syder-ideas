@@ -8,6 +8,7 @@ import {
 import { startUpdateFeaturesAfterIdeaDelete } from 'actions/features'
 
 const endpoint = process.env.REACT_APP_ENDPOINT
+const ideasAPIRoute = '/api/ideas'
 
 export const addIdea = (idea) => ({
   type: ADD_IDEA,
@@ -35,7 +36,7 @@ export const startAddIdea = (ideaData = {}) => {
       })
     }
 
-    return fetch(endpoint + '/ideas/create', configuration)
+    return fetch(endpoint + ideasAPIRoute + '/create', configuration)
       .then(
         dispatch(addIdea(ideaData))
       )
@@ -67,7 +68,7 @@ export const startAddIdeaDescription = (ideaId = {}, descriptionData = {}) => {
       })
     }
 
-    return fetch(endpoint + '/ideas/update', configuration)
+    return fetch(endpoint + ideasAPIRoute + '/update', configuration)
       .then(dispatch(addIdeaDescription(ideaId, descriptionData)))
   }
 }
@@ -91,7 +92,7 @@ export const startDeleteIdea = (id) => {
     }
 
     return dispatch(updateAfterIdeaDelete(id))
-      .then(fetch(endpoint + '/ideas/delete', configuration))
+      .then(fetch(endpoint + ideasAPIRoute + '/delete', configuration))
       .then(dispatch(deleteIdea(id)))
   }
 }
@@ -110,7 +111,7 @@ export const startSetIdeas = () => {
       }
     }
     
-    return fetch(endpoint + '/ideas/api', configuration)
+    return fetch(endpoint + ideasAPIRoute + '/', configuration)
       .then(res => res.json())
       .then(json => dispatch(setIdeas(json)))
   }

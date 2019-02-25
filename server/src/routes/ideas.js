@@ -12,7 +12,7 @@ const ideas_controller = require('../controllers/ideas');
 //
 
 router.post("/create", ideas_controller.ideas_create);
-router.get("/api", ideas_controller.ideas_read);
+router.get("/", ideas_controller.ideas_read);
 router.post("/update", ideas_controller.ideas_update);
 router.post("/delete", ideas_controller.ideas_delete);
 
