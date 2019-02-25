@@ -15,7 +15,7 @@ const createFeature = (req, res) => {
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.end('Feature added!');
+    res.status(201).send(`Feature ADDED with ID: ${feature_id}`);
   });
 }
 
@@ -25,7 +25,7 @@ const getFeatures = (req, res) => {
   db.query(query, (err, results) => {
     if (err) throw err;
     const features = results.rows;
-    res.send(features);
+    res.status(200).json(features);
   });
 }
 
@@ -36,7 +36,7 @@ const updateFeature = (req, res) => {
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.end('Feature edited!');
+    res.status(200).send(`Feature UPDATED with ID: {feature_id}`);
   });
 }
 
@@ -47,7 +47,7 @@ const deleteFeature = (req, res) => {
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.end('Feature deleted!');
+    res.status(200).send(`Feature DELETED with ID: ${feature_id}`);
   });
 }
 
@@ -58,7 +58,7 @@ const deleteFeaturesAfterIdeaDelete = (req, res) => {
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.send('Features deleted!');
+    res.status(200).send(`All features DELETED from idea with ID: ${idea_id}`);
   });
 }
 

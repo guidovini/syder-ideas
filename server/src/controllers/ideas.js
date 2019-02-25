@@ -15,7 +15,7 @@ const createIdea = (req, res) => {
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.end('Create idea query worked!');
+    res.status(201).send(`Idea ADDED with ID: ${idea_id}`);
   });
 }
 
@@ -25,7 +25,7 @@ const getIdeas = (req, res) => {
   db.query(query, (err, results) => {
     if (err) throw err;
     const ideas = results.rows;
-    res.send(ideas);
+    res.status(200).json(ideas);
   });
 }
 
@@ -36,7 +36,7 @@ const updateIdea = (req, res) => {
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.end('Description query worked!');
+    res.status(200).send(`Idea UPDATED with ID: ${idea_id}`);
   });
 }
 
@@ -47,7 +47,7 @@ const deleteIdea = (req, res) => {
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.end('Delete query worked!');
+    res.status(200).send(`Idea DELETED with ID: ${idea_id}`);
   });
 }
 
