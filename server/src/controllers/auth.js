@@ -36,7 +36,7 @@ const hashPassword = (password) => {
 // ─── AUTH CONTROLLER ────────────────────────────────────────────────────────────
 //
 
-exports.signup = (req, res, next) => {
+exports.signup = (req, res) => {
   const { id, email, password } = req.body;
 
   if (!email || !password) {
@@ -57,10 +57,10 @@ exports.signup = (req, res, next) => {
     .catch(err => console.log(err))
 }
 
-exports.login = (req, res, next) => {
+exports.login = (req, res) => {
   res.send({ token: tokenForUser(req.user) });
 }
 
-exports.blocked_access = (req, res, next) => {
+exports.blocked_access = (req, res) => {
   res.send({ message: 'You have unlocked blocked content' });
 }
