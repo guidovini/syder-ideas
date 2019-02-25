@@ -23,7 +23,6 @@ export const startAddIdea = (ideaData = {}) => {
     const configuration = {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -54,9 +53,8 @@ export const startAddIdeaDescription = (ideaId = {}, descriptionData = {}) => {
     const { name='Undefined Idea', description='No description', target='No target', lastEdited } = descriptionData
 
     const configuration = {
-      method: 'POST',
+      method: 'PUT',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -81,9 +79,8 @@ export const deleteIdea = (id) => ({
 export const startDeleteIdea = (id) => {
   return dispatch => {
     const configuration = {
-      method: 'POST',
+      method: 'DELETE',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({

@@ -22,7 +22,6 @@ export const startAddFeature = (ideaId, featureData) => {
     const configuration = {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -48,9 +47,8 @@ export const startEditFeature = (ideaId, featureUpdates) => {
     const {id, text} = featureUpdates
 
     const configuration = {
-      method: 'POST',
+      method: 'PUT',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -59,7 +57,7 @@ export const startEditFeature = (ideaId, featureUpdates) => {
       })
     }
 
-    return fetch(endpoint + featuresAPIRoute + '/edit', configuration)
+    return fetch(endpoint + featuresAPIRoute + '/update', configuration)
       .then(dispatch(editFeature(ideaId, featureUpdates)))
   }
 }
@@ -72,9 +70,8 @@ export const deleteFeature = ({ id }) => ({
 export const startDeleteFeature = ({ id }) => {
   return dispatch => {
     const configuration = {
-      method: 'POST',
+      method: 'DELETE',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -115,9 +112,8 @@ export const updateFeaturesAfterIdeaDelete = (id) => ({
 export const startUpdateFeaturesAfterIdeaDelete = (id) => {
   return dispatch => {
     const configuration = {
-      method: 'POST',
+      method: 'DELETE',
       headers: {
-        'Accept': 'application/json',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -125,7 +121,7 @@ export const startUpdateFeaturesAfterIdeaDelete = (id) => {
       })
     }
 
-    return fetch(endpoint + featuresAPIRoute + '/update', configuration)
+    return fetch(endpoint + featuresAPIRoute + '/clear', configuration)
       .then(dispatch(updateFeaturesAfterIdeaDelete(id)))
   }
 }
