@@ -10,7 +10,7 @@ class Logout extends Component {
 
   render() {
     return (
-      <div className="hero is-medium is-warning">
+      <div className="hero is-medium">
         <div className="hero-body">
           <div className="container">
             <h2 className="subtitle is-3">See you next time!</h2>
