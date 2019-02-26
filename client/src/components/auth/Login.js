@@ -21,8 +21,12 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.dispatch(login(this.state, () => {
-      this.props.history.push('/dashboard')
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    this.props.dispatch(login(user, () => {
+      this.props.history.push(`/dashboard`)
       console.log('Login was succesful')
     }))
   }

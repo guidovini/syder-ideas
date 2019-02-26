@@ -13,6 +13,7 @@ import IdeaFeaturesEdit from 'components/Menu/IdeaFeaturesEdit'
 import Categories from 'components/Categories'
 import Login from 'components/auth/Login'
 import Signup from 'components/auth/Signup'
+import Logout from 'components/auth/Logout'
 
 const AppRouter = () => (
   <Router>
@@ -28,8 +29,9 @@ const AppRouter = () => (
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/categories' component={Categories} />
 
-        <Route path='/signup' component={Signup}/>
-        <Route path='/login' component={Login}/>
+        <Route path='/signup' component={Signup} />
+        <Route path='/login' component={Login} />
+        <Route path='/logout' component={Logout} />
 
         <Route component={NotFoundPage} />
       </Switch>

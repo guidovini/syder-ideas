@@ -21,9 +21,13 @@ class Signup extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    this.props.dispatch(signup(this.state, () => {
-      this.props.history.push('/dashboard')
-      console.log('Signin was succesful')
+    const user = {
+      email: this.state.email,
+      password: this.state.password
+    }
+    this.props.dispatch(signup(user, () => {
+      this.props.history.push(`/dashboard`)
+      console.log('Signup was succesful')
     }))
   }
 

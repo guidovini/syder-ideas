@@ -9,6 +9,11 @@ export default () => {
 
   const store = createStore(
     reducers,
+    {
+      auth: {
+        authenticated: localStorage.getItem('token')
+      }
+    },
     componseEnhancers(applyMiddleware(thunk))
   )
 

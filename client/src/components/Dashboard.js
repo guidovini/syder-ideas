@@ -2,8 +2,9 @@ import React from 'react'
 
 import IdeaList from 'components/Ideas/IdeaList'
 import FilterIdeasBar from 'components/filters/FilterIdeasBar'
+import requireAuth from 'middleware/requireAuth'
 
-export default function Dashboard() {
+const Dashboard = () => {
   return (
     <div>
       <div className="section">
@@ -16,3 +17,5 @@ export default function Dashboard() {
     </div>
   )
 }
+
+export default requireAuth(Dashboard)
