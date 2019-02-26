@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Done() {
+import requireAuth from 'middleware/requireAuth'
+
+const Done = () => {
   return (
     <div>
       <div className="hero">
@@ -22,3 +24,5 @@ export default function Done() {
     </div>
   )
 }
+
+export default requireAuth(Done)

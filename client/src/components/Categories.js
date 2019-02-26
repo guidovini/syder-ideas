@@ -1,8 +1,9 @@
 import React from 'react'
 
 import CategoryList from 'components/CategoryList'
+import requireAuth from '../middleware/requireAuth';
 
-export default function Categories() {
+const Categories = () => {
   return (
     <div>
       <div className="section">
@@ -14,3 +15,5 @@ export default function Categories() {
     </div>
   )
 }
+
+export default requireAuth(Categories)

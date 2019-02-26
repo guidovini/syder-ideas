@@ -10,8 +10,8 @@ const db = require('../db');
 
 const createIdea = (req, res) => {
   const query = 'INSERT INTO ideas(id, category, name, description, target, created_at, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7)';
-  const { id:idea_id, category, name, description, target, created_at } = req.body;
-  const values = [idea_id, category, name, description, target, created_at, 'user1'];
+  const { id:idea_id, category, name, description, target, created_at, user_id } = req.body;
+  const values = [idea_id, category, name, description, target, created_at, user_id];
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
@@ -22,10 +22,22 @@ const createIdea = (req, res) => {
 const getIdeas = (req, res) => {
   const query = 'SELECT * FROM ideas';
   
-  db.query(query, (err, results) => {
+  db.query(query, (err, result) => {
     if (err) throw err;
-    const ideas = results.rows;
+    const ideas = result.rows;
     res.status(200).json(ideas);
+  });
+}
+
+const getIdeasByUserId = (req, res) => {
+  const query = 'SELECT * FROM ideas WHERE user_id=$1';
+  const user_id = req.params.userId;
+  const values = [user_id];
+
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
+    const ideasByUser = result.rows;
+    res.status(200).json(ideasByUser);
   });
 }
 
@@ -54,6 +66,7 @@ const deleteIdea = (req, res) => {
 module.exports = {
   createIdea,
   getIdeas,
+  getIdeasByUserId,
   updateIdea,
   deleteIdea
 }

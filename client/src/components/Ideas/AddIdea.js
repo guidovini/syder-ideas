@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { compose } from 'redux'
 import uuid from 'uuid/v4'
 import moment from 'moment'
 
 import { startAddIdea } from 'actions/ideas'
+import requireAuth from 'middleware/requireAuth'
 
 
 class AddIdea extends Component {
@@ -64,4 +66,7 @@ const mapStateToProps = (state) => ({
   ideas: state.ideas
 })
 
-export default connect(mapStateToProps)(AddIdea)
+export default compose(
+  requireAuth,
+  connect(mapStateToProps)
+)(AddIdea)

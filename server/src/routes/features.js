@@ -5,23 +5,17 @@
 const express = require('express');
 const router = express.Router();
 
-const { 
-  createFeature, 
-  getFeatures, 
-  updateFeature, 
-  deleteFeature, 
-  deleteFeaturesAfterIdeaDelete 
-} = require('../controllers/features');
+const featuresController = require('../controllers/features');
 
 //
 // ─── FEATURES ROUTER ────────────────────────────────────────────────────────────
 //
 
-router.post("/create", createFeature);
-router.get("/", getFeatures);
-router.put("/update", updateFeature);
-router.delete("/delete", deleteFeature);
+router.post("/create", featuresController.createFeature);
+router.get("/", featuresController.getFeatures);
+router.put("/update", featuresController.updateFeature);
+router.delete("/delete", featuresController.deleteFeature);
 
-router.delete("/clear", deleteFeaturesAfterIdeaDelete);
+router.delete("/clear", featuresController.deleteFeaturesAfterIdeaDelete);
 
 module.exports = router;
