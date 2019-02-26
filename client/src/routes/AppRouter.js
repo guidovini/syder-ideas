@@ -11,6 +11,8 @@ import AddIdeaDescription from 'components/Ideas/AddIdeaDescription'
 import Content from 'components/Content'
 import IdeaFeaturesEdit from 'components/Menu/IdeaFeaturesEdit'
 import Categories from 'components/Categories'
+import Login from 'components/auth/Login'
+import Signup from 'components/auth/Signup'
 
 const AppRouter = () => (
   <Router>
@@ -25,6 +27,10 @@ const AppRouter = () => (
         <Route path='/done' component={Done} />
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/categories' component={Categories} />
+
+        <Route path='/signup' component={Signup}/>
+        <Route path='/login' component={Login}/>
+
         <Route component={NotFoundPage} />
       </Switch>
     </App>

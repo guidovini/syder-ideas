@@ -107,10 +107,12 @@ export const startSetIdeas = () => {
         'Content-Type': 'application/json'
       }
     }
-    
-    return fetch(endpoint + ideasAPIRoute + '/', configuration)
+    const userId = 'ac2486b2-ebdf-4054-809b-7dcdcba2880c'
+
+    return fetch(endpoint + ideasAPIRoute + '/' + userId, configuration)
       .then(res => res.json())
       .then(json => dispatch(setIdeas(json)))
+      .catch(err => console.log(err))
   }
 }
 

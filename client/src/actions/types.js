@@ -25,3 +25,7 @@ export const SORT_ALPHABETICALLY = 'SORT_ALPHABETICALLY'
 export const SORT_BY_LAST_UPDATED = 'SORT_BY_LAST_UPDATED'
 export const SORT_BY_LAST_CREATED = 'SORT_BY_LAST_CREATED'
 export const SET_FILTER_TEXT = 'SET_FILTER_TEXT'
+
+// auth types
+export const AUTH_USER = 'AUTH_USER'
+export const AUTH_ERROR = 'AUTH_ERROR'
