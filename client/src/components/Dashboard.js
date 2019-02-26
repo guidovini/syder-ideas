@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Welcome from 'components/Welcome'
 import IdeaList from 'components/Ideas/IdeaList'
 import FilterIdeasBar from 'components/filters/FilterIdeasBar'
 import requireAuth from 'middleware/requireAuth'
