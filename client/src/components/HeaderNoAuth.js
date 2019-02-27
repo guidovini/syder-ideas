@@ -4,6 +4,18 @@ import { NavLink } from 'react-router-dom'
 export default () => {
   return (
     <div className="navbar-end">
+
+      <NavLink 
+        to="/login"
+        activeClassName="navbar-item is-active" 
+        className="navbar-item"
+      >
+        <div className="button is-primary is-inverted">
+          <span className="icon"><i className="fas fa-sign-in-alt"></i></span>
+          <span>Log In</span>
+        </div>
+      </NavLink>
+
       <NavLink 
         to="/signup"
         activeClassName="navbar-item is-active" 
@@ -14,17 +26,7 @@ export default () => {
           <span>Sign Up</span>
         </div>
       </NavLink>
-
-      <NavLink 
-        to="/login"
-        activeClassName="navbar-item is-active" 
-        className="navbar-item"
-      >
-        <div className="button is-primary">
-          <span className="icon"><i className="fas fa-sign-in-alt"></i></span>
-          <span>Log In</span>
-        </div>
-      </NavLink>
+      
     </div>
   )
 }

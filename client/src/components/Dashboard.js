@@ -8,10 +8,12 @@ const Dashboard = () => {
   return (
     <div>
       <div className="section">
-        <div className="container">
-          <h2 className="title is-4">Dashboard</h2>
-          <FilterIdeasBar />
-          <IdeaList />
+        <div className="columns is-centered">
+          <div className="column is-three-fifths">
+            <h2 className="title is-4">Dashboard</h2>
+            <FilterIdeasBar />
+            <IdeaList />
+          </div>
         </div>
       </div>
     </div>

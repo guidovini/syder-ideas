@@ -22,9 +22,7 @@ const IdeaSummary = ({ idea }) => {
         {idea.target}
       </div>    
       <div className="column is-2 is-offset-10">
-        <Link to={`/create/${idea.id}`}>
-          <button className="button is-text">Edit</button>
-        </Link>
+        <Link to={`/create/${idea.id}`} className="button is-primary">Edit</Link>
       </div>
     </div>
   )

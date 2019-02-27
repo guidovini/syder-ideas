@@ -1,11 +1,13 @@
 import { AUTH_USER, AUTH_ERROR } from 'actions/types'
 
 const endpoint = process.env.REACT_APP_ENDPOINT
+const uuidv4 = require('uuid/v4')
 
 export const signup = (formInfo, callback) => {
   return (dispatch) => {
     try {    
-      const { id, email, password } = formInfo
+      const id = uuidv4()
+      const { email, password } = formInfo
 
       const configuration = {
         method: 'POST',

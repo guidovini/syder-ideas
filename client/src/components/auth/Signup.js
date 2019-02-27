@@ -26,7 +26,7 @@ class Signup extends Component {
       password: this.state.password
     }
     this.props.dispatch(signup(user, () => {
-      this.props.history.push(`/dashboard`)
+      this.props.history.push('/dashboard')
       console.log('Signup was succesful')
     }))
   }
@@ -34,21 +34,48 @@ class Signup extends Component {
   render() {
     return (
       <div className="section">
-        <form onSubmit={this.handleSubmit} className="container">
-          <fieldset className="field">
-            <label className="label">Email</label>
-            <input type="email" value={this.state.email} onChange={this.handleChangeEmail} className="input" />
-          </fieldset>
+        <div className="columns is-centered">
+          <div className="column is-one-third">
 
-          <fieldset className="field">
-            <label className="label">Password</label>
-            <input type="password" value={this.state.password} onChange={this.handleChangePassword} className="input" />
-          </fieldset>
+            <h1 className="title">Sign Up</h1>
+            
+            <form onSubmit={this.handleSubmit}>
+              <div className="field">
+                <label className="label">Email</label>
+                <div className="control">
+                  <input 
+                    type="email" 
+                    value={this.state.email}
+                    placeholder="Email" 
+                    onChange={this.handleChangeEmail} 
+                    className="input is-medium" />
+                </div>
+              </div>
 
-          <fieldset className="field">
-            <input type="submit" className="button is-link" value="Signup"/>
-          </fieldset>
-        </form>
+              <div className="field">
+                <label className="label">Password</label>
+                <div className="control">
+                  <input 
+                    type="password" 
+                    value={this.state.password} 
+                    placeholder="Password"
+                    onChange={this.handleChangePassword} 
+                    className="input is-medium" />
+                </div>
+              </div>
+
+              <div className="field">
+                <div className="control">
+                  <input 
+                    type="submit" 
+                    className="button is-link is-medium" 
+                    value="Signup"/>
+                </div>
+              </div>
+            </form>
+            
+          </div>
+        </div>
       </div>
     )
   }
