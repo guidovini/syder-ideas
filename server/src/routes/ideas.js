@@ -15,10 +15,10 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 // ─── IDEAS ROUTER ───────────────────────────────────────────────────────────────
 //
 
-router.post("/create", ideasController.createIdea);
+router.post("/create", requireAuth, ideasController.createIdea);
 router.get("/", ideasController.getIdeas);
-router.get("/:userId", requireAuth, ideasController.getIdeasByUserId);
-router.put("/update", ideasController.updateIdea);
-router.delete("/delete", ideasController.deleteIdea);
+router.get("/user", requireAuth, ideasController.getIdeasByUserId);
+router.put("/update", requireAuth, ideasController.updateIdea);
+router.delete("/delete", requireAuth, ideasController.deleteIdea);
 
 module.exports = router;

@@ -10,7 +10,8 @@ const db = require('../db');
 
 const createIdea = (req, res) => {
   const query = 'INSERT INTO ideas(id, category, name, description, target, created_at, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7)';
-  const { id:idea_id, category, name, description, target, created_at, user_id } = req.body;
+  const { id:idea_id, category, name, description, target, created_at } = req.body;
+  const user_id = req.user.id;
   const values = [idea_id, category, name, description, target, created_at, user_id];
 
   db.query(query, values, (err, result) => {

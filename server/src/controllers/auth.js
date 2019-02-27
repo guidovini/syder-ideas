@@ -47,7 +47,7 @@ exports.signup = (req, res) => {
     const query = 'INSERT INTO users(id, username, password, email) VALUES($1, $2, $3, $4)';
     const values = [id, email, hashedPassword, email];
     db.query(query, values, (err, result) => {
-      if (err) { return res.status(422).send({ error: 'Error creating user' }) };
+      if (err) { return res.sendStatus(422) };
       res.json({ token: tokenForUser({ id }) })
     });
   }
