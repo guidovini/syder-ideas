@@ -23,7 +23,8 @@ export const startAddIdea = (ideaData = {}) => {
     const configuration = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
       },
       body: JSON.stringify({
         id,
@@ -36,9 +37,8 @@ export const startAddIdea = (ideaData = {}) => {
     }
 
     return fetch(endpoint + ideasAPIRoute + '/create', configuration)
-      .then(
-        dispatch(addIdea(ideaData))
-      )
+      .then(dispatch(addIdea(ideaData)))
+      .catch(err => console.log(err))
   }
 }
 
@@ -51,11 +51,13 @@ export const addIdeaDescription = (id, updates) => ({
 export const startAddIdeaDescription = (ideaId = {}, descriptionData = {}) => {
   return dispatch => {
     const { name='Undefined Idea', description='No description', target='No target', lastEdited } = descriptionData
+    const updates = { name, description, target, lastEdited }
 
     const configuration = {
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
       },
       body: JSON.stringify({
         name,
@@ -67,7 +69,8 @@ export const startAddIdeaDescription = (ideaId = {}, descriptionData = {}) => {
     }
 
     return fetch(endpoint + ideasAPIRoute + '/update', configuration)
-      .then(dispatch(addIdeaDescription(ideaId, descriptionData)))
+      .then(dispatch(addIdeaDescription(ideaId, updates)))
+      .catch(err => console.log(err))
   }
 }
 
@@ -82,6 +85,7 @@ export const startDeleteIdea = (id) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
       },
       body: JSON.stringify({
         id
@@ -91,6 +95,7 @@ export const startDeleteIdea = (id) => {
     return dispatch(updateAfterIdeaDelete(id))
       .then(fetch(endpoint + ideasAPIRoute + '/delete', configuration))
       .then(dispatch(deleteIdea(id)))
+      .catch(err => console.log(err))
   }
 }
 
@@ -104,12 +109,12 @@ export const startSetIdeas = () => {
     const configuration = {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
       }
     }
-    const userId = ''
 
-    return fetch(endpoint + ideasAPIRoute + '/' + userId, configuration)
+    return fetch(endpoint + ideasAPIRoute + '/user', configuration)
       .then(res => res.json())
       .then(json => dispatch(setIdeas(json)))
       .catch(err => console.log(err))
@@ -121,5 +126,6 @@ export const updateAfterIdeaDelete = (id) => {
     return dispatch(startUpdateFeaturesAfterIdeaDelete(id))
       .then(console.log('startUpdateStrategiesAfterIdeaDelete'))
       .then(console.log('startUpdateCompetitorsAfterIdeaDelete'))
+      .catch(err => console.log(err))
   }
 }

@@ -1,4 +1,4 @@
-import { AUTH_USER, AUTH_ERROR } from 'actions/types'
+import { AUTH_USER, AUTH_ERROR, USER_LOGOUT } from 'actions/types'
 
 const endpoint = process.env.REACT_APP_ENDPOINT
 const uuidv4 = require('uuid/v4')
@@ -23,14 +23,14 @@ export const signup = (formInfo, callback) => {
 
       return fetch(endpoint + '/signup', configuration)
         .then(res => res.json())
-        .then((response) => {
-          console.log(response)
+        .then(response => {
           dispatch({ type: AUTH_USER, payload: response.token })
           localStorage.setItem('token', response.token)
           callback()
         })
+        .catch(err => dispatch({ type: AUTH_ERROR, payload: 'Auth error. Try again' }))
     } catch (e) {
-      dispatch({ type: AUTH_ERROR, payload: 'Auth error' })
+      dispatch({ type: AUTH_ERROR, payload: 'Auth error. Try again' })
     }
   }
 }
@@ -57,6 +57,7 @@ export const login = (formInfo, callback) => {
           localStorage.setItem('token', response.token)
           callback()
         })
+        .catch(err => dispatch({ type: AUTH_ERROR, payload: 'Invalid login credentials'}))
     } catch(e) {
       dispatch({ type: AUTH_ERROR, payload: 'Invalid login credentials' })
     }
@@ -64,10 +65,9 @@ export const login = (formInfo, callback) => {
 }
 
 export const logout = () => {
-  localStorage.removeItem('token')
-
-  return {
-    type: AUTH_USER,
-    payload: ''
+  return (dispatch) => {
+    localStorage.removeItem('token')
+    dispatch({ type: USER_LOGOUT })
+    dispatch({ type: AUTH_USER, payload: '' })
   }
 }

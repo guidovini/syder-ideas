@@ -33,6 +33,7 @@ export const startAddFeature = (ideaId, featureData) => {
 
     return fetch(endpoint + featuresAPIRoute + '/create', configuration)
       .then(dispatch(addFeature(ideaId, featureData)))
+      .catch(err => console.log(err))
   }
 }
 
@@ -59,6 +60,7 @@ export const startEditFeature = (ideaId, featureUpdates) => {
 
     return fetch(endpoint + featuresAPIRoute + '/update', configuration)
       .then(dispatch(editFeature(ideaId, featureUpdates)))
+      .catch(err => console.log(err))
   }
 }
 
@@ -81,6 +83,7 @@ export const startDeleteFeature = ({ id }) => {
 
     return fetch(endpoint + featuresAPIRoute + '/delete', configuration)
       .then(dispatch(deleteFeature({ id })))
+      .catch(err => console.log(err))
   }
 }
 
@@ -101,6 +104,7 @@ export const startSetFeatures = () => {
     return fetch(endpoint + featuresAPIRoute + '/', configuration)
       .then(res => res.json())
       .then(json => dispatch(setFeatures(json)))
+      .catch(err => console.log(err))
   }
 }
 
@@ -123,5 +127,6 @@ export const startUpdateFeaturesAfterIdeaDelete = (id) => {
 
     return fetch(endpoint + featuresAPIRoute + '/clear', configuration)
       .then(dispatch(updateFeaturesAfterIdeaDelete(id)))
+      .catch(err => console.log(err))
   }
 }

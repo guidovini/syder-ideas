@@ -31,6 +31,12 @@ class Signup extends Component {
     }))
   }
 
+  renderErrorMessage() {
+    if (this.props.errorMessage) {
+      return <p className="help is-danger">{this.props.errorMessage}</p>
+    }
+  }
+
   render() {
     return (
       <div className="section">
@@ -62,6 +68,7 @@ class Signup extends Component {
                     onChange={this.handleChangePassword} 
                     className="input is-medium" />
                 </div>
+                {this.renderErrorMessage()}
               </div>
 
               <div className="field">
@@ -81,4 +88,8 @@ class Signup extends Component {
   }
 }
 
-export default connect()(Signup)
+const mapStateToProps = (state) => ({
+  errorMessage: state.auth.errorMessage
+})
+
+export default connect(mapStateToProps)(Signup)

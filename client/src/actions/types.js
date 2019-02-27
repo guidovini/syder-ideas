@@ -29,3 +29,4 @@ export const SET_FILTER_TEXT = 'SET_FILTER_TEXT'
 // auth types
 export const AUTH_USER = 'AUTH_USER'
 export const AUTH_ERROR = 'AUTH_ERROR'
+export const USER_LOGOUT = 'USER_LOGOUT'
