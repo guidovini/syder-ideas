@@ -8,15 +8,15 @@ export default function Navigation({ idea }) {
         <div className="column">
           {idea 
             ? 
-              <nav className="breadcrumb">
+              <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                   <li><Link to="/dashboard">Dashboard</Link> </li>
                   <li><Link to="/categories">{idea.category}</Link> </li>
-                  <li><Link to={`/create/${idea.id}`}>{idea.name}</Link></li>
+                  <li><Link to={`/create/${idea.id}`} className="has-text-weight-bold">{idea.name}</Link></li>
                 </ul>
               </nav>
             : 
-              <nav className="breadcrumb">
+              <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                   <li><Link to="/dashboard">Dashboard</Link> </li>
                 </ul> 

@@ -14,6 +14,8 @@ import Categories from 'components/Categories'
 import Login from 'components/auth/Login'
 import Signup from 'components/auth/Signup'
 import Logout from 'components/auth/Logout'
+import Help from 'components/Help'
+import Profile from 'components/Profile'
 
 const AppRouter = () => (
   <Router>
@@ -28,6 +30,8 @@ const AppRouter = () => (
         <Route path='/done' component={Done} />
         <Route path='/dashboard' component={Dashboard} />
         <Route path='/categories' component={Categories} />
+        <Route path='/help' component={Help} />
+        <Route path='/profile' component={Profile} />
 
         <Route path='/signup' component={Signup} />
         <Route path='/login' component={Login} />
