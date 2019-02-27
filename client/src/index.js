@@ -5,8 +5,6 @@ import '../node_modules/bulma/css/bulma.css'
 
 import configureStore from 'store/configureStore'
 import AppRouter from 'routes/AppRouter'
-import { startSetIdeas } from 'actions/ideas'
-import { startSetFeatures } from 'actions/features'
 import LoadingPage from 'components/LoadingPage'
 
 const store = configureStore()
@@ -26,9 +24,4 @@ const renderApp = () => {
 }
 
 ReactDOM.render(<LoadingPage />, document.getElementById('app'))
-
-store.dispatch(startSetIdeas())
-  .then(store.dispatch(startSetFeatures()))
-    .then(() => {
-      renderApp()
-    })
+renderApp()

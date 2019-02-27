@@ -23,6 +23,7 @@ export const startAddFeature = (ideaId, featureData) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
       },
       body: JSON.stringify({
         id,
@@ -51,6 +52,7 @@ export const startEditFeature = (ideaId, featureUpdates) => {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
       },
       body: JSON.stringify({
         id,
@@ -75,6 +77,7 @@ export const startDeleteFeature = ({ id }) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
       },
       body: JSON.stringify({
         id
@@ -97,11 +100,12 @@ export const startSetFeatures = () => {
     const configuration = {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
       }
     }
 
-    return fetch(endpoint + featuresAPIRoute + '/', configuration)
+    return fetch(endpoint + featuresAPIRoute + '/user', configuration)
       .then(res => res.json())
       .then(json => dispatch(setFeatures(json)))
       .catch(err => console.log(err))
@@ -119,6 +123,7 @@ export const startUpdateFeaturesAfterIdeaDelete = (id) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
       },
       body: JSON.stringify({
         id

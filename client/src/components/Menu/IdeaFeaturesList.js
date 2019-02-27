@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import IdeaFeaturesItem from 'components/Menu/IdeaFeaturesItem'
-
+import { startSetFeatures } from 'actions/features'
 
 export class IdeaFeaturesList extends Component {
+  componentDidMount() {
+    this.props.dispatch(startSetFeatures())
+  }
+
   render() {
     return (
       <div>

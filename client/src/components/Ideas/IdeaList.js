@@ -5,6 +5,7 @@ import IdeaItem from 'components/Ideas/IdeaItem'
 import { startDeleteIdea } from 'actions/ideas'
 import { changeToSummary } from 'actions/menu'
 import selectIdeas from 'selectors/ideas'
+import { startSetIdeas } from 'actions/ideas'
 
 export class IdeaList extends Component {
   handleDeleteIdea = ({ id }) => {
@@ -13,6 +14,10 @@ export class IdeaList extends Component {
 
   changeToSummary = () => {
     this.props.dispatch(changeToSummary())
+  }
+  
+  componentDidMount() {
+    this.props.dispatch(startSetIdeas())
   }
 
   render() {
