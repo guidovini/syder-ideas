@@ -29,12 +29,12 @@ const jwtOptions = {
 const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {
   db.query('SELECT * FROM users WHERE id=$1', [payload.sub], (err, result) => {
     const user = result.rows[0];
-    if (err) { return done(err); };
+    if (err) { return done(err); }
     if (user) { 
       return done(null, user) 
     } else {
       return done(null, false)
-    };
+    }
   });
 });
 
@@ -62,7 +62,7 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
     comparePassword(password, user.password, (err, isMatch) => {
       if (err) { return done(err); }
       if (!isMatch) { return done(null, false); } 
-      return done(null, isMatch);
+      return done(null, user);
     });
   });
 });

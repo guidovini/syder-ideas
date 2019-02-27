@@ -31,7 +31,7 @@ const getIdeas = (req, res) => {
 
 const getIdeasByUserId = (req, res) => {
   const query = 'SELECT * FROM ideas WHERE user_id=$1';
-  const user_id = req.params.userId;
+  const user_id = req.user.id;
   const values = [user_id];
 
   db.query(query, values, (err, result) => {

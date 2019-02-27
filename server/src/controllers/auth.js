@@ -17,9 +17,9 @@ const config = require('../../config');
 // ─── HELPERS ────────────────────────────────────────────────────────────────────
 //
 
-const tokenForUser = (user) => {
+const tokenForUser = ({ id }) => {
   const timestamp = new Date().getTime();
-  return jwt.encode({ sub:user.id, iat:timestamp }, config.secret);
+  return jwt.encode({ sub:id, iat:timestamp }, config.secret);
 }
 
 const hashPassword = (password) => {
