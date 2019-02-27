@@ -40,7 +40,8 @@ exports.signup = (req, res) => {
   const { id, email, password } = req.body;
 
   if (!email || !password) {
-    return res.status(422).send({ error: 'Please provide an email and password' });
+    // return res.status(422).send({ error: 'Please provide an email and password' });
+    return res.sendStatus(422);
   }
 
   const createUser = (id, email, hashedPassword) => {

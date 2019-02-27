@@ -11,7 +11,8 @@ const db = require('../db');
 const createFeature = (req, res) => {
   const query = "INSERT INTO features (id, text, idea_id, user_id) VALUES ($1, $2, $3, $4)";
   const { id:feature_id, text, idea_id } = req.body;
-  const values = [feature_id, text, idea_id, 'user1'];
+  const user_id = req.user.id;
+  const values = [feature_id, text, idea_id, user_id];
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
@@ -22,9 +23,21 @@ const createFeature = (req, res) => {
 const getFeatures = (req, res) => {
   const query = 'SELECT * FROM features';
   
-  db.query(query, (err, results) => {
+  db.query(query, (err, result) => {
     if (err) throw err;
-    const features = results.rows;
+    const features = result.rows;
+    res.status(200).json(features);
+  });
+}
+
+const getFeaturesByUserId = (req, res) => {
+  const query = 'SELECT * FROM features WHERE user_id=$1';
+  const user_id = req.user.id;
+  const values = [user_id];
+
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
+    const features = result.rows;
     res.status(200).json(features);
   });
 }
@@ -65,6 +78,7 @@ const deleteFeaturesAfterIdeaDelete = (req, res) => {
 module.exports = {
   createFeature,
   getFeatures,
+  getFeaturesByUserId,
   updateFeature,
   deleteFeature,
   deleteFeaturesAfterIdeaDelete,
