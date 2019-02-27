@@ -2,8 +2,13 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import CategoryItem from 'components/CategoryItem'
+import { startSetIdeas } from 'actions/ideas'
 
 export class CategoryList extends Component {
+  componentDidMount() {
+    this.props.dispatch(startSetIdeas())
+  }
+
   render() {
     let categories = new Set([])
     this.props.ideas.forEach(idea => categories.add(idea.category))
@@ -14,7 +19,7 @@ export class CategoryList extends Component {
         {categories.map(category => {
           const conditions = this.props.ideas.filter(idea => idea.category === category)
           return (
-            <div key={category} className="section">
+            <div key={category} className="column">
               <h3 className="title is-5">{category}</h3>
               {conditions.map(condition => {
                 return (
