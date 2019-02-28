@@ -1,5 +1,7 @@
 import React from 'react'
 
+import requireAuth from 'middleware/requireAuth'
+
 const Help = () => {
   return (
     <div className="section">
@@ -13,4 +15,4 @@ const Help = () => {
   )
 }
 
-export default Help
+export default requireAuth(Help)

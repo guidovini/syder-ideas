@@ -1,5 +1,7 @@
 import React from 'react'
 
+import requireAuth from 'middleware/requireAuth'
+
 const Profile = () => {
   return (
     <div className="section">
@@ -9,7 +11,7 @@ const Profile = () => {
 
             <div className="section">
               <figure className="image is-128x128">
-                <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" />
+                <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt='profile' />
               </figure>
             </div>
             
@@ -39,4 +41,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default requireAuth(Profile)

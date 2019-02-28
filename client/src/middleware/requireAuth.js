@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import jwtDecode from 'jwt-decode'
 
 export default ChildComponent => {
   class ComposedComponent extends Component {
@@ -12,7 +13,16 @@ export default ChildComponent => {
     }
 
     shouldNavigateAway() {
-      if (!this.props.auth) {
+      let decoded = ''
+      try {
+        decoded = jwtDecode(this.props.auth)
+      } catch (e) {
+        console.log('INVALID TOKEN', e)
+        localStorage.removeItem('token')
+        decoded = ''
+      }
+
+      if (!decoded) {
         this.props.history.push('/')
       }
     }

@@ -1,12 +1,23 @@
 import React, { Component } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
+import jwtDecode from 'jwt-decode'
+
 import HeaderAuth from 'components/HeaderAuth'
 import HeaderNoAuth from 'components/HeaderNoAuth'
 
 class Header extends Component {
   renderNavBarEnd() {
-    if (this.props.authenticated) { 
+    let decode = ''
+    try {
+      decode = jwtDecode(this.props.auth)
+    } catch (e) {
+      console.log('INVALID TOKEN', e)
+      localStorage.removeItem('token')
+      decode = ''
+    }
+
+    if (decode) { 
       return <HeaderAuth /> 
     } else { 
       return <HeaderNoAuth /> 
@@ -14,7 +25,16 @@ class Header extends Component {
   }
 
   renderCreateNewIdeaButton() {
-    if (this.props.authenticated) {
+    let decode = ''
+    try {
+      decode = jwtDecode(this.props.auth)
+    } catch (e) {
+      console.log('INVALID TOKEN', e)
+      localStorage.removeItem('token')
+      decode = ''
+    }
+
+    if (decode) {
       return (
         <NavLink 
           to="/create" 
@@ -38,7 +58,7 @@ class Header extends Component {
         <nav className="navbar has-shadow" role="navigation" aria-label="main navigation">
 
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item"><h1 className="title is-5">SyderIdeas</h1></Link>
+            <Link to="/dashboard" className="navbar-item"><h1 className="title is-5">SyderIdeas</h1></Link>
             <p className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="syderHeader">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -64,7 +84,7 @@ class Header extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  authenticated: state.auth.authenticated
+  auth: state.auth.authenticated
 })
 
 export default connect(mapStateToProps)(Header)
