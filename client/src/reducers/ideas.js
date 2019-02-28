@@ -5,7 +5,19 @@ import {
   SET_IDEAS 
 } from 'actions/types'
 
-export default (state = [], action) => {
+const INITIAL_STATE = [
+  {
+    id: '',
+    category: '',
+    createdAt: '',
+    lastEdited: '',
+    name: '',
+    description: '',
+    target: ''
+  }
+]
+
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ADD_IDEA:
       return [

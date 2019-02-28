@@ -8,7 +8,7 @@ export default function Navigation({ idea }) {
         <div className="column">
           {idea 
             ? 
-              <nav class="breadcrumb" aria-label="breadcrumbs">
+              <nav className="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                   <li><Link to="/dashboard">Dashboard</Link> </li>
                   <li><Link to="/categories">{idea.category}</Link> </li>
@@ -16,7 +16,7 @@ export default function Navigation({ idea }) {
                 </ul>
               </nav>
             : 
-              <nav class="breadcrumb" aria-label="breadcrumbs">
+              <nav className="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                   <li><Link to="/dashboard">Dashboard</Link> </li>
                 </ul> 
