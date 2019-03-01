@@ -16,4 +16,8 @@ export default (ideas, { sortBy, filterText }) => {
           return ''
         }
       })
+        .sort((a, b) => {
+          if (a.favorite > b.favorite) return -1
+          else return 1
+        })
 }
