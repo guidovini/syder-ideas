@@ -2,7 +2,9 @@ import {
   ADD_IDEA, 
   ADD_IDEA_DESCRIPTION, 
   DELETE_IDEA,
-  SET_IDEAS
+  SET_IDEAS,
+  FAVORITE_IDEA,
+  ARCHIVE_IDEA
 } from 'actions/types'
 
 import { startUpdateFeaturesAfterIdeaDelete } from 'actions/features'
@@ -129,3 +131,17 @@ export const updateAfterIdeaDelete = (id) => {
       .catch(err => console.log(err))
   }
 }
+
+export const favoriteIdea = (id) => ({
+  type: FAVORITE_IDEA,
+  payload: {
+    id
+  }
+})
+
+export const archiveIdea = (id) => ({
+  type: ARCHIVE_IDEA,
+  payload: {
+    id
+  }
+})

@@ -13,6 +13,8 @@ export const ADD_IDEA_DESCRIPTION = 'ADD_IDEA_DESCRIPTION'
 export const DELETE_IDEA = 'DELETE_IDEA'
 export const SET_IDEAS = 'SET_IDEAS'
 export const SET_FEATURES = 'SET_FEATURES'
+export const FAVORITE_IDEA = 'FAVORITE_IDEA'
+export const ARCHIVE_IDEA = 'ARCHIVE_IDEA'
 
 // features types
 export const ADD_FEATURE = 'ADD_FEATURE'
