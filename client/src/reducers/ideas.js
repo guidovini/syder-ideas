@@ -62,6 +62,8 @@ export default (state = INITIAL_STATE, action) => {
           target: idea.target,
           lastEdited: idea.last_edited,
           createdAt: idea.created_at,
+          favorite: idea.favorite,
+          archive: idea.archive,
           userId: idea.user_id
         }
       })

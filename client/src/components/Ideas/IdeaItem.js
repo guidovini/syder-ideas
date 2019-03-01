@@ -5,12 +5,25 @@ export default function IdeaItem (
   { 
     id, 
     category, 
-    name, 
+    name,
+    favorite, 
+    archive,
     handleDeleteIdea, 
     handleFavoriteIdea,
     handleArchiveIdea, 
     changeToSummary 
   }) {
+
+  const favoriteCondition = {
+    true: 'button is-warning',
+    false: 'button'
+  }  
+
+  const archiveCondition = {
+    true: 'button is-success',
+    false: 'button'
+  }
+
   return (
     <div className="columns is-mobile is-vcentered">
       <div className="column">
@@ -29,14 +42,14 @@ export default function IdeaItem (
       <div className="column is-narrow is-marginless is-paddingless">
         <button 
           onClick={() => {handleFavoriteIdea({ id })}}
-          className="button"
+          className={favoriteCondition[favorite]}
         >
           <span className="icon"><i className="far fa-star"></i></span>
         </button>
 
         <button 
           onClick={() => {handleArchiveIdea({ id })}}
-          className="button"
+          className={archiveCondition[archive]}
         >
           <span className="icon"><i className="fas fa-check"></i></span>
         </button>
