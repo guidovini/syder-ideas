@@ -17,12 +17,10 @@ class IdeaList extends Component {
 
   handleFavoriteIdea = ({ id }) => {
     this.props.dispatch(startFavoriteIdea(id))
-    // console.log('Favorite idea', id)
   }
 
   handleArchiveIdea = ({ id }) => {
     this.props.dispatch(startArchiveIdea(id))
-    // console.log('Archive idea', id)
   }
 
   changeToSummary = () => {

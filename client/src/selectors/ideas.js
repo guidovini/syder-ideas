@@ -1,6 +1,7 @@
 export default (ideas, { sortBy, filterText }) => {
   return ideas
     .filter((idea) => {
+      if (!idea.name) return idea
       const textMatch = idea.name.toLowerCase().includes(filterText.toLowerCase())
 
       return textMatch
