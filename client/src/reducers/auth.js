@@ -13,7 +13,8 @@ export default (state = INITIAL_STATE, action) => {
     case AUTH_USER:
       return {
         ...state,
-        authenticated: action.payload
+        authenticated: action.payload,
+        errorMessage: ''
       }
 
     case AUTH_ERROR:
