@@ -9,14 +9,15 @@ const db = require('../db');
 //
 
 const createIdea = (req, res) => {
-  const query = 'INSERT INTO ideas(id, category, name, description, target, created_at, user_id) VALUES ($1, $2, $3, $4, $5, $6, $7)';
-  const { id:idea_id, category, name, description, target, created_at } = req.body;
+  const { id, category, name='Undefined idea' } = req.body;
   const user_id = req.user.id;
-  const values = [idea_id, category, name, description, target, created_at, user_id];
+
+  const query = 'INSERT INTO ideas(id, category, name, user_id) VALUES ($1, $2, $3, $4)';
+  const values = [id, category, name, user_id];
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.status(201).send(`Idea ADDED with ID: ${idea_id}`);
+    res.status(201).send(`Idea ADDED with ID: ${id}`);
   });
 }
 
@@ -31,8 +32,9 @@ const getIdeas = (req, res) => {
 }
 
 const getIdeasByUserId = (req, res) => {
-  const query = 'SELECT * FROM ideas WHERE user_id=$1';
   const user_id = req.user.id;
+
+  const query = 'SELECT * FROM ideas WHERE user_id=$1';
   const values = [user_id];
 
   db.query(query, values, (err, result) => {
@@ -43,24 +45,55 @@ const getIdeasByUserId = (req, res) => {
 }
 
 const updateIdea = (req, res) => {
+  const { 
+    id, 
+    name = 'Undefined idea', 
+    description = '', 
+    target = '', 
+    last_edited
+  } = req.body; 
+
   const query = "UPDATE ideas SET name=$1, description=$2, target=$3, last_edited=$4 WHERE id=$5";
-  const { name, description, target, idea_id, last_edited } = req.body;
-  const values = [name, description, target, last_edited, idea_id];
+  const values = [name, description, target, last_edited, id];
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.status(200).send(`Idea UPDATED with ID: ${idea_id}`);
+    res.status(200).send(`Idea UPDATED with ID: ${id}`);
   });
 }
 
 const deleteIdea = (req, res) => {
   const query = "DELETE FROM ideas WHERE id=$1";
-  const { id:idea_id } = req.body;
-  const values = [idea_id];
+  const { id } = req.body;
+  const values = [id];
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.status(200).send(`Idea DELETED with ID: ${idea_id}`);
+    res.status(200).send(`Idea DELETED with ID: ${id}`);
+  });
+}
+
+const favoriteIdea = (req, res) => {
+  const id = req.body.id;
+
+  const query = "UPDATE ideas SET favorite=NOT favorite WHERE id=$1";
+  const values = [id];
+
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
+    res.status(200).send(`Idea FAVORITED with ID: ${id}`);
+  });
+}
+
+const archiveIdea = (req, res) => {
+  const id = req.body.id;
+
+  const query = "UPDATE ideas SET archive=NOT archive WHERE id=$1";
+  const values = [id];
+
+  db.query(query, values, (err, result) => {
+    if (err) throw err;
+    res.status(200).send(`Idea ARCHIVED with ID: ${id}`);
   });
 }
 
@@ -69,5 +102,7 @@ module.exports = {
   getIdeas,
   getIdeasByUserId,
   updateIdea,
-  deleteIdea
+  deleteIdea,
+  favoriteIdea,
+  archiveIdea
 }

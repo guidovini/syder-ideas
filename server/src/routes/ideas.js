@@ -21,4 +21,7 @@ router.get("/user", requireAuth, ideasController.getIdeasByUserId);
 router.put("/update", requireAuth, ideasController.updateIdea);
 router.delete("/delete", requireAuth, ideasController.deleteIdea);
 
+router.put("/favorite", requireAuth, ideasController.favoriteIdea);
+router.put("/archive", requireAuth, ideasController.archiveIdea);
+
 module.exports = router;
