@@ -54,7 +54,14 @@ class IdeaList extends Component {
       return (
         <div>
           <div className="section">
-            <p className="subtitle is-3 has-text-centered has-text-link">Add some ideas!</p>
+          {
+            this.props.filterVisibility === 'favorite' 
+              ? <p className="subtitle is-3 has-text-centered has-text-dark">There are no favorite ideas</p>
+              : this.props.filterVisibility === 'archive' 
+                ? <p className="subtitle is-3 has-text-centered has-text-success">There are no archived ideas</p>
+                : <p className="subtitle is-3 has-text-centered has-text-link">Add some ideas!</p>
+          }
+            
           </div>
 
           <div>
@@ -69,7 +76,8 @@ class IdeaList extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  ideas: selectIdeas(state.ideas, state.filters)
+  ideas: selectIdeas(state.ideas, state.filters),
+  filterVisibility: state.filters.filterVisibility
 })
 
 export default connect(mapStateToProps)(IdeaList)
