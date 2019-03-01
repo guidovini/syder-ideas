@@ -2,7 +2,9 @@ import {
   ADD_IDEA, 
   ADD_IDEA_DESCRIPTION, 
   DELETE_IDEA, 
-  SET_IDEAS 
+  SET_IDEAS,
+  FAVORITE_IDEA,
+  ARCHIVE_IDEA 
 } from 'actions/types'
 
 const INITIAL_STATE = [
@@ -13,7 +15,9 @@ const INITIAL_STATE = [
     lastEdited: '',
     name: '',
     description: '',
-    target: ''
+    target: '',
+    favorite: false,
+    archive: false
   }
 ]
 
@@ -49,16 +53,40 @@ export default (state = INITIAL_STATE, action) => {
       return state.filter(({ id }) => id !== action.id)
 
     case SET_IDEAS:
-      return action.ideas.map(({ id, category, name, description, target, last_edited, created_at, user_id }) => {
+      return action.ideas.map((idea) => {
         return {
-          id,
-          category, 
-          name,
-          description,
-          target,
-          lastEdited: last_edited,
-          createdAt: created_at,
-          userId: user_id
+          id: idea.id,
+          category: idea.category, 
+          name: idea.name,
+          description: idea.description,
+          target: idea.target,
+          lastEdited: idea.last_edited,
+          createdAt: idea.created_at,
+          userId: idea.user_id
+        }
+      })
+
+    case FAVORITE_IDEA:
+      return state.map(idea => {
+        if (idea.id === action.payload.id) {
+          return {
+            ...idea,
+            favorite: !idea.favorite
+          }
+        } else {
+          return idea 
+        }
+      })
+    
+    case ARCHIVE_IDEA:
+      return state.map(idea => {
+        if (idea.id === action.payload.id) {
+          return {
+            ...idea,
+            archive: !idea.archive
+          }
+        } else {
+          return idea
         }
       })
       
