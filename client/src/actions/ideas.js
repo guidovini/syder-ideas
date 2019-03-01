@@ -20,7 +20,7 @@ export const addIdea = (idea) => ({
 export const startAddIdea = (ideaData = {}) => {
   return dispatch => {
     // eslint-disable-next-line
-    const { id, category, createdAt } = ideaData
+    const { id, category } = ideaData
 
     const configuration = {
       method: 'POST',
@@ -30,11 +30,7 @@ export const startAddIdea = (ideaData = {}) => {
       },
       body: JSON.stringify({
         id,
-        category,
-        name: 'Undefined Idea',
-        description: 'No description',
-        target: 'No target',
-        created_at: createdAt
+        category
       })
     }
 
@@ -52,8 +48,12 @@ export const addIdeaDescription = (id, updates) => ({
 
 export const startAddIdeaDescription = (ideaId = {}, descriptionData = {}) => {
   return dispatch => {
-    const { name='Undefined Idea', description='No description', target='No target', lastEdited } = descriptionData
-    const updates = { name, description, target, lastEdited }
+    const {
+      name, 
+      description, 
+      target, 
+      lastEdited, 
+    } = descriptionData
 
     const configuration = {
       method: 'PUT',
@@ -62,16 +62,16 @@ export const startAddIdeaDescription = (ideaId = {}, descriptionData = {}) => {
         'authorization': localStorage.getItem('token')
       },
       body: JSON.stringify({
+        id: ideaId,
         name,
         description,
         target,
-        idea_id: ideaId,
-        last_edited: lastEdited
+        last_edited: lastEdited,
       })
     }
 
     return fetch(endpoint + ideasAPIRoute + '/update', configuration)
-      .then(dispatch(addIdeaDescription(ideaId, updates)))
+      .then(dispatch(addIdeaDescription(ideaId, descriptionData)))
       .catch(err => console.log(err))
   }
 }
@@ -139,9 +139,47 @@ export const favoriteIdea = (id) => ({
   }
 })
 
+export const startFavoriteIdea = (id) => {
+  return dispatch => {
+    const configuration = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
+      },
+      body: JSON.stringify({
+        id
+      })
+    }
+    
+    return fetch(endpoint + ideasAPIRoute + '/favorite', configuration)
+      .then(dispatch(favoriteIdea(id)))
+      .catch(err => console.log(err))
+  }
+}
+
 export const archiveIdea = (id) => ({
   type: ARCHIVE_IDEA,
   payload: {
     id
   }
 })
+
+export const startArchiveIdea = (id) => {
+  return dispatch => {
+    const configuration = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'authorization': localStorage.getItem('token')
+      },
+      body: JSON.stringify({
+        id
+      })
+    }
+
+    return fetch(endpoint + ideasAPIRoute + '/archive', configuration)
+      .then(dispatch(archiveIdea(id)))
+      .catch(err => console.log(err))
+  }
+}

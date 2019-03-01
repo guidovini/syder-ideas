@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 
 import IdeaItem from 'components/Ideas/IdeaItem'
 import { startDeleteIdea } from 'actions/ideas'
+import { startFavoriteIdea } from 'actions/ideas'
+import { startArchiveIdea } from 'actions/ideas'
+import { startSetIdeas } from 'actions/ideas'
 import { changeToSummary } from 'actions/menu'
 import selectIdeas from 'selectors/ideas'
-import { startSetIdeas } from 'actions/ideas'
 
 class IdeaList extends Component {
   handleDeleteIdea = ({ id }) => {
@@ -14,13 +16,13 @@ class IdeaList extends Component {
   }
 
   handleFavoriteIdea = ({ id }) => {
-    // this.props.dispatch(startDeleteIdea(id))
-    console.log('Favorite idea', id)
+    this.props.dispatch(startFavoriteIdea(id))
+    // console.log('Favorite idea', id)
   }
 
   handleArchiveIdea = ({ id }) => {
-    // this.props.dispatch(startDeleteIdea(id))
-    console.log('Archive idea', id)
+    this.props.dispatch(startArchiveIdea(id))
+    // console.log('Archive idea', id)
   }
 
   changeToSummary = () => {
