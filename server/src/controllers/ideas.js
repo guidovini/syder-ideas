@@ -47,7 +47,7 @@ const getIdeasByUserId = (req, res) => {
 const updateIdea = (req, res) => {
   const { 
     id, 
-    name = 'Undefined idea', 
+    name = 'Untitled idea', 
     description = '', 
     target = '', 
     last_edited
