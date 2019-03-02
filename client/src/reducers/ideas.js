@@ -31,6 +31,9 @@ export default (state = INITIAL_STATE, action) => {
           category: action.idea.category,
           createdAt: action.idea.createdAt,
           lastEdited: action.idea.createdAt,
+          name: action.idea.name,
+          description: action.idea.description,
+          target: action.idea.target,
         }
       ]
 
@@ -63,8 +66,7 @@ export default (state = INITIAL_STATE, action) => {
           lastEdited: idea.last_edited,
           createdAt: idea.created_at,
           favorite: idea.favorite,
-          archive: idea.archive,
-          userId: idea.user_id
+          archive: idea.archive
         }
       })
 

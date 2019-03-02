@@ -11,6 +11,9 @@ import requireAuth from 'middleware/requireAuth'
 class AddIdea extends Component {
   state = {
     category: 'Web App',
+    name: '',
+    description: '',
+    target: ''
   }
 
   handleCategoryChange = (e) => {
@@ -25,6 +28,9 @@ class AddIdea extends Component {
     this.props.dispatch(startAddIdea({
       id,
       category: this.state.category,
+      name: this.state.name,
+      description: this.state.description,
+      target: this.state.target,
       createdAt
     }))
     this.props.history.push(`/create/${id}`)  

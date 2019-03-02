@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import moment from 'moment'
 
-export class IdeaForm extends Component {
+class IdeaForm extends Component {
   constructor(props) {
     super(props)
 
@@ -11,21 +11,22 @@ export class IdeaForm extends Component {
       target: props.idea ? props.idea.target : '',
       lastEdited: moment().format("YYYY-MM-DD HH:mm:ss.SSS")
     }
+
   }
 
   handleNameChange = (e) => {
     const name = e.target.value
-    this.setState(() => ({ name }))
+    this.setState({ name })
   }
   
   handleDescriptionChange = (e) => {
     const description = e.target.value
-    this.setState(() => ({ description }))
+    this.setState({ description })
   }
 
   handleTargetChange = (e) => {
     const target = e.target.value
-    this.setState(() => ({ target }))
+    this.setState({ target })
   }
 
   onSubmit = (e) => {
@@ -34,7 +35,7 @@ export class IdeaForm extends Component {
       name: this.state.name,
       description: this.state.description,
       target: this.state.target,
-      lastEdited: this.state.lastEdited
+      lastEdited: moment().format("YYYY-MM-DD HH:mm:ss.SSS")
     })
   }
 
@@ -47,10 +48,10 @@ export class IdeaForm extends Component {
             <input 
               autoFocus
               type="text" 
-              placeholder="Catbook" 
+              placeholder="Name of your idea" 
               onChange={this.handleNameChange}
               value={this.state.name}
-              className="input"/>
+              className="input" />
           </div>
         </div>
 
@@ -58,25 +59,27 @@ export class IdeaForm extends Component {
           <label className="label">Insert a short description of your idea</label>
           <div className="control">
             <textarea 
-              placeholder="A social media platform for cats" 
+              placeholder="Description of your idea" 
               onChange={this.handleDescriptionChange}
               value={this.state.description}
-              className="textarea"/> 
+              className="textarea" /> 
           </div>      
         </div>
 
         <div className="field">
           <label className="label">Who is this app for?</label>
-          <input 
-            type="text" 
-            placeholder="Cats" 
-            onChange={this.handleTargetChange}
-            value={this.state.target}
-            className="input"/>
+          <div className="control">
+            <input 
+              type="text" 
+              placeholder="Target of your idea" 
+              onChange={this.handleTargetChange}
+              value={this.state.target}
+              className="input" />
+          </div>
         </div>
 
         <div className="control">
-          <input type="submit" value="Finish" className="button is-link"/>
+          <input type="submit" value="Finish" className="button is-link" />
         </div>
       </form>
     )
