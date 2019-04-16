@@ -1,7 +1,7 @@
 import React from 'react'
 
-import CategoryList from 'components/CategoryList'
-import requireAuth from '../middleware/requireAuth'
+import CategoryList from './CategoryList'
+import requireAuth from '../../middleware/requireAuth'
 
 const Categories = () => {
   return (

@@ -3,19 +3,19 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import App from 'components/App'
 import LandingPage from 'components/LandingPage'
-import AddIdea from 'components/Ideas/AddIdea'
 import NotFoundPage from 'components/NotFoundPage'
 import Done from 'components/Done'
-import Dashboard from 'components/Dashboard'
-import AddIdeaDescription from 'components/Ideas/AddIdeaDescription'
 import Content from 'components/Content'
-import IdeaFeaturesEdit from 'components/Menu/IdeaFeaturesEdit'
-import Categories from 'components/Categories'
+import Profile from 'components/Profile'
+import AddIdea from 'components/Ideas/AddIdea'
+import AddIdeaDescription from 'components/Ideas/AddIdeaDescription'
+import FeatureEdit from 'components/IdeaComponents/Features/FeatureEdit'
+import Dashboard from 'components/Navigation/Dashboard'
+import Categories from 'components/Navigation/Categories'
+import Help from 'components/Navigation/Help'
 import Login from 'components/auth/Login'
 import Signup from 'components/auth/Signup'
 import Logout from 'components/auth/Logout'
-import Help from 'components/Help'
-import Profile from 'components/Profile'
 
 const AppRouter = () => (
   <Router>
@@ -25,7 +25,7 @@ const AppRouter = () => (
         <Route path='/create' exact component={AddIdea} />
         <Route path='/create/:id' component={AddIdeaDescription} />
         <Route path='/idea/:id' component={Content} />
-        <Route path='/edit/:option/:id' component={IdeaFeaturesEdit} />
+        <Route path='/edit/:option/:id' component={FeatureEdit} />
         
         <Route path='/done' component={Done} />
         <Route path='/dashboard' component={Dashboard} />

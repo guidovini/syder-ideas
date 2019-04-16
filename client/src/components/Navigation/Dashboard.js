@@ -1,6 +1,6 @@
 import React from 'react'
 
-import IdeaList from 'components/Ideas/IdeaList'
+import IdeasList from 'components/Ideas/IdeasList'
 import FilterIdeasBar from 'components/filters/FilterIdeasBar'
 import requireAuth from 'middleware/requireAuth'
 
@@ -12,7 +12,7 @@ const Dashboard = () => {
           <div className="column is-three-fifths">
             <h2 className="title is-4">Dashboard</h2>
             <FilterIdeasBar />
-            <IdeaList />
+            <IdeasList />
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ import { startSetIdeas } from 'actions/ideas'
 import { changeToSummary } from 'actions/menu'
 import selectIdeas from 'selectors/ideas'
 
-class IdeaList extends Component {
+class IdeasList extends Component {
   handleDeleteIdea = ({ id }) => {
     this.props.dispatch(startDeleteIdea(id))
   }
@@ -80,4 +80,4 @@ const mapStateToProps = (state) => ({
   filterVisibility: state.filters.filterVisibility
 })
 
-export default connect(mapStateToProps)(IdeaList)
+export default connect(mapStateToProps)(IdeasList)

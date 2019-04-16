@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import IdeaSummary from 'components/Menu/IdeaSummary'
-import IdeaFeatures from 'components/Menu/IdeaFeatures'
-import IdeaStrategies from 'components/Menu/IdeaStrategies'
-import IdeaInspiration from 'components/Menu/IdeaInspiration'
-import IdeaBusinessModel from 'components/Menu/IdeaBusinessModel'
-import IdeaPlanning from 'components/Menu/IdeaPlanning'
-import IdeaResources from 'components/Menu/IdeaResources'
+import IdeaFeatures from 'components/IdeaComponents/Features/IdeaFeatures'
+import IdeaStrategies from 'components/IdeaComponents/Strategies/IdeaStrategies'
+import IdeaInspiration from 'components/IdeaComponents/Inspiration/IdeaInspiration'
+import IdeaBusinessModel from 'components/IdeaComponents/BusinessModel/IdeaBusinessModel'
+import IdeaPlanning from 'components/IdeaComponents/Planning/IdeaPlanning'
+import IdeaResources from 'components/IdeaComponents/Resources/IdeaResources'
 
 export class MainSelector extends Component {
   onSelect = () => {

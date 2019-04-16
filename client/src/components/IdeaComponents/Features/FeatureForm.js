@@ -4,7 +4,7 @@ import uuid from 'uuid/v4'
 
 import { startAddFeature } from 'actions/features'
 
-export class IdeaFeaturesForm extends Component {
+export class FeatureForm extends Component {
   constructor(props) {
     super(props)
 
@@ -59,4 +59,4 @@ export class IdeaFeaturesForm extends Component {
 //   }
 // }
 
-export default connect()(IdeaFeaturesForm)
+export default connect()(FeatureForm)

@@ -3,8 +3,8 @@ import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import jwtDecode from 'jwt-decode'
 
-import HeaderAuth from 'components/HeaderAuth'
-import HeaderNoAuth from 'components/HeaderNoAuth'
+import HeaderAuth from './HeaderAuth'
+import HeaderNoAuth from './HeaderNoAuth'
 
 class Header extends Component {
   renderNavBarEnd() {

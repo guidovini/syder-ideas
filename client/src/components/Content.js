@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import Menu from 'components/Menu/Menu'
 import Main from 'components/Main/Main'
 import Options from 'components/Options/Options'
-import Navigation from 'components/Navigation'
+import Navigation from 'components/Navigation/Navigation'
 import { startSetIdeas } from 'actions/ideas'
 
 class Content extends Component {

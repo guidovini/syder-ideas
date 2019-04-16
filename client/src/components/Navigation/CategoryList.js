@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import CategoryItem from 'components/CategoryItem'
+import CategoryItem from './CategoryItem'
 import { startSetIdeas } from 'actions/ideas'
 
 export class CategoryList extends Component {

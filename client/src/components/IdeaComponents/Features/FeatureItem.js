@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import TextToForm from 'components/Menu/TextToForm' 
 import { startDeleteFeature }  from 'actions/features'
 
-export class IdeaFeaturesItem extends Component {
+export class FeatureItem extends Component {
   onFeatureDelete = () => {
     this.props.dispatch(startDeleteFeature(this.props.feature))
   }
@@ -25,4 +25,4 @@ export class IdeaFeaturesItem extends Component {
   }
 }
 
-export default connect()(IdeaFeaturesItem)
+export default connect()(FeatureItem)

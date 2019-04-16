@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class IdeaFeaturesEdit extends Component {
+export class FeatureEdit extends Component {
   onEdit = () => {
 
   }
@@ -19,7 +19,7 @@ const mapStateToProps = (state, props) => {
 
 }
 
-export default connect(mapStateToProps)(IdeaFeaturesEdit)
+export default connect(mapStateToProps)(FeatureEdit)
 
 
 

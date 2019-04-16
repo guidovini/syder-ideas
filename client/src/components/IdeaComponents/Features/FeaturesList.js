@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import IdeaFeaturesItem from 'components/Menu/IdeaFeaturesItem'
+import FeatureItem from 'components/IdeaComponents/Features/FeatureItem'
 import { startSetFeatures } from 'actions/features'
 
-export class IdeaFeaturesList extends Component {
+export class FeaturesList extends Component {
   componentDidMount() {
     this.props.dispatch(startSetFeatures())
   }
@@ -14,7 +14,7 @@ export class IdeaFeaturesList extends Component {
       <div>
         {this.props.features.map(feature => {
           if (this.props.idea.id === feature.ideaId) {
-            return <IdeaFeaturesItem 
+            return <FeatureItem 
                       key={feature.id} 
                       idea={this.props.idea} 
                       feature={feature} />
@@ -31,4 +31,4 @@ const mapStateToProps = (state) => ({
   features: state.features
 })
 
-export default connect(mapStateToProps)(IdeaFeaturesList)
+export default connect(mapStateToProps)(FeaturesList)
