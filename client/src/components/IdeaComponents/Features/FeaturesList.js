@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import FeatureItem from 'components/IdeaComponents/Features/FeatureItem'
+import FeatureItem from './FeatureItem'
 import { startSetFeatures } from 'actions/features'
 
 export class FeaturesList extends Component {

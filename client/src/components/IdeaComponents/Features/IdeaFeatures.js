@@ -1,7 +1,7 @@
 import React from 'react'
 
-import FeatureForm from 'components/IdeaComponents/Features/FeatureForm'
-import FeaturesList from 'components/IdeaComponents/Features/FeaturesList'
+import FeatureForm from './FeatureForm'
+import FeaturesList from './FeaturesList'
 
 export default function IdeaFeatures({ idea }) {
   return (

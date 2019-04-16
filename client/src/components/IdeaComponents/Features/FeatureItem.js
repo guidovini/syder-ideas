@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import TextToForm from 'components/Menu/TextToForm' 
+import FeatureEdit from './FeatureEdit' 
 import { startDeleteFeature }  from 'actions/features'
 
 export class FeatureItem extends Component {
@@ -14,7 +14,7 @@ export class FeatureItem extends Component {
       <div className="column">
         <div className="columns is-mobile">
           <div className="column">
-            <TextToForm text={this.props.feature.text} idea={this.props.idea} feature={this.props.feature} />
+            <FeatureEdit text={this.props.feature.text} idea={this.props.idea} feature={this.props.feature} />
           </div>
           <div className="column is-narrow">
             <button onClick={this.onFeatureDelete} className="delete">x</button>

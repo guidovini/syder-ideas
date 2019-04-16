@@ -21,10 +21,12 @@ export class FeatureForm extends Component {
   handleFeatureSubmit = (e) => {
     e.preventDefault()
     if (this.state.feature) {
-      this.props.dispatch(startAddFeature(this.props.idea.id, {
-        id: uuid(),
-        text: this.state.feature,
-      }))
+      this.props.dispatch(
+        startAddFeature(this.props.idea.id, {
+          id: uuid(),
+          text: this.state.feature,
+        })
+      )
       this.setState({feature: ''})
     }
   }

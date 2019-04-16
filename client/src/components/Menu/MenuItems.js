@@ -48,8 +48,6 @@ export class MenuItems extends Component {
         <button onClick={this.onFeaturesClick} className="button is-normal is-link is-inverted is-fullwidth">Features List</button>
         <button onClick={this.onStrategiesClick} className="button is-normal is-link is-inverted is-fullwidth">Marketing Strategies</button>
         <button onClick={this.onInspirationClick} className="button is-normal is-link is-inverted is-fullwidth">Product Inspiration</button>
-        <button onClick={this.onBusinessModelClick} className="button is-normal is-link is-inverted is-fullwidth">Business Model</button>
-        <button onClick={this.onPlanningClick} className="button is-normal is-link is-inverted is-fullwidth">Timeline</button>
         <button onClick={this.onResourcesClick} className="button is-normal is-link is-inverted is-fullwidth">Resources</button>
       </div>
     )
