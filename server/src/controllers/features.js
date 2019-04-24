@@ -9,9 +9,10 @@ const db = require('../db');
 //
 
 const createFeature = (req, res) => {
-  const query = "INSERT INTO features (id, text, idea_id, user_id) VALUES ($1, $2, $3, $4)";
   const { id:feature_id, text, idea_id } = req.body;
   const user_id = req.user.id;
+
+  const query = "INSERT INTO features (id, text, idea_id, user_id) VALUES ($1, $2, $3, $4)";
   const values = [feature_id, text, idea_id, user_id];
 
   db.query(query, values, (err, result) => {
@@ -31,8 +32,9 @@ const getFeatures = (req, res) => {
 }
 
 const getFeaturesByUserId = (req, res) => {
-  const query = 'SELECT * FROM features WHERE user_id=$1';
   const user_id = req.user.id;
+
+  const query = 'SELECT * FROM features WHERE user_id=$1';
   const values = [user_id];
 
   db.query(query, values, (err, result) => {
@@ -43,8 +45,9 @@ const getFeaturesByUserId = (req, res) => {
 }
 
 const updateFeature = (req, res) => {
-  const query = "UPDATE features SET text=$1 WHERE id=$2";
   const { text, id:feature_id } = req.body;
+
+  const query = "UPDATE features SET text=$1 WHERE id=$2";
   const values = [text, feature_id];
 
   db.query(query, values, (err, result) => {
@@ -54,8 +57,9 @@ const updateFeature = (req, res) => {
 }
 
 const deleteFeature = (req, res) => {
-  const query = "DELETE FROM features WHERE id=$1";
   const { id:feature_id } = req.body;
+
+  const query = "DELETE FROM features WHERE id=$1";
   const values = [feature_id];
 
   db.query(query, values, (err, result) => {
@@ -65,8 +69,9 @@ const deleteFeature = (req, res) => {
 }
 
 const deleteFeaturesAfterIdeaDelete = (req, res) => {
-  const query = 'DELETE FROM features WHERE idea_id=$1';
   const { id:idea_id } = req.body;
+
+  const query = 'DELETE FROM features WHERE idea_id=$1';
   const values = [idea_id];
 
   db.query(query, values, (err, result) => {
