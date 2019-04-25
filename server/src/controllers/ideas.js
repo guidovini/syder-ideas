@@ -4,12 +4,15 @@
 
 const db = require('../db');
 
+const uuidv4 = require('uuid/v4');
+
 //
 // ─── IDEAS CONTROLLER ───────────────────────────────────────────────────────────
 //
 
 const createIdea = (req, res) => {
-  const { id, category, name='Undefined idea' } = req.body;
+  const { category, name='Untitled idea' } = req.body; // ! changed id generation to back-end
+  const id = uuidv4();
   const user_id = req.user.id;
 
   const query = 'INSERT INTO ideas(id, category, name, user_id) VALUES ($1, $2, $3, $4)';
@@ -17,7 +20,7 @@ const createIdea = (req, res) => {
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.status(201).send(`Idea ADDED with ID: ${id}`);
+    res.status(201).send({ ideaId: id }); // ! message
   });
 }
 
@@ -58,42 +61,43 @@ const updateIdea = (req, res) => {
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.status(200).send(`Idea UPDATED with ID: ${id}`);
+    res.status(200).send(`Idea UPDATED with ID: ${id}`); // ! message
   });
 }
 
 const deleteIdea = (req, res) => {
-  const query = "DELETE FROM ideas WHERE id=$1";
   const { id } = req.body;
+
+  const query = "DELETE FROM ideas WHERE id=$1";
   const values = [id];
 
   db.query(query, values, (err, result) => {
-    if (err) throw err;
-    res.status(200).send(`Idea DELETED with ID: ${id}`);
+    if (err) throw err; // ! SERVER ERRORS
+    res.status(200).send(`Idea DELETED with ID: ${id}`); // ! message
   });
 }
 
 const favoriteIdea = (req, res) => {
-  const id = req.body.id;
+  const { id } = req.body;
 
   const query = "UPDATE ideas SET favorite=NOT favorite WHERE id=$1";
   const values = [id];
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.status(200).send(`Idea FAVORITED with ID: ${id}`);
+    res.status(200).send(`Idea FAVORITED with ID: ${id}`); // ! message
   });
 }
 
 const archiveIdea = (req, res) => {
-  const id = req.body.id;
+  const { id } = req.body;
 
   const query = "UPDATE ideas SET archive=NOT archive WHERE id=$1";
   const values = [id];
 
   db.query(query, values, (err, result) => {
     if (err) throw err;
-    res.status(200).send(`Idea ARCHIVED with ID: ${id}`);
+    res.status(200).send(`Idea ARCHIVED with ID: ${id}`); // ! ,essage
   });
 }
 
