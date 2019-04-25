@@ -2,11 +2,10 @@
 // ─── IMPORTS ─────────────────────────────────────────────────────────────────────
 //
   
-require('dotenv').config();
+// require('dotenv').config();
 
 const express = require('express');
 
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
@@ -21,7 +20,6 @@ const app = express();
 // ─── APP ────────────────────────────────────────────────────────────────────────
 //
   
-app.use(morgan('combined'));
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ type: '*/*' }));
