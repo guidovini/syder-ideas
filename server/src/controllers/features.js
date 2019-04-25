@@ -11,8 +11,7 @@ const uuidv4 = require('uuid/v4');
 //
 
 const createFeature = (req, res) => {
-  const { text, idea_id } = req.body; // ! id generated in the back end
-  const id = uuidv4();
+  const { id=uuidv4(), text, idea_id } = req.body; // ! id generated in the back end
   const user_id = req.user.id;
 
   const query = "INSERT INTO features (id, text, idea_id, user_id) VALUES ($1, $2, $3, $4)";
