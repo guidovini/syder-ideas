@@ -4,6 +4,10 @@
 
 const db = require('../db');
 
+//
+// ─── IMPORTS ────────────────────────────────────────────────────────────────────
+//
+
 const uuidv4 = require('uuid/v4');
 
 //
@@ -11,8 +15,7 @@ const uuidv4 = require('uuid/v4');
 //
 
 const createIdea = (req, res) => {
-  const { category, name='Untitled idea' } = req.body; // ! changed id generation to back-end
-  const id = uuidv4();
+  const { id=uuidv4(), category, name='Untitled idea' } = req.body; // ! changed id generation to back-end
   const user_id = req.user.id;
 
   const query = 'INSERT INTO ideas(id, category, name, user_id) VALUES ($1, $2, $3, $4)';
