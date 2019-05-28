@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import IdeasList from 'components/Ideas/IdeasList'
-import FilterIdeasBar from 'components/filters/FilterIdeasBar'
-import requireAuth from 'middleware/requireAuth'
+import IdeasList from '../Ideas/IdeasList';
+import FilterIdeasBar from '../filters/FilterIdeasBar';
+import requireAuth from '../../middleware/requireAuth';
 
 const Dashboard = () => {
   return (
@@ -17,7 +17,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default requireAuth(Dashboard)
+export default requireAuth(Dashboard);

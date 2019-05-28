@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import CategoryList from './CategoryList'
-import requireAuth from '../../middleware/requireAuth'
+import CategoryList from './CategoryList';
+import requireAuth from '../../middleware/requireAuth';
 
 const Categories = () => {
   return (
@@ -10,12 +10,12 @@ const Categories = () => {
         <div className="columns is-centered">
           <div className="column is-three-fifths">
             <h2 className="title is-4">Idea Categories</h2>
-            <CategoryList/>
+            <CategoryList />
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default requireAuth(Categories)
+export default requireAuth(Categories);

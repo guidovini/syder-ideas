@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import FeatureItem from './FeatureItem'
-import { startSetFeatures } from 'actions/features'
+import { startSetFeatures } from '../../../actions/features';
+import FeatureItem from './FeatureItem';
 
-export class FeaturesList extends Component {
+class FeaturesList extends Component {
   componentDidMount() {
-    this.props.dispatch(startSetFeatures())
+    this.props.dispatch(startSetFeatures());
   }
 
   render() {
@@ -14,21 +14,23 @@ export class FeaturesList extends Component {
       <div>
         {this.props.features.map(feature => {
           if (this.props.idea.id === feature.ideaId) {
-            return <FeatureItem 
-                      key={feature.id} 
-                      idea={this.props.idea} 
-                      feature={feature} />
-          } else {
-            return ''
+            return (
+              <FeatureItem
+                key={feature.id}
+                idea={this.props.idea}
+                feature={feature}
+              />
+            );
           }
+          return '';
         })}
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   features: state.features
-})
+});
 
-export default connect(mapStateToProps)(FeaturesList)
+export default connect(mapStateToProps)(FeaturesList);

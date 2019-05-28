@@ -1,9 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function IdeaResources() {
-  return (
-    <div>
-      These are the resources
-    </div>
-  )
+  return <div>These are the resources</div>;
 }

@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import MainSelector from 'components/Main/MainSelector';
+import MainSelector from './MainSelector';
 
 const Main = ({ idea, menu }) => {
   return (
     <div className="message is-link">
-      <MainSelector idea={idea} menu={menu}/>
+      <MainSelector idea={idea} menu={menu} />
     </div>
-  )
-}
+  );
+};
 
-export default Main
+export default Main;

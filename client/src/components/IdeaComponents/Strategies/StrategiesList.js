@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import StrategyItem from './StrategyItem'
-import { startSetStrategies } from 'actions/strategies'
+import { startSetStrategies } from '../../../actions/strategies';
+import StrategyItem from './StrategyItem';
 
-export class StrategiesList extends Component {
+class StrategiesList extends Component {
   componentDidMount() {
-    this.props.dispatch(startSetStrategies())
+    this.props.dispatch(startSetStrategies());
   }
 
   render() {
@@ -14,21 +14,23 @@ export class StrategiesList extends Component {
       <div>
         {this.props.strategies.map(strategy => {
           if (this.props.idea.id === strategy.ideaId) {
-            return <StrategyItem 
-                      key={strategy.id} 
-                      idea={this.props.idea} 
-                      strategy={strategy} />
-          } else {
-            return ''
+            return (
+              <StrategyItem
+                key={strategy.id}
+                idea={this.props.idea}
+                strategy={strategy}
+              />
+            );
           }
+          return '';
         })}
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   strategies: state.strategies
-})
+});
 
-export default connect(mapStateToProps)(StrategiesList)
+export default connect(mapStateToProps)(StrategiesList);

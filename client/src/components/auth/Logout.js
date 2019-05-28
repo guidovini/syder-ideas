@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { logout } from 'actions/auth'
+import { logout } from '../../actions/auth';
 
 class Logout extends Component {
   componentDidMount() {
-    this.props.dispatch(logout())
+    this.props.dispatch(logout());
   }
 
   render() {
@@ -17,8 +17,8 @@ class Logout extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default connect()(Logout)
+export default connect()(Logout);

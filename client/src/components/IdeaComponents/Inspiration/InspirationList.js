@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import InspirationItem from './InspirationItem'
-import { startSetInspiration } from 'actions/inspiration'
+import { startSetInspiration } from '../../../actions/inspiration';
+import InspirationItem from './InspirationItem';
 
-export class InspirationList extends Component {
+class InspirationList extends Component {
   componentDidMount() {
-    this.props.dispatch(startSetInspiration())
+    this.props.dispatch(startSetInspiration());
   }
 
   render() {
@@ -14,21 +14,23 @@ export class InspirationList extends Component {
       <div>
         {this.props.inspiration.map(Inspiration => {
           if (this.props.idea.id === Inspiration.ideaId) {
-            return <InspirationItem 
-                      key={Inspiration.id} 
-                      idea={this.props.idea} 
-                      Inspiration={Inspiration} />
-          } else {
-            return ''
+            return (
+              <InspirationItem
+                key={Inspiration.id}
+                idea={this.props.idea}
+                Inspiration={Inspiration}
+              />
+            );
           }
+          return '';
         })}
       </div>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   inspiration: state.inspiration
-})
+});
 
-export default connect(mapStateToProps)(InspirationList)
+export default connect(mapStateToProps)(InspirationList);

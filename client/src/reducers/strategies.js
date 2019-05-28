@@ -4,12 +4,12 @@ import {
   DELETE_STRATEGY,
   SET_STRATEGIES,
   UPDATE_STRATEGIES_AFTER_IDEA_DELETE
-} from 'actions/types'
+} from '../actions/types';
 
-const strategiesDefaultState = []
+const strategiesDefaultState = [];
 
 export default (state = strategiesDefaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case ADD_STRATEGY:
       return [
         ...state,
@@ -18,7 +18,7 @@ export default (state = strategiesDefaultState, action) => {
           id: action.strategy.id,
           text: action.strategy.text
         }
-      ]
+      ];
 
     case EDIT_STRATEGY:
       return state.map(strategy => {
@@ -26,31 +26,32 @@ export default (state = strategiesDefaultState, action) => {
           return {
             ...strategy,
             ...action.updates
-          }
-        } else {
-          return strategy
+          };
         }
-      })
+        return strategy;
+      });
 
     case DELETE_STRATEGY:
-      return state.filter(({ id }) => id !== action.id)
+      return state.filter(({ id }) => id !== action.id);
 
     case SET_STRATEGIES:
-      return action.strategies.map(({ id, text, last_edited, created_at, idea_id, user_id }) => {
-        return {
-          id, 
-          text,
-          lastEdited: last_edited,
-          createdAt: created_at,
-          ideaId: idea_id,
-          userId: user_id
+      return action.strategies.map(
+        ({ id, text, lastEdited, createdAt, ideaId, userId }) => {
+          return {
+            id,
+            text,
+            lastEdited,
+            createdAt,
+            ideaId,
+            userId
+          };
         }
-      })
+      );
 
     case UPDATE_STRATEGIES_AFTER_IDEA_DELETE:
-      return state.filter(({ ideaId }) => ideaId !== action.id)
+      return state.filter(({ ideaId }) => ideaId !== action.id);
 
     default:
-      return state
+      return state;
   }
-}
+};

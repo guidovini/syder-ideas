@@ -1,64 +1,71 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { startEditFeature } from 'actions/features'
+import { startEditFeature } from '../../../actions/features';
 
-export class FeatureEdit extends Component {
+class FeatureEdit extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       textToForm: false,
       text: props.text ? props.text : ''
-    }
+    };
   }
 
   onFeatureEdit = () => {
-    this.props.dispatch(startEditFeature(this.props.idea.id, {
-      id: this.props.feature.id,
-      text: this.state.text
-    }))
-  }
+    this.props.dispatch(
+      startEditFeature(this.props.idea.id, {
+        id: this.props.feature.id,
+        text: this.state.text
+      })
+    );
+  };
 
-  handleChange = (e) => {
-    const text = e.target.value
-    this.setState({ text })
-  }
+  handleChange = e => {
+    const text = e.target.value;
+    this.setState({ text });
+  };
 
   handleFirstClick = () => {
-    this.setState({ textToForm: true })
-  }
+    this.setState({ textToForm: true });
+  };
 
   handleBlur = () => {
-    this.setState({ textToForm: false })
-    this.onFeatureEdit()
-  }
+    this.setState({ textToForm: false });
+    this.onFeatureEdit();
+  };
 
-  handleKeyPress = (e) => {
+  handleKeyPress = e => {
     if (e.key === 'Enter') {
-      this.setState({ textToForm: false })
-      this.onFeatureEdit()
+      this.setState({ textToForm: false });
+      this.onFeatureEdit();
     }
-  }
+  };
 
   render() {
     return (
-        <div 
-          onClick={this.handleFirstClick} 
-          onBlur={this.handleBlur} 
-          onKeyPress={this.handleKeyPress}
-          className="box"
-        >
-          {this.state.textToForm 
-            ? <input onChange={this.handleChange} 
-                      autoFocus
-                      type="text" 
-                      value={this.state.text}
-                      className="input"/> 
-            : <p>{this.state.text}</p> }
-        </div>
-    )
+      // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+      <div
+        onClick={this.handleFirstClick}
+        onBlur={this.handleBlur}
+        onKeyPress={this.handleKeyPress}
+        className="box"
+      >
+        {this.state.textToForm ? (
+          <input
+            onChange={this.handleChange}
+            // autoFocus
+            type="text"
+            value={this.state.text}
+            className="input"
+          />
+        ) : (
+          <p>{this.state.text}</p>
+        )}
+      </div>
+    );
   }
 }
 
-export default connect()(FeatureEdit)
+export default connect()(FeatureEdit);

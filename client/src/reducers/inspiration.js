@@ -4,12 +4,12 @@ import {
   DELETE_INSPIRATION,
   SET_INSPIRATION,
   UPDATE_INSPIRATION_AFTER_IDEA_DELETE
-} from 'actions/types'
+} from '../actions/types';
 
-const inspirationDefaultState = []
+const inspirationDefaultState = [];
 
 export default (state = inspirationDefaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case ADD_INSPIRATION:
       return [
         ...state,
@@ -18,7 +18,7 @@ export default (state = inspirationDefaultState, action) => {
           id: action.inspiration.id,
           text: action.inspiration.text
         }
-      ]
+      ];
 
     case EDIT_INSPIRATION:
       return state.map(inspiration => {
@@ -26,31 +26,32 @@ export default (state = inspirationDefaultState, action) => {
           return {
             ...inspiration,
             ...action.updates
-          }
-        } else {
-          return inspiration
+          };
         }
-      })
+        return inspiration;
+      });
 
     case DELETE_INSPIRATION:
-      return state.filter(({ id }) => id !== action.id)
+      return state.filter(({ id }) => id !== action.id);
 
     case SET_INSPIRATION:
-      return action.inspiration.map(({ id, text, last_edited, created_at, idea_id, user_id }) => {
-        return {
-          id, 
-          text,
-          lastEdited: last_edited,
-          createdAt: created_at,
-          ideaId: idea_id,
-          userId: user_id
+      return action.inspiration.map(
+        ({ id, text, lastEdited, createdAt, ideaId, userId }) => {
+          return {
+            id,
+            text,
+            lastEdited,
+            createdAt,
+            ideaId,
+            userId
+          };
         }
-      })
+      );
 
     case UPDATE_INSPIRATION_AFTER_IDEA_DELETE:
-      return state.filter(({ ideaId }) => ideaId !== action.id)
+      return state.filter(({ ideaId }) => ideaId !== action.id);
 
     default:
-      return state
+      return state;
   }
-}
+};

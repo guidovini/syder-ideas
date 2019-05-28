@@ -1,56 +1,57 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import uuid from 'uuid/v4'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import uuid from 'uuid/v4';
 
-import { startAddInspiration } from 'actions/inspiration'
+import { startAddInspiration } from '../../../actions/inspiration';
 
-export class InspirationForm extends Component {
+class InspirationForm extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      Inspiration: '',
-    }
+      Inspiration: ''
+    };
   }
 
-  handleChange = (e) => {
-    const Inspiration = e.target.value
-    this.setState(() => ({ Inspiration }))
-  }
+  handleChange = e => {
+    const Inspiration = e.target.value;
+    this.setState(() => ({ Inspiration }));
+  };
 
-  handleSubmit = (e) => {
-    e.preventDefault()
+  handleSubmit = e => {
+    e.preventDefault();
     if (this.state.Inspiration) {
       this.props.dispatch(
         startAddInspiration(this.props.idea.id, {
           id: uuid(),
-          text: this.state.Inspiration,
+          text: this.state.Inspiration
         })
-      )
-      this.setState({Inspiration: ''})
+      );
+      this.setState({ Inspiration: '' });
     }
-  }
+  };
 
   render() {
     return (
       <div className="column">
-        <form onSubmit={this.handleSubmit} className="field has-addons columns is-mobile">
+        <form
+          onSubmit={this.handleSubmit}
+          className="field has-addons columns is-mobile"
+        >
           <div className="column">
-            <input 
-              type="text" 
+            <input
+              type="text"
               onChange={this.handleChange}
               value={this.state.Inspiration}
-              className="input" />
+              className="input"
+            />
           </div>
           <div className="column is-narrow">
-            <input 
-              type="submit"
-              value="Add"
-              className="button is-primary"/> 
+            <input type="submit" value="Add" className="button is-primary" />
           </div>
-        </form>   
+        </form>
       </div>
-    )
+    );
   }
 }
 
@@ -61,4 +62,4 @@ export class InspirationForm extends Component {
 //   }
 // }
 
-export default connect()(InspirationForm)
+export default connect()(InspirationForm);

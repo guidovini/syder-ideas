@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import MenuItems from 'components/Menu/MenuItems'
+import MenuItems from './MenuItems';
 
 export default function Menu() {
   return (
@@ -8,5 +8,5 @@ export default function Menu() {
       <h2 className="message-header">Menu</h2>
       <MenuItems />
     </div>
-  )
+  );
 }

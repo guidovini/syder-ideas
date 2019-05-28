@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Welcome = () => {
   return (
@@ -9,16 +9,28 @@ const Welcome = () => {
           <h1 className="title is-4">I want to...</h1>
           <div className="columns is-centered">
             <div className="column is-two-fifths">
-              <Link to="/create"><button autoFocus className="button is-link is-medium">Create new idea</button></Link>
+              <Link to="/create">
+                <button
+                  // autoFocus
+                  className="button is-link is-medium"
+                  type="button"
+                >
+                  Create new idea
+                </button>
+              </Link>
             </div>
             <div className="column is-two-fifths">
-              <Link to="/dashboard"><button className="button is-light is-medium">Check my ideas</button></Link>
+              <Link to="/dashboard">
+                <button className="button is-light is-medium" type="button">
+                  Check my ideas
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Welcome
+export default Welcome;

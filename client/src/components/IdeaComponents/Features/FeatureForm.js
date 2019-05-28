@@ -1,56 +1,57 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import uuid from 'uuid/v4'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import uuid from 'uuid/v4';
 
-import { startAddFeature } from 'actions/features'
+import { startAddFeature } from '../../../actions/features';
 
-export class FeatureForm extends Component {
+class FeatureForm extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      feature: '',
-    }
+      feature: ''
+    };
   }
 
-  handleFeatureChange = (e) => {
-    const feature = e.target.value
-    this.setState(() => ({ feature }))
-  }
+  handleFeatureChange = e => {
+    const feature = e.target.value;
+    this.setState(() => ({ feature }));
+  };
 
-  handleFeatureSubmit = (e) => {
-    e.preventDefault()
+  handleFeatureSubmit = e => {
+    e.preventDefault();
     if (this.state.feature) {
       this.props.dispatch(
         startAddFeature(this.props.idea.id, {
           id: uuid(),
-          text: this.state.feature,
+          text: this.state.feature
         })
-      )
-      this.setState({feature: ''})
+      );
+      this.setState({ feature: '' });
     }
-  }
+  };
 
   render() {
     return (
       <div className="column">
-        <form onSubmit={this.handleFeatureSubmit} className="field has-addons columns is-mobile">
+        <form
+          onSubmit={this.handleFeatureSubmit}
+          className="field has-addons columns is-mobile"
+        >
           <div className="column">
-            <input 
-              type="text" 
+            <input
+              type="text"
               onChange={this.handleFeatureChange}
               value={this.state.feature}
-              className="input" />
+              className="input"
+            />
           </div>
           <div className="column is-narrow">
-            <input 
-              type="submit"
-              value="Add"
-              className="button is-primary"/> 
+            <input type="submit" value="Add" className="button is-primary" />
           </div>
-        </form>   
+        </form>
       </div>
-    )
+    );
   }
 }
 
@@ -61,4 +62,4 @@ export class FeatureForm extends Component {
 //   }
 // }
 
-export default connect()(FeatureForm)
+export default connect()(FeatureForm);

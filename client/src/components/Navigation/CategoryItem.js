@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export default function CategoryItem({ id, name, description}) {
+export default function CategoryItem({ id, name, description }) {
   return (
     <div className="column" key={id}>
       <Link to={`/idea/${id}`} className="box">
@@ -9,5 +9,5 @@ export default function CategoryItem({ id, name, description}) {
         <p className="subtitle is-6">{description}</p>
       </Link>
     </div>
-  )
+  );
 }

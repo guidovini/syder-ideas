@@ -1,9 +1,5 @@
-import React from 'react'
+import React from 'react';
 
 export default function IdeaPlanning() {
-  return (
-    <div>
-      This is the planning  
-    </div>
-  )
+  return <div>This is the planning</div>;
 }

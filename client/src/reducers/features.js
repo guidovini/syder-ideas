@@ -1,12 +1,12 @@
-import { 
-  ADD_FEATURE, 
-  EDIT_FEATURE, 
+import {
+  ADD_FEATURE,
+  EDIT_FEATURE,
   DELETE_FEATURE,
   SET_FEATURES,
   UPDATE_FEATURES_AFTER_IDEA_DELETE
-} from 'actions/types'
+} from '../actions/types';
 
-const featuresInitialState = []
+const featuresInitialState = [];
 
 export default (state = featuresInitialState, action) => {
   switch (action.type) {
@@ -18,39 +18,40 @@ export default (state = featuresInitialState, action) => {
           id: action.feature.id,
           text: action.feature.text
         }
-      ]
+      ];
 
-  case EDIT_FEATURE:
+    case EDIT_FEATURE:
       return state.map(feature => {
         if (feature.id === action.updates.id) {
           return {
             ...feature,
             ...action.updates
-          }
-        } else {
-          return feature
+          };
         }
-      })
+        return feature;
+      });
 
-  case DELETE_FEATURE: 
-      return state.filter(({ id }) => id !== action.id)
+    case DELETE_FEATURE:
+      return state.filter(({ id }) => id !== action.id);
 
-  case SET_FEATURES:
-      return action.features.map(({ id, text, last_edited, created_at, idea_id, user_id }) => {
-        return {
-          id, 
-          text,
-          lastEdited: last_edited,
-          createdAt: created_at,
-          ideaId: idea_id,
-          userId: user_id
+    case SET_FEATURES:
+      return action.features.map(
+        ({ id, text, lastEdited, createdAt, ideaId, userId }) => {
+          return {
+            id,
+            text,
+            lastEdited,
+            createdAt,
+            ideaId,
+            userId
+          };
         }
-      })
-      
-  case UPDATE_FEATURES_AFTER_IDEA_DELETE:
-      return state.filter(({ ideaId }) => ideaId !== action.id)
+      );
 
-  default:
-    return state
+    case UPDATE_FEATURES_AFTER_IDEA_DELETE:
+      return state.filter(({ ideaId }) => ideaId !== action.id);
+
+    default:
+      return state;
   }
-}
+};

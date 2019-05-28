@@ -1,57 +1,86 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { 
-  changeToSummary, 
-  changeToFeatures, 
-  changeToStrategies, 
-  changeToInspiration, 
-  changeToBusinessModel, 
-  changeToPlanning, 
-  changeToResources 
-} from 'actions/menu'
+import {
+  changeToSummary,
+  changeToFeatures,
+  changeToStrategies,
+  changeToInspiration,
+  changeToBusinessModel,
+  changeToPlanning,
+  changeToResources
+} from '../../actions/menu';
 
-export class MenuItems extends Component {
+class MenuItems extends Component {
   onSummaryClick = () => {
-    this.props.dispatch(changeToSummary())
-  }
+    this.props.dispatch(changeToSummary());
+  };
 
   onFeaturesClick = () => {
-    this.props.dispatch(changeToFeatures())
-  }
+    this.props.dispatch(changeToFeatures());
+  };
 
   onStrategiesClick = () => {
-    this.props.dispatch(changeToStrategies())
-  }
+    this.props.dispatch(changeToStrategies());
+  };
 
   onInspirationClick = () => {
-    this.props.dispatch(changeToInspiration())
-  }
+    this.props.dispatch(changeToInspiration());
+  };
 
   onBusinessModelClick = () => {
-    this.props.dispatch(changeToBusinessModel())
-  }
+    this.props.dispatch(changeToBusinessModel());
+  };
 
   onPlanningClick = () => {
-    this.props.dispatch(changeToPlanning())
-  }
+    this.props.dispatch(changeToPlanning());
+  };
 
   onResourcesClick = () => {
-    this.props.dispatch(changeToResources())
-  }
-
+    this.props.dispatch(changeToResources());
+  };
 
   render() {
     return (
       <div>
-        <button onClick={this.onSummaryClick} className="button is-normal is-link is-inverted is-fullwidth">Summary</button>
-        <button onClick={this.onFeaturesClick} className="button is-normal is-link is-inverted is-fullwidth">Features List</button>
-        <button onClick={this.onStrategiesClick} className="button is-normal is-link is-inverted is-fullwidth">Marketing Strategies</button>
-        <button onClick={this.onInspirationClick} className="button is-normal is-link is-inverted is-fullwidth">Product Inspiration</button>
-        <button onClick={this.onResourcesClick} className="button is-normal is-link is-inverted is-fullwidth">Resources</button>
+        <button
+          onClick={this.onSummaryClick}
+          className="button is-normal is-link is-inverted is-fullwidth"
+          type="button"
+        >
+          Summary
+        </button>
+        <button
+          onClick={this.onFeaturesClick}
+          className="button is-normal is-link is-inverted is-fullwidth"
+          type="button"
+        >
+          Features List
+        </button>
+        <button
+          onClick={this.onStrategiesClick}
+          className="button is-normal is-link is-inverted is-fullwidth"
+          type="button"
+        >
+          Marketing Strategies
+        </button>
+        <button
+          onClick={this.onInspirationClick}
+          className="button is-normal is-link is-inverted is-fullwidth"
+          type="button"
+        >
+          Product Inspiration
+        </button>
+        <button
+          onClick={this.onResourcesClick}
+          className="button is-normal is-link is-inverted is-fullwidth"
+          type="button"
+        >
+          Resources
+        </button>
       </div>
-    )
+    );
   }
 }
 
-export default connect()(MenuItems)
+export default connect()(MenuItems);

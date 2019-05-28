@@ -1,40 +1,41 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import jwtDecode from 'jwt-decode'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import jwtDecode from 'jwt-decode';
 
 export default ChildComponent => {
   class ComposedComponent extends Component {
     componentDidMount() {
-      this.shouldNavigateAway()
+      this.shouldNavigateAway();
     }
 
     componentDidUpdate() {
-      this.shouldNavigateAway()
+      this.shouldNavigateAway();
     }
 
     shouldNavigateAway() {
-      let decoded = ''
+      const { auth, history } = this.props;
+      let decoded = '';
       try {
-        decoded = jwtDecode(this.props.auth)
+        decoded = jwtDecode(auth);
       } catch (e) {
-        console.log('INVALID TOKEN', e)
-        localStorage.removeItem('token')
-        decoded = ''
+        console.log('INVALID TOKEN', e);
+        localStorage.removeItem('token');
+        decoded = '';
       }
 
       if (!decoded) {
-        this.props.history.push('/')
+        history.push('/');
       }
     }
 
     render() {
-      return <ChildComponent {...this.props}/>
+      return <ChildComponent {...this.props} />;
     }
   }
 
-  const mapStateToProps = (state) => ({
+  const mapStateToProps = state => ({
     auth: state.auth.authenticated
-  })
+  });
 
-  return connect(mapStateToProps)(ComposedComponent)
-}
+  return connect(mapStateToProps)(ComposedComponent);
+};

@@ -1,43 +1,42 @@
-import React, { Component } from 'react'
-import moment from 'moment'
+import React, { Component } from 'react';
+import moment from 'moment';
 
 class IdeaForm extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       name: props.idea ? props.idea.name : '',
       description: props.idea ? props.idea.description : '',
-      target: props.idea ? props.idea.target : '',
-      lastEdited: moment().format("YYYY-MM-DD HH:mm:ss.SSS")
-    }
-
+      target: props.idea ? props.idea.target : ''
+      // lastEdited: moment().format('YYYY-MM-DD HH:mm:ss.SSS')
+    };
   }
 
-  handleNameChange = (e) => {
-    const name = e.target.value
-    this.setState({ name })
-  }
-  
-  handleDescriptionChange = (e) => {
-    const description = e.target.value
-    this.setState({ description })
-  }
+  handleNameChange = e => {
+    const name = e.target.value;
+    this.setState({ name });
+  };
 
-  handleTargetChange = (e) => {
-    const target = e.target.value
-    this.setState({ target })
-  }
+  handleDescriptionChange = e => {
+    const description = e.target.value;
+    this.setState({ description });
+  };
 
-  onSubmit = (e) => {
-    e.preventDefault()
+  handleTargetChange = e => {
+    const target = e.target.value;
+    this.setState({ target });
+  };
+
+  onSubmit = e => {
+    e.preventDefault();
     this.props.onSubmit({
       name: this.state.name,
       description: this.state.description,
       target: this.state.target,
-      lastEdited: moment().format("YYYY-MM-DD HH:mm:ss.SSS")
-    })
-  }
+      lastEdited: moment().format('YYYY-MM-DD HH:mm:ss.SSS')
+    });
+  };
 
   render() {
     return (
@@ -45,36 +44,41 @@ class IdeaForm extends Component {
         <div className="field">
           <label className="label">Insert the name of the idea</label>
           <div className="control">
-            <input 
-              autoFocus
-              type="text" 
-              placeholder="Name of your idea" 
+            <input
+              // autoFocus
+              type="text"
+              placeholder="Name of your idea"
               onChange={this.handleNameChange}
               value={this.state.name}
-              className="input" />
+              className="input"
+            />
           </div>
         </div>
 
         <div className="field">
-          <label className="label">Insert a short description of your idea</label>
+          <label className="label">
+            Insert a short description of your idea
+          </label>
           <div className="control">
-            <textarea 
-              placeholder="Description of your idea" 
+            <textarea
+              placeholder="Description of your idea"
               onChange={this.handleDescriptionChange}
               value={this.state.description}
-              className="textarea" /> 
-          </div>      
+              className="textarea"
+            />
+          </div>
         </div>
 
         <div className="field">
           <label className="label">Who is this app for?</label>
           <div className="control">
-            <input 
-              type="text" 
-              placeholder="Target of your idea" 
+            <input
+              type="text"
+              placeholder="Target of your idea"
               onChange={this.handleTargetChange}
               value={this.state.target}
-              className="input" />
+              className="input"
+            />
           </div>
         </div>
 
@@ -82,8 +86,8 @@ class IdeaForm extends Component {
           <input type="submit" value="Finish" className="button is-link" />
         </div>
       </form>
-    )
+    );
   }
 }
 
-export default IdeaForm
+export default IdeaForm;

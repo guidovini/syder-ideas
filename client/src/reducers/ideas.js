@@ -1,11 +1,11 @@
-import { 
-  ADD_IDEA, 
-  ADD_IDEA_DESCRIPTION, 
-  DELETE_IDEA, 
+import {
+  ADD_IDEA,
+  ADD_IDEA_DESCRIPTION,
+  DELETE_IDEA,
   SET_IDEAS,
   FAVORITE_IDEA,
-  ARCHIVE_IDEA 
-} from 'actions/types'
+  ARCHIVE_IDEA
+} from '../actions/types';
 
 const INITIAL_STATE = [
   {
@@ -19,7 +19,7 @@ const INITIAL_STATE = [
     favorite: false,
     archive: false
   }
-]
+];
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -33,9 +33,9 @@ export default (state = INITIAL_STATE, action) => {
           lastEdited: action.idea.createdAt,
           name: action.idea.name,
           description: action.idea.description,
-          target: action.idea.target,
+          target: action.idea.target
         }
-      ]
+      ];
 
     case ADD_IDEA_DESCRIPTION:
       return state.map(idea => {
@@ -46,20 +46,19 @@ export default (state = INITIAL_STATE, action) => {
             description: action.updates.description,
             target: action.updates.target,
             lastEdited: action.updates.lastEdited
-          }
-        } else {
-          return idea
+          };
         }
-      })
+        return idea;
+      });
 
     case DELETE_IDEA:
-      return state.filter(({ id }) => id !== action.id)
+      return state.filter(({ id }) => id !== action.id);
 
     case SET_IDEAS:
-      return action.ideas.map((idea) => {
+      return action.ideas.map(idea => {
         return {
           id: idea.id,
-          category: idea.category, 
+          category: idea.category,
           name: idea.name,
           description: idea.description,
           target: idea.target,
@@ -67,8 +66,8 @@ export default (state = INITIAL_STATE, action) => {
           createdAt: idea.created_at,
           favorite: idea.favorite,
           archive: idea.archive
-        }
-      })
+        };
+      });
 
     case FAVORITE_IDEA:
       return state.map(idea => {
@@ -76,25 +75,23 @@ export default (state = INITIAL_STATE, action) => {
           return {
             ...idea,
             favorite: !idea.favorite
-          }
-        } else {
-          return idea 
+          };
         }
-      })
-    
+        return idea;
+      });
+
     case ARCHIVE_IDEA:
       return state.map(idea => {
         if (idea.id === action.payload.id) {
           return {
             ...idea,
             archive: !idea.archive
-          }
-        } else {
-          return idea
+          };
         }
-      })
-      
+        return idea;
+      });
+
     default:
-      return state
+      return state;
   }
-}
+};
