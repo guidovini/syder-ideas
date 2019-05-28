@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function IdeaStrategies() {
+import StrategyForm from './StrategyForm'
+import StrategiesList from './StrategiesList'
+
+export default function IdeaFeatures({ idea }) {
   return (
     <div>
-      These are the strategies   
+      <StrategyForm idea={idea}/>
+      <StrategiesList idea={idea}/>
     </div>
   )
 }
