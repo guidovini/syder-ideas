@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function IdeaInspiration() {
+import InspirationForm from './InspirationForm'
+import StrategiesList from './InspirationList'
+
+export default function IdeaFeatures({ idea }) {
   return (
     <div>
-      These are the competitors and product inspiration   
+      <InspirationForm idea={idea}/>
+      <StrategiesList idea={idea}/>
     </div>
   )
 }
