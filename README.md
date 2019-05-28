@@ -241,8 +241,11 @@ This project uses a number of open source projects to work properly:
 ## Road-map
 
 ### Client
-* Implement other fields in React: Competitors.
+* Implement other fields in React: Competitors and Inspiration.
 * Implement other fields in React: Strategies.
+* Implement other fields in React: Business Model.
+* Implement other fields in React: Planning.
+* Implement other fields in React: Resources.
 * Implement client testing.
 * Define error boundaries using `componentDidCatch()`.
 * Improve redux async fetch functions. Examples from Andrew Node Course:
@@ -250,6 +253,7 @@ This project uses a number of open source projects to work properly:
   * REQUEST_ROBOTS_SUCCESS
   * REQUEST_ROBOTS_FAILED
 * Deploy and test front-end.
+* Fix Nav bar in mobile screen.
 
 
 ### Server
