@@ -36,14 +36,15 @@ export default (state = inspirationDefaultState, action) => {
 
     case SET_INSPIRATION:
       return action.inspiration.map(
-        ({ id, text, lastEdited, createdAt, ideaId, userId }) => {
+        // eslint-disable-next-line camelcase
+        ({ id, text, last_edited, created_at, idea_id, user_id }) => {
           return {
             id,
             text,
-            lastEdited,
-            createdAt,
-            ideaId,
-            userId
+            lastEdited: last_edited,
+            createdAt: created_at,
+            ideaId: idea_id,
+            userId: user_id
           };
         }
       );
