@@ -12,7 +12,10 @@
     "no-underscore-dangle": 0,
     "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error",
-    "react/destructuring-assignment": [{ "ignoreClassFields": true }]
+    "react/destructuring-assignment": [{ "ignoreClassFields": true }],
+    "no-console": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "jsx-a11y/label-has-for": "off"
   },
   "globals": {
     "window": true,
