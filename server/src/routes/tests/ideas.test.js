@@ -39,12 +39,12 @@ const ideaTwo = {
   archive: true,
 }
 
-const deleteIdeasUsers = async () => {
-  await db.query('DELETE FROM users WHERE email=$1 OR email=$2', [userIdeasOne.email, userIdeasTwo.email])
+const deleteAllIdeas = async () => {
+  await db.query('DELETE FROM ideas WHERE id=$1 OR id=$2', [ideaOne.id, ideaTwo.id])
 }
 
-const deleteAllIdeas = async () => {
-  await db.query('DELETE FROM ideas', [])
+const deleteIdeasUsers = async () => {
+  await db.query('DELETE FROM users WHERE email=$1 OR email=$2', [userIdeasOne.email, userIdeasTwo.email])
 }
 
 // const createUserAndIdeaTwo = async () => {
