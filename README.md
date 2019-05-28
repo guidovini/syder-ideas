@@ -21,7 +21,7 @@
 * [Important Considerations](#important-considerations)
 * [Built With](#built-with)
 * [Release History](#release-history)
-* [Roadmap](#roadmap)
+* [Road-map](#road-map)
 * [Contributing](#contributing)
 * [Authors](#authors)
 * [License](#license)
@@ -238,9 +238,24 @@ This project uses a number of open source projects to work properly:
 
 
 
-## Roadmap
+## Road-map
+
+### Client
+* Implement other fields in React: Competitors.
+* Implement other fields in React: Strategies.
+* Implement client testing.
+* Define error boundaries using `componentDidCatch()`.
+* Improve redux async fetch functions. Examples from Andrew Node Course:
+  * REQUEST_ROBOTS_PENDING
+  * REQUEST_ROBOTS_SUCCESS
+  * REQUEST_ROBOTS_FAILED
+* Deploy and test front-end.
 
 
+### Server
+* Refactor API functions using async-await.
+* Handling Express errors.
+* Deploy and test back-end.
 
 ---
 
