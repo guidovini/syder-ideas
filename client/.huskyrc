@@ -1,5 +1,5 @@
 {
   "hooks": {
-      "pre-commit": "NODE_ENV=production lint-staged"
+      "pre-commit": "SET NODE_ENV=production & lint-staged"
   }
 }
