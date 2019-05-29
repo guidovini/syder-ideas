@@ -1,7 +1,7 @@
 <h1 align="center">Syder Ideas</h1>
 <p align="center">
   <a href="https://github.com/guidosantillan01/syder-ideas">
-    <img alt="My Project logo" title="My Project logo" src="./docs/dashboard.jpg" width="450">
+    <img alt="My Project logo" title="My Project logo" src="./docs/dashboard.jpg" >
   </a>
 </p>
 
