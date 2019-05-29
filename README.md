@@ -1,7 +1,7 @@
 <h1 align="center">Syder Ideas</h1>
 <p align="center">
   <a href="https://github.com/guidosantillan01/syder-ideas">
-    <img alt="My Project logo" title="My Project logo" src="./docs/header.png" width="450">
+    <img alt="My Project logo" title="My Project logo" src="./docs/dashboard.jpg" width="450">
   </a>
 </p>
 
@@ -31,23 +31,17 @@
 
 ## Introduction
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
 [![Build Status](https://img.shields.io/travis/gitpoint/git-point.svg?style=flat-square)](https://travis-ci.org/gitpoint/git-point)
 [![Coveralls](https://img.shields.io/coveralls/github/gitpoint/git-point.svg?style=flat-square)](https://coveralls.io/github/gitpoint/git-point)
 [![All Contributors](https://img.shields.io/badge/all_contributors-73-orange.svg?style=flat-square)](./CONTRIBUTORS.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
-[![Gitter chat](https://img.shields.io/badge/chat-on_gitter-008080.svg?style=flat-square)](https://gitter.im/git-point)
 
-
->*One to two paragraph statement about your product and what it does. A brief description of your project, what it is used for and how does life get awesome when someone starts to use it. Example: Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.*
+>Syder Ideas is a web application powered by React.
+<!-- *One to two paragraph statement about your product and what it does. A brief description of your project, what it is used for and how does life get awesome when someone starts to use it. Example: Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.* -->
 
 
 
-![](./docs/header.png)
+![](./docs/dashboard_empty.jpg)
 
 
 
@@ -57,17 +51,22 @@ Here is a working live demo: [LINK](LINK)
 
 
 ## Features
-*What's all the bells and whistles this project can perform? What's the main functionality*
-* abc
-* abc
-* E.g Import a HTML file and watch it magically convert to Markdown
-* E.g Drag and drop images (requires your Dropbox account be linked)
-
+<!-- *What's all the bells and whistles this project can perform? What's the main functionality* -->
+* User authentication.
+* Store your ideas.
+* Store features for your ideas.
 
 
 ## Usage example
 
-> *A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.* *For more examples and usage, please refer to the [Wiki][wiki].*
+<!-- > *A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.* *For more examples and usage, please refer to the [Wiki][wiki].* -->
+
+
+![](./docs/signup.jpg)
+![](./docs/edit.jpg)
+![](./docs/main.jpg)
+![](./docs/features.jpg)
+
 
 ---
 
@@ -76,19 +75,32 @@ Here is a working live demo: [LINK](LINK)
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 1. Clone this repository
 ```sh
-git clone https://github.com/guidosantillan01/readme-template
+git clone https://github.com/guidosantillan01/syder-ideas
 ```
-2. Go into the repository
+2. Go into the SERVER folder
 ```sh
-cd readme-template
+cd syder-ideas/server
 ```
 3. Install dependencies
 ```sh
 npm install
 ```
-4. Run the app, you will then be able to access it at `localhost:3000`
+4. Run the server, you will then be able to access it at `localhost:5000`
 ```sh
-npm start
+npm run server
+```
+5. Open another code editor instance
+6. Go into the CLIENT folder
+```sh
+cd syder-ideas/client
+```
+7. Install dependencies
+```sh
+npm install
+```
+8. Run the app, you will then be able to access it at `localhost:3000`
+```sh
+npm run client
 ```
 
 > Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
@@ -102,10 +114,11 @@ npm start
 ### Prerequisites
 > *What things you need to install the software and how to install them*
 
-* abc
-* abc
+* You will need a PostgreSQL server. pgAdmin4 is recommended to interact with the server.
+* Create a database with these [queries](./docs/postgresql_queries.sql).
 
-### Initial Configuration
+
+<!-- ### Initial Configuration
 > *Some projects require initial configuration (e.g. access tokens or keys, npm i). This is the section where you would document those requirements.*
 
 
@@ -198,54 +211,45 @@ Give an example
 ## Important Considerations
 * abc
 * abc
-* abc
+* abc -->
 
 
 
 ## Built with
 This project uses a number of open source projects to work properly:
 
-* [AngularJS] - HTML enhanced for web apps!
-* [Ace Editor] - awesome web-based text editor
-* [markdown-it] - Markdown parser done right. Fast and easy to extend.
-* [Twitter Bootstrap] - great UI boilerplate for modern web apps
-* [node.js] - evented I/O for the backend
-* [Express] - fast node.js network app framework [@tjholowaychuk]
-* [Gulp] - the streaming build system
-* [Breakdance](http://breakdance.io) - HTML to Markdown converter
-* [jQuery] - duh
+* [ReactJS](https://reactjs.org/) - A JavaScript library for building user interfaces.
+* [React-Router](https://reacttraining.com/react-router/web/guides/quick-start) - Declarative Routing for React.js.
+* [Redux](https://redux.js.org/) - A predictable state container for JavaScript apps.
+* [node.js](https://nodejs.org/en/) - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
+* [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
+* [PostgreSQL](https://www.postgresql.org/) - Open Source relational database
+* [ESLint](https://eslint.org/) - The pluggable linting utility for JavaScript and JSX.
+* [Prettier](https://prettier.io/) - An opinionated code formatter.
+* [Passport](http://www.passportjs.org/) - Passport is authentication middleware for Node.js
+* [node-postgres](https://node-postgres.com/) - A collection of node.js modules for interfacing with your PostgreSQL database.
+* [bcrypt](https://www.npmjs.com/package/bcrypt) - A library to help you hash passwords.
+* [Bulma](https://bulma.io/) - Open source CSS framework based on Flexbox 
 
 
 ## Release History
+2019/05/28 - v1
 
 2019/01/29 - Styling
 
 2019/01/24 - Basic functioning
-
-**Case 1**
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
 
 
 
 ## Road-map
 
 ### Client
-* Implement other fields in React: Competitors and Inspiration.
-* Implement other fields in React: Strategies.
-* Implement other fields in React: Business Model.
-* Implement other fields in React: Planning.
-* Implement other fields in React: Resources.
+* Implement other fields in React: 
+  * Competitors and Inspiration.
+  * Strategies.
+  * Business Model.
+  * Planning.
+  * Resources.
 * Implement client testing.
 * Define error boundaries using `componentDidCatch()`.
 * Improve redux async fetch functions. Examples from Andrew Node Course:
@@ -257,6 +261,7 @@ This project uses a number of open source projects to work properly:
 
 
 ### Server
+* Implement API routing for new client features (Strategies, Inspiration, etc.)
 * Refactor API functions using async-await.
 * Handling Express errors.
 * Deploy and test back-end.
@@ -264,26 +269,13 @@ This project uses a number of open source projects to work properly:
 ---
 
 ## Contributing
-
-**Case 1**
-
 If you'd like to contribute, please fork the repository and use a feature branch. Pull requests are warmly welcome.
 
-**Case 2**
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
-
-**Case 3**
-
-Please read [CONTRIBUTING.md](./docs/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 
 
 ## Authors
-* Guido Santillan Arias - [info@guidosantillan.com](info@guidosantillan.com) - [www.guidosantillan.com](www.guidosantillan.com)
+* Guido Santillan Arias - [info@guidosantillan.com](mailto:info@guidosantillan.com) - [www.guidosantillan.com](https://www.guidosantillan.com)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
@@ -292,18 +284,3 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## Licence
 This project is licensed under the **MIT license** - see the [LICENSE](./LICENSE.txt) file for details.
-
-
-
-## Acknowledgements
-
-
-
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
-
