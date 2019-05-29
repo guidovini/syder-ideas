@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node src/index.js",
     "server": "env-cmd ./.env nodemon src/index.js",
     "test": "env-cmd ./.env.test jest --watch"
   },
