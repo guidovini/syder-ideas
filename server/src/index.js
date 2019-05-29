@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const morgan = require('morgan');
 
 const app = require('./server');
