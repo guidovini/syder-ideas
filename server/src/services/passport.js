@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 //
 // ─── DATABASE REFERENCE ─────────────────────────────────────────────────────────
 //
@@ -15,7 +17,8 @@ const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 const LocalStrategy = require('passport-local');
 
-const config = require('../../config');
+const configSecret = process.env.SECRET;
+// const config = require('../../config');
 
 //
 // ─── AUTH VIA JWT ─────────────────────────────────-─────────────────────────────
@@ -23,7 +26,7 @@ const config = require('../../config');
   
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: config.secret
+  secretOrKey: configSecret
 };
 
 const jwtLogin = new JwtStrategy(jwtOptions, (payload, done) => {

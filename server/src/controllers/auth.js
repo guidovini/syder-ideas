@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 //
 // ─── DATABASE IMPORT ────────────────────────────────────────────────────────────
 //
@@ -12,7 +14,8 @@ const bcrypt = require('bcrypt');
 const jwt = require('jwt-simple');
 const uuidv4 = require('uuid/v4');
 
-const config = require('../../config');
+const configSecret = process.env.SECRET;
+// const config = require('../../config');
 
 //
 // ─── HELPERS ────────────────────────────────────────────────────────────────────
@@ -20,7 +23,7 @@ const config = require('../../config');
 
 const tokenForUser = ({ id }) => {
   const timestamp = new Date().getTime();
-  return jwt.encode({ sub:id, iat:timestamp }, config.secret);
+  return jwt.encode({ sub:id, iat:timestamp }, configSecret);
 }
 
 const hashPassword = (password) => {
