@@ -36,7 +36,7 @@
 [![All Contributors](https://img.shields.io/badge/all_contributors-73-orange.svg?style=flat-square)](./CONTRIBUTORS.md)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) -->
 
->Syder Ideas is a web application where you can store your side-project ideas in an easy, intuituve and systems based. It is powered by React and Node.
+>Syder Ideas is a web application where you can store your side-project ideas in an easy, intuitive and systems based way. It is powered by React and Node.
 
 
 
