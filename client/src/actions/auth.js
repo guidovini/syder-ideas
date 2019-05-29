@@ -28,10 +28,10 @@ export const signup = (formInfo, callback) => {
           localStorage.setItem('token', response.token);
           callback();
         })
-        .catch(err =>
+        .catch(() =>
           dispatch({
             type: AUTH_ERROR,
-            payload: `Auth error. Try again + ${err}`
+            payload: `Auth error. Try again`
           })
         );
     } catch (e) {
@@ -62,10 +62,10 @@ export const login = (formInfo, callback) => {
           localStorage.setItem('token', response.token);
           callback();
         })
-        .catch(err =>
+        .catch(() =>
           dispatch({
             type: AUTH_ERROR,
-            payload: `Invalid login credentials + ${err}`
+            payload: `Invalid login credentials`
           })
         );
     } catch (e) {
