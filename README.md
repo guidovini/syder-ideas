@@ -1,7 +1,7 @@
 <h1 align="center">Syder Ideas</h1>
 <p align="center">
   <a href="https://github.com/guidosantillan01/syder-ideas">
-    <img alt="My Project logo" title="My Project logo" src="./docs/dashboard.jpg" >
+    <img alt="My Project logo" title="My Project logo" src="./docs/dashboard.jpg" width="700">
   </a>
 </p>
 
@@ -16,28 +16,27 @@
 * [Usage Example](#usage-example)
 * [Quick Guide](#quick-guide)
 * [Getting Started](#getting-started)
-* [Development Setup](#development-setup)
-* [Running the tests](#running-the-tests)
-* [Important Considerations](#important-considerations)
 * [Built With](#built-with)
 * [Release History](#release-history)
 * [Road-map](#road-map)
 * [Contributing](#contributing)
 * [Authors](#authors)
 * [License](#license)
-* [Acknowledgements](#acknowledgements)
+<!-- * [Acknowledgements](#acknowledgements) -->
 
+<!-- * [Development Setup](#development-setup)
+* [Running the tests](#running-the-tests)
+* [Important Considerations](#important-considerations) -->
 ---
 
 ## Introduction
 
-[![Build Status](https://img.shields.io/travis/gitpoint/git-point.svg?style=flat-square)](https://travis-ci.org/gitpoint/git-point)
+<!-- [![Build Status](https://img.shields.io/travis/gitpoint/git-point.svg?style=flat-square)](https://travis-ci.org/gitpoint/git-point)
 [![Coveralls](https://img.shields.io/coveralls/github/gitpoint/git-point.svg?style=flat-square)](https://coveralls.io/github/gitpoint/git-point)
 [![All Contributors](https://img.shields.io/badge/all_contributors-73-orange.svg?style=flat-square)](./CONTRIBUTORS.md)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) -->
 
->Syder Ideas is a web application powered by React.
-<!-- *One to two paragraph statement about your product and what it does. A brief description of your project, what it is used for and how does life get awesome when someone starts to use it. Example: Dillinger is a cloud-enabled, mobile-ready, offline-storage, AngularJS powered HTML5 Markdown editor.* -->
+>Syder Ideas is a web application where you can store your side-project ideas in an easy, intuituve and systems based. It is powered by React and Node.
 
 
 
@@ -46,7 +45,9 @@
 
 
 ## Demo
-Here is a working live demo: [LINK](LINK)
+Here is a working live demo:
+- [Server demo](https://syder-ideas-server.herokuapp.com/)
+- [Client demo](https://syder-ideas-client.herokuapp.com/)
 
 
 
@@ -61,11 +62,21 @@ Here is a working live demo: [LINK](LINK)
 
 <!-- > *A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.* *For more examples and usage, please refer to the [Wiki][wiki].* -->
 
-
+#### Sign Up and Log In
 ![](./docs/signup.jpg)
+![](./docs/login.jpg)
+
+#### Edit your idea
 ![](./docs/edit.jpg)
+
+#### Idea dashboard
 ![](./docs/main.jpg)
+
+#### Features list
 ![](./docs/features.jpg)
+
+#### Ideas sorted by category
+![](./docs/categories.jpg)
 
 
 ---
@@ -114,11 +125,41 @@ npm run client
 ### Prerequisites
 > *What things you need to install the software and how to install them*
 
+#### Database
 * You will need a PostgreSQL server. pgAdmin4 is recommended to interact with the server.
 * Create a database with these [queries](./docs/postgresql_queries.sql).
+* Create a test database.
+* Create a production database.
 
 
-<!-- ### Initial Configuration
+### Deploying / Publishing
+
+You need to have a Heroku account.
+
+Create a server project, setup `DATABASE_URL` config var
+Create a client project, setup `REACT_APP_ENDPOINT` config var
+
+**To deploy the SERVER to Heroku:**
+1. Push all changes to Github
+1. Go to root folder
+1. Check remote repos
+```sh
+git remote -v
+```
+1. Deploy to Heroku
+```sh
+git subtree push --prefix server heroku-server master
+```
+
+**To deploy the CLIENT to Heroku**
+1. Repeat the same steps
+1. Deploy to Heroku
+```sh
+git subtree push --prefix client heroku-client master
+```
+
+<!--
+### Initial Configuration
 > *Some projects require initial configuration (e.g. access tokens or keys, npm i). This is the section where you would document those requirements.*
 
 
@@ -141,7 +182,7 @@ $ npm install --production
 $ NODE_ENV=production node app
 ```
 
-
+ 
 
 ## Development setup
 >*Here's a brief intro about what a developer must do in order to start developing
@@ -171,19 +212,6 @@ make install
 
 Here again you should state what actually happens when the code above gets
 executed.
-
-### Deploying / Publishing
-
-In case there's some step you have to take that publishes this project to a
-server, this is the right time to state it.
-
-```shell
-packagemanager deploy awesome-project -s server.com -u username -p password
-```
-
-And again you'd need to tell what the previous code actually does.
-
-
 
 
 ## Running the tests
