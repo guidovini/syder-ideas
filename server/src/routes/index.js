@@ -10,7 +10,7 @@ const router = express.Router();
 //
 
 router.get("/", (req, res) => {
-  res.send('This is the main page. Go to /ideas/api to fetch ideas data and to /ideas/features to fetch features data');
+  res.send('Syder Ideas API. Go to https://syder-ideas-client.herokuapp.com/ to see the client.');
 });
 
 module.exports = router;
