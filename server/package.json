@@ -20,9 +20,9 @@
     "jwt-simple": "^0.5.5",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0",
+    "passport-jwt": "^4.0.1",
     "passport-local": "^1.0.0",
-    "pg": "^7.8.0",
+    "pg": "^8.4.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
